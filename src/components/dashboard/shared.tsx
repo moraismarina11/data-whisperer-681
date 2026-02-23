@@ -1,10 +1,10 @@
 export const COMPANY_COLORS: Record<string, string> = {
   "Consórcio Alsub": "hsl(210, 70%, 50%)",
   "MEBR": "hsl(340, 60%, 50%)",
-  "Macaé": "hsl(150, 60%, 40%)",
+  "Macaé": "hsl(40, 90%, 50%)",
   "MEFB": "hsl(150, 60%, 40%)",
-  "Mota Engil Brasil": "hsl(215, 70%, 45%)",
-  "Mota-Engil Brasil": "hsl(215, 70%, 45%)",
+  "Mota Engil Brasil": "hsl(25, 90%, 55%)",
+  "Mota-Engil Brasil": "hsl(25, 90%, 55%)",
   "Tracevia": "hsl(270, 50%, 55%)",
 };
 

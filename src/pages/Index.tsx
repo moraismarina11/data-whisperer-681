@@ -3,7 +3,10 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Top10Tab from "@/components/dashboard/Top10Tab";
 import CustoCentroTab from "@/components/dashboard/CustoCentroTab";
 import TipoPagamentoTab from "@/components/dashboard/TipoPagamentoTab";
+import PosicaoFornecedoresTab from "@/components/dashboard/PosicaoFornecedoresTab";
+import PosicaoClientesTab from "@/components/dashboard/PosicaoClientesTab";
 import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData } from "@/components/dashboard/data";
+import { fornecedoresData, clientesData } from "@/components/dashboard/agingData";
 import { PERIODS, type PeriodId } from "@/components/dashboard/shared";
 
 const Index = () => {
@@ -48,7 +51,7 @@ const Index = () => {
       {/* Content */}
       <main className="max-w-[1400px] mx-auto px-6 py-6">
         <Tabs defaultValue="top10" className="space-y-6">
-          <TabsList className="bg-card border border-border shadow-sm p-1 rounded-xl h-auto">
+          <TabsList className="bg-card border border-border shadow-sm p-1 rounded-xl h-auto flex-wrap">
             <TabsTrigger value="top10" className="rounded-lg px-5 py-2.5 text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Top 10 Pagamentos
             </TabsTrigger>
@@ -60,6 +63,12 @@ const Index = () => {
             </TabsTrigger>
             <TabsTrigger value="cc-macae" className="rounded-lg px-5 py-2.5 text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               CC Macaé
+            </TabsTrigger>
+            <TabsTrigger value="pos-forn" className="rounded-lg px-5 py-2.5 text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Posição Fornecedores
+            </TabsTrigger>
+            <TabsTrigger value="pos-cli" className="rounded-lg px-5 py-2.5 text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Posição Clientes
             </TabsTrigger>
           </TabsList>
 
@@ -84,6 +93,14 @@ const Index = () => {
               data={filterByPeriod(custoCentroMacaeData)}
               title="Centro de Custo — Macaé"
             />
+          </TabsContent>
+
+          <TabsContent value="pos-forn">
+            <PosicaoFornecedoresTab data={fornecedoresData} />
+          </TabsContent>
+
+          <TabsContent value="pos-cli">
+            <PosicaoClientesTab data={clientesData} />
           </TabsContent>
         </Tabs>
       </main>
