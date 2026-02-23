@@ -79,6 +79,7 @@ export const custoCentroMacaeData: CustoCentroEntry[] = [
   { cc: "10255", financiamento: 0, fornecedor: 0, imposto: 0, outrosCustos: 0, outrosRecebimentos: 0, recCliente: 0, salarios: -9807.00, total: -9807.00, period: "s1" },
   { cc: "10256", financiamento: 0, fornecedor: -7113383.91, imposto: 0, outrosCustos: -3160177.77, outrosRecebimentos: 0, recCliente: 30061690.99, salarios: -9668863.19, total: 10119266.12, period: "s1" },
   { cc: "10259", financiamento: 0, fornecedor: -922985.38, imposto: 0, outrosCustos: -270471.43, outrosRecebimentos: 0, recCliente: 3350869.27, salarios: -835551.76, total: 1321860.70, period: "s1" },
+  { cc: "20001", financiamento: 0, fornecedor: -2840557.79, imposto: -101972.51, outrosCustos: -283451.87, outrosRecebimentos: 32710.40, recCliente: 0, salarios: -510663.61, total: -3703935.38, period: "s1" },
   { cc: "40001", financiamento: -44051.36, fornecedor: 0, imposto: 0, outrosCustos: 0, outrosRecebimentos: 0, recCliente: 0, salarios: 0, total: -44051.36, period: "s1" },
   { cc: "Outros", financiamento: -7569361.10, fornecedor: -1150000.00, imposto: -8293046.39, outrosCustos: -88472.13, outrosRecebimentos: 88227.83, recCliente: 0, salarios: -2528.20, total: -17015179.99, period: "s1" },
 ];
