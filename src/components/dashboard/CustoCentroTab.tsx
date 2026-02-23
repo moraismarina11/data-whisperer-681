@@ -168,9 +168,9 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
                     {grouped && <span className="ml-2 text-xs text-muted-foreground">({d.children.length})</span>}
                   </td>
                   {COST_KEYS.map((k) => (
-                    <td key={k} className="p-3 text-right font-mono text-xs">{d[k] !== 0 ? formatCurrency(d[k]) : "-"}</td>
+                    <td key={k} className={`p-3 text-right font-mono text-xs ${d[k] < 0 ? "text-destructive" : ""}`}>{d[k] !== 0 ? formatCurrency(d[k]) : "-"}</td>
                   ))}
-                  <td className="p-3 text-right font-mono font-bold text-sm">{formatCurrency(d.total)}</td>
+                  <td className={`p-3 text-right font-mono font-bold text-sm ${d.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(d.total)}</td>
                 </tr>
                 {grouped && expandedGroup === d.group && d.children
                   .sort((a: CustoCentroEntry, b: CustoCentroEntry) => b.total - a.total)
@@ -178,11 +178,11 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
                     <tr key={child.cc} className="border-b border-border/30 bg-muted/20">
                       <td className="p-3 pl-12 text-muted-foreground text-xs">{child.cc}</td>
                       {COST_KEYS.map((k) => (
-                        <td key={k} className="p-3 text-right font-mono text-xs text-muted-foreground">
+                        <td key={k} className={`p-3 text-right font-mono text-xs ${child[k] < 0 ? "text-destructive" : "text-muted-foreground"}`}>
                           {child[k] !== 0 ? formatCurrency(child[k]) : "-"}
                         </td>
                       ))}
-                      <td className="p-3 text-right font-mono font-semibold text-xs">{formatCurrency(child.total)}</td>
+                      <td className={`p-3 text-right font-mono font-semibold text-xs ${child.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(child.total)}</td>
                     </tr>
                   ))}
               </>
@@ -190,9 +190,9 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
             <tr className="bg-muted/50 border-t-2 border-border">
               <td className="p-4 font-bold text-foreground">Total Geral</td>
               {COST_KEYS.map((k) => (
-                <td key={k} className="p-3 text-right font-mono font-bold text-xs">{formatCurrency(totals[k])}</td>
+                <td key={k} className={`p-3 text-right font-mono font-bold text-xs ${totals[k] < 0 ? "text-destructive" : ""}`}>{formatCurrency(totals[k])}</td>
               ))}
-              <td className="p-4 text-right font-mono font-bold text-primary">{formatCurrency(grandTotal)}</td>
+              <td className={`p-4 text-right font-mono font-bold ${grandTotal < 0 ? "text-destructive" : "text-primary"}`}>{formatCurrency(grandTotal)}</td>
             </tr>
           </tbody>
         </table>
