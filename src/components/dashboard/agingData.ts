@@ -124,9 +124,114 @@ const fornecedoresBase: FornecedorCompany[] = [
   },
 ];
 
-// Fornecedores: s1 = s2 = total (sem variação entre períodos)
-export const fornecedoresDataS1 = fornecedoresBase;
+// Fornecedores s2 / Total Acumulado (06/02 a 20/02 = Total)
 export const fornecedoresData = fornecedoresBase;
+
+// Fornecedores s1 (Janeiro a 06/02) — extraído do relatório de 09/02
+export const fornecedoresDataS1: FornecedorCompany[] = [
+  {
+    company: "Consórcio Alsub",
+    color: "hsl(210, 70%, 50%)",
+    total: 26822283.54,
+    topLabel: "Top 3",
+    entries: [
+      { name: "BRAM OFFSHORE TRANSP. MARITIMOS", value: 15694989.33 },
+      { name: "NFX COMBUSTIVEIS MARITIMOS", value: 9817760.35 },
+      { name: "TOKIO MARINE SEGURADORA", value: 1309533.86 },
+    ],
+  },
+  {
+    company: "MEBR",
+    color: "hsl(340, 60%, 50%)",
+    total: 4205.61,
+    topLabel: "Top 4",
+    entries: [
+      { name: "EDIFICIO BENEDITO LAPIN", value: 3217.95 },
+      { name: "MUNICIPIO DE SAO PAULO", value: 0 },
+      { name: "SECRETARIA FAZENDA", value: 465.88 },
+      { name: "COLLEGE ENGLISH SCHOOL", value: 360.42 },
+      { name: "PREFEITURA MUNICIPAL BH", value: 161.36 },
+    ],
+  },
+  {
+    company: "MEFB",
+    color: "hsl(150, 60%, 40%)",
+    total: 1965939.58,
+    topLabel: "Top 5",
+    entries: [
+      { name: "MOTA-ENGIL BRASIL S/A", value: 607167.83 },
+      { name: "VEBER IND. METAL MECANICA", value: 598732.88 },
+      { name: "MOP Y C SA", value: 400792.83 },
+      { name: "MOTA-ENGIL LATIN AMERICA BV", value: 270938.03 },
+      { name: "MOTA-ENGIL GLOBAL SERV.", value: 88308.01 },
+    ],
+  },
+  {
+    company: "Macaé",
+    color: "hsl(40, 90%, 50%)",
+    total: 31892397.19,
+    topLabel: "Top 15",
+    entries: [
+      { name: "HOMY SRL", value: 19353767.59 },
+      { name: "HYDRATIGHT EQUIPAMEN.", value: 3326786.08 },
+      { name: "UNIMED DE MACAE", value: 2181851.35 },
+      { name: "PRINER LOCAÇÃO DE EQUIP.", value: 1843033.42 },
+      { name: "TICKET SERVIÇOS SA", value: 1509466.53 },
+      { name: "FLP TRANSPORTES", value: 1336587.60 },
+      { name: "ASSISLANI LOCAÇÃO", value: 648455.68 },
+      { name: "JOTUN BRASIL", value: 486027.81 },
+      { name: "ALMED SERVIÇOS TÉCNICOS", value: 261979.89 },
+      { name: "ACOS VITAL COM. DE TUBOS", value: 206122.22 },
+      { name: "EDFER COMERCIO DE FERRO", value: 184050.83 },
+      { name: "FCC CIÊNCIA DOS MATERIAIS", value: 174755.65 },
+      { name: "CIL CONEXÕES E VÁLVULAS", value: 171921.90 },
+      { name: "JJ SOLDAS FERRAMENTAS", value: 104466.00 },
+      { name: "CISARENTAL ADMINISTR.", value: 103124.64 },
+    ],
+  },
+  {
+    company: "Mota-Engil Brasil",
+    color: "hsl(25, 90%, 55%)",
+    total: 8317939.99,
+    topLabel: "Top 22",
+    entries: [
+      { name: "NOVATA ENGENHARIA", value: 2680361.92 },
+      { name: "MILLS LOCAÇÃO E LOGISTICA", value: 1344537.66 },
+      { name: "UPSTAR AVIATION S/A", value: 651000.00 },
+      { name: "DELL COMPUTADORES", value: 380709.47 },
+      { name: "OPUS LOCAÇÕES E CONSTRUÇÕES", value: 346662.89 },
+      { name: "ITAMIX LTDA", value: 277165.09 },
+      { name: "LUIS FELIPE EBOLI IABRUDI", value: 266534.32 },
+      { name: "TOKIO MARINE SEGURADORA", value: 258098.71 },
+      { name: "ARDEIRA SALLES ADVOGADOS", value: 250851.76 },
+      { name: "CHB LOCAÇÕES E SERVIÇOS", value: 257041.90 },
+      { name: "VIA APIA SERVIÇOS ESPECIAIS", value: 229314.37 },
+      { name: "S.N. REFEIÇÕES E BUFFET", value: 187232.50 },
+      { name: "PROJECT CORP COMERCIAL", value: 184352.36 },
+      { name: "GIOVANI GONÇALVES CHAVES", value: 159253.64 },
+      { name: "EMBRATOP GEO TECNOLOGIAS", value: 149970.03 },
+      { name: "JANUÁRIA LOCAÇÕES E TRANSP.", value: 147984.17 },
+      { name: "BLUEPRINT CONSTRUTORA", value: 117000.01 },
+      { name: "DRAFT SOLUTIONS CONSULTORIA", value: 114187.50 },
+      { name: "FROTA CAR LTDA", value: 103702.85 },
+      { name: "LOCALIZA FLEET S.A.", value: 97535.07 },
+      { name: "LOCALIZA RENT A CAR", value: 60082.50 },
+      { name: "ALELIO INSTRUÇÃO PAGAMENTO", value: 54361.27 },
+    ],
+  },
+  {
+    company: "Tracevia",
+    color: "hsl(270, 50%, 55%)",
+    total: 1278262.87,
+    topLabel: "Top 4",
+    entries: [
+      { name: "PGL PRIME AGENCIAMENTO", value: 446543.84 },
+      { name: "NOVACOS CO. LTD", value: 446253.30 },
+      { name: "RBR SECURITY COM. EQUIPAMENTOS", value: 269748.28 },
+      { name: "PREXX COMÉRCIO E IMPORTAÇÃO", value: 115717.45 },
+    ],
+  },
+];
 
 // ── Posição Clientes ─────────────────────────────────────────────
 

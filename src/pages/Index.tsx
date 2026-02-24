@@ -5,6 +5,7 @@ import CustoCentroTab from "@/components/dashboard/CustoCentroTab";
 import TipoPagamentoTab from "@/components/dashboard/TipoPagamentoTab";
 import PosicaoFornecedoresTab from "@/components/dashboard/PosicaoFornecedoresTab";
 import PosicaoClientesTab from "@/components/dashboard/PosicaoClientesTab";
+import ResumoTab from "@/components/dashboard/ResumoTab";
 import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData, computeS2 } from "@/components/dashboard/data";
 import { fornecedoresData, fornecedoresDataS1, clientesData, clientesDataS1 } from "@/components/dashboard/agingData";
 import { PERIODS, type PeriodId } from "@/components/dashboard/shared";
@@ -52,8 +53,11 @@ const Index = () => {
 
       {/* Content */}
       <main className="max-w-[1400px] mx-auto px-6 py-6">
-        <Tabs defaultValue="top10" className="space-y-6">
+        <Tabs defaultValue="resumo" className="space-y-6">
           <TabsList className="bg-card border border-border shadow-sm p-1 rounded-xl h-auto flex-wrap">
+            <TabsTrigger value="resumo" className="rounded-lg px-5 py-2.5 text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Resumo
+            </TabsTrigger>
             <TabsTrigger value="top10" className="rounded-lg px-5 py-2.5 text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Top 10 Pagamentos
             </TabsTrigger>
@@ -73,6 +77,10 @@ const Index = () => {
               Posição Clientes
             </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="resumo">
+            <ResumoTab />
+          </TabsContent>
 
           <TabsContent value="top10">
             <Top10Tab data={filterByPeriod(top10Data, "supplier")} />
