@@ -182,13 +182,13 @@ export const custoCentroMacaeData: CustoCentroEntry[] = [...ccMacaeS1, ...ccMaca
 // Period s1: Janeiro a 06/02
 const tipoS1: TipoPagamentoEntry[] = [
   { company: "Macaé", financiamento: -7569361.10, fornecedor: -15440473.15, imposto: -3774752.37, outrosCustos: -4593869.90, outrosRecebimentos: 104583.03, recCliente: 29127942.05, salarios: -19486885.80, total: -21632817.24, period: "s1" },
-  { company: "Mota Engil Brasil", financiamento: 26436883.05, fornecedor: -43043370.55, imposto: -2257838.35, outrosCustos: -2070825.37, outrosRecebimentos: 10426203.48, recCliente: 39804442.17, salarios: -6489091.49, total: 22806402.95, period: "s1" },
+  { company: "Mota Engil Brasil", financiamento: 26436883.05, fornecedor: -42943570.79, imposto: -2257838.35, outrosCustos: -2170625.13, outrosRecebimentos: 10426203.48, recCliente: 39804442.17, salarios: -6489091.49, total: 22806402.95, period: "s1" },
 ];
 
 // Period total: Total Acumulado (Jan a 20/02)
 const tipoTotal: TipoPagamentoEntry[] = [
   { company: "Macaé", financiamento: -7613412.46, fornecedor: -20192719.72, imposto: -8461095.55, outrosCustos: -7031085.46, outrosRecebimentos: 120938.23, recCliente: 59745944.46, salarios: -20047627.85, total: -3479058.35, period: "total" },
-  { company: "Mota Engil Brasil", financiamento: 144454960.19, fornecedor: -65214014.24, imposto: -3432955.64, outrosCustos: -2536077.41, outrosRecebimentos: 10755699.71, recCliente: 160112173.64, salarios: -7395345.52, total: 236744440.74, period: "total" },
+  { company: "Mota Engil Brasil", financiamento: 144454960.19, fornecedor: -65114214.48, imposto: -3432955.64, outrosCustos: -2635877.17, outrosRecebimentos: 10755699.71, recCliente: 160112173.64, salarios: -7395345.52, total: 236744440.74, period: "total" },
 ];
 
 export const tipoPagamentoData: TipoPagamentoEntry[] = [...tipoS1, ...tipoTotal];
