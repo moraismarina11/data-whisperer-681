@@ -1,7 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { formatCurrency, formatShort } from "./shared";
-import { fornecedoresData, fornecedoresDataS1 } from "./agingData";
-import { clientesData, clientesDataS1 } from "./agingData";
+import { fornecedoresDataS1, fornecedoresDataS2, fornecedoresDataS3 } from "./agingData";
+import { clientesDataS1, clientesDataS2, clientesDataS3 } from "./agingData";
 import type { FornecedorCompany, ClienteCompany } from "./agingData";
 
 /* ── helpers ── */
@@ -21,9 +21,11 @@ const sumMulta = (data: ClienteCompany[]) =>
 const allCompanies = Array.from(
   new Set([
     ...fornecedoresDataS1.map((c) => c.company),
-    ...fornecedoresData.map((c) => c.company),
+    ...fornecedoresDataS2.map((c) => c.company),
+    ...fornecedoresDataS3.map((c) => c.company),
     ...clientesDataS1.map((c) => c.company),
-    ...clientesData.map((c) => c.company),
+    ...clientesDataS2.map((c) => c.company),
+    ...clientesDataS3.map((c) => c.company),
   ])
 );
 
@@ -35,8 +37,9 @@ interface PeriodBlock {
 
 const periods: PeriodBlock[] = [
   { label: "Janeiro a 06/02", fornData: fornecedoresDataS1, cliData: clientesDataS1 },
-  { label: "06/02 a 20/02", fornData: fornecedoresData, cliData: clientesData },
-  { label: "Total Acumulado", fornData: fornecedoresData, cliData: clientesData },
+  { label: "06/02 a 20/02", fornData: fornecedoresDataS2, cliData: clientesDataS2 },
+  { label: "23/02 a 27/02", fornData: fornecedoresDataS3, cliData: clientesDataS3 },
+  { label: "Total Acumulado", fornData: fornecedoresDataS3, cliData: clientesDataS3 },
 ];
 
 /* ── component ── */
@@ -45,13 +48,15 @@ const ResumoTab = () => {
   const fornBarData = allCompanies.map((co) => ({
     company: co,
     "Jan–06/02": fornecedoresDataS1.find((c) => c.company === co)?.total ?? 0,
-    "06/02–20/02": fornecedoresData.find((c) => c.company === co)?.total ?? 0,
+    "06/02–20/02": fornecedoresDataS2.find((c) => c.company === co)?.total ?? 0,
+    "23/02–27/02": fornecedoresDataS3.find((c) => c.company === co)?.total ?? 0,
   }));
 
   const cliBarData = allCompanies.map((co) => ({
     company: co,
     "Jan–06/02": clientesDataS1.find((c) => c.company === co)?.aberto ?? 0,
-    "06/02–20/02": clientesData.find((c) => c.company === co)?.aberto ?? 0,
+    "06/02–20/02": clientesDataS2.find((c) => c.company === co)?.aberto ?? 0,
+    "23/02–27/02": clientesDataS3.find((c) => c.company === co)?.aberto ?? 0,
   }));
 
   return (
@@ -60,7 +65,7 @@ const ResumoTab = () => {
         <h2 className="text-2xl font-bold italic text-primary mb-6">Resumo Geral</h2>
 
         {/* Period summary cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {periods.map((p) => (
             <div key={p.label} className="bg-muted/40 rounded-xl border border-border p-5">
               <h3 className="text-sm font-bold text-primary mb-3">{p.label}</h3>
@@ -105,6 +110,7 @@ const ResumoTab = () => {
             <Legend />
             <Bar dataKey="Jan–06/02" fill="hsl(210, 70%, 60%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="06/02–20/02" fill="hsl(25, 90%, 55%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="23/02–27/02" fill="hsl(150, 60%, 45%)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -121,6 +127,7 @@ const ResumoTab = () => {
             <Legend />
             <Bar dataKey="Jan–06/02" fill="hsl(150, 60%, 45%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="06/02–20/02" fill="hsl(340, 60%, 50%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="23/02–27/02" fill="hsl(210, 70%, 60%)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

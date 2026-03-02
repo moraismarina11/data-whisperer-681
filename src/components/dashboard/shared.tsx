@@ -31,6 +31,7 @@ export const COST_TYPE_LABELS: Record<string, string> = {
 export const PERIODS = [
   { id: "s1", label: "Janeiro a 06/02" },
   { id: "s2", label: "06/02 a 20/02" },
+  { id: "s3", label: "23/02 a 27/02" },
   { id: "total", label: "Total Acumulado" },
 ] as const;
 

@@ -7,17 +7,30 @@ import PosicaoFornecedoresTab from "@/components/dashboard/PosicaoFornecedoresTa
 import PosicaoClientesTab from "@/components/dashboard/PosicaoClientesTab";
 import ResumoTab from "@/components/dashboard/ResumoTab";
 import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData, computeS2 } from "@/components/dashboard/data";
-import { fornecedoresData, fornecedoresDataS1, clientesData, clientesDataS1 } from "@/components/dashboard/agingData";
+import {
+  fornecedoresDataS1, fornecedoresDataS2, fornecedoresDataS3,
+  clientesDataS1, clientesDataS2, clientesDataS3,
+} from "@/components/dashboard/agingData";
 import { PERIODS, type PeriodId } from "@/components/dashboard/shared";
 
 const Index = () => {
   const [period, setPeriod] = useState<PeriodId>("s1");
 
   const filterByPeriod = <T extends { period: string }>(data: T[], keyField: string): T[] => {
-    if (period === "total") return data.filter((d) => d.period === "total");
-    if (period === "s1") return data.filter((d) => d.period === "s1");
-    // s2: compute difference (total - s1)
-    return computeS2(data, keyField);
+    if (period === "s2") return computeS2(data, keyField);
+    return data.filter((d) => d.period === period);
+  };
+
+  const getFornecedoresData = () => {
+    if (period === "s1") return fornecedoresDataS1;
+    if (period === "s2") return fornecedoresDataS2;
+    return fornecedoresDataS3; // s3 and total use latest snapshot
+  };
+
+  const getClientesData = () => {
+    if (period === "s1") return clientesDataS1;
+    if (period === "s2") return clientesDataS2;
+    return clientesDataS3;
   };
 
   return (
@@ -106,11 +119,11 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="pos-forn">
-            <PosicaoFornecedoresTab data={period === "s1" ? fornecedoresDataS1 : fornecedoresData} />
+            <PosicaoFornecedoresTab data={getFornecedoresData()} />
           </TabsContent>
 
           <TabsContent value="pos-cli">
-            <PosicaoClientesTab data={period === "s1" ? clientesDataS1 : clientesData} />
+            <PosicaoClientesTab data={getClientesData()} />
           </TabsContent>
         </Tabs>
       </main>

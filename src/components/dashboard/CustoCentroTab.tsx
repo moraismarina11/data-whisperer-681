@@ -55,8 +55,8 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
   const groupedData = grouped ? groupData(data) : null;
 
   const displayData = grouped
-    ? groupedData!.sort((a, b) => a.total - b.total)
-    : [...data];
+    ? groupedData!.sort((a, b) => Math.abs(b.total) - Math.abs(a.total))
+    : [...data].sort((a, b) => Math.abs(b.total) - Math.abs(a.total));
 
   const totals = COST_KEYS.reduce((acc, k) => {
     acc[k] = data.reduce((s, d) => s + d[k], 0);
