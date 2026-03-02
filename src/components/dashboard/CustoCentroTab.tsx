@@ -44,6 +44,17 @@ const CcTooltip = ({ active, payload }: any) => {
   );
 };
 
+function sortByFixedOrder(items: CustoCentroEntry[], order: string[]): CustoCentroEntry[] {
+  const indexMap = new Map(order.map((cc, i) => [cc, i]));
+  return [...items]
+    .filter(d => d.total !== 0)
+    .sort((a, b) => {
+      const ai = indexMap.get(a.cc) ?? 9999;
+      const bi = indexMap.get(b.cc) ?? 9999;
+      return ai - bi;
+    });
+}
+
 interface Props {
   data: CustoCentroEntry[];
   title: string;
@@ -54,17 +65,24 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
   const groupedData = grouped ? groupData(data) : null;
 
-  const displayData = grouped
-    ? [...groupedData!].sort((a, b) => Math.abs(b.total) - Math.abs(a.total))
-    : [...data].sort((a, b) => Math.abs(b.total) - Math.abs(a.total));
-
-  // Sort children within each group: ascending (menor para maior)
+  let displayData: any[];
   if (grouped) {
+    displayData = [...groupedData!].sort((a, b) => Math.abs(b.total) - Math.abs(a.total));
+    // Sort children by fixed order per group, skip zero-movement entries
     displayData.forEach((g: any) => {
       if (g.children) {
-        g.children = [...g.children].sort((a: CustoCentroEntry, b: CustoCentroEntry) => Math.abs(a.total) - Math.abs(b.total));
+        const fixedOrder = MEB_GROUP_ORDER[g.group];
+        if (fixedOrder) {
+          g.children = sortByFixedOrder(g.children, fixedOrder);
+        } else {
+          // Financeiro / Outros: keep as-is but filter zero
+          g.children = g.children.filter((c: CustoCentroEntry) => c.total !== 0);
+        }
       }
     });
+  } else {
+    // Macaé: fixed order, skip zero-movement
+    displayData = sortByFixedOrder(data, MACAE_CC_ORDER);
   }
 
   const totals = COST_KEYS.reduce((acc, k) => {
