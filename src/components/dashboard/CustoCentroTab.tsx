@@ -55,8 +55,17 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
   const groupedData = grouped ? groupData(data) : null;
 
   const displayData = grouped
-    ? groupedData!.sort((a, b) => Math.abs(b.total) - Math.abs(a.total))
+    ? [...groupedData!].sort((a, b) => Math.abs(b.total) - Math.abs(a.total))
     : [...data].sort((a, b) => Math.abs(b.total) - Math.abs(a.total));
+
+  // Sort children within each group: ascending (menor para maior)
+  if (grouped) {
+    displayData.forEach((g: any) => {
+      if (g.children) {
+        g.children = [...g.children].sort((a: CustoCentroEntry, b: CustoCentroEntry) => Math.abs(a.total) - Math.abs(b.total));
+      }
+    });
+  }
 
   const totals = COST_KEYS.reduce((acc, k) => {
     acc[k] = data.reduce((s, d) => s + d[k], 0);
@@ -152,7 +161,7 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
             </tr>
           </thead>
           <tbody>
-            {(grouped ? groupedData!.sort((a, b) => b.total - a.total) : data).map((d: any, i: number) => (
+            {displayData.map((d: any, i: number) => (
               <>
                 <tr
                   key={d.group || d.cc}
@@ -168,21 +177,20 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
                     {grouped && <span className="ml-2 text-xs text-muted-foreground">({d.children.length})</span>}
                   </td>
                   {COST_KEYS.map((k) => (
-                    <td key={k} className={`p-3 text-right font-mono text-xs ${d[k] < 0 ? "text-destructive" : ""}`}>{d[k] !== 0 ? formatCurrency(d[k]) : "-"}</td>
+                    <td key={k} className={`p-3 text-right text-xs ${d[k] < 0 ? "text-destructive" : ""}`}>{d[k] !== 0 ? formatCurrency(d[k]) : "-"}</td>
                   ))}
-                  <td className={`p-3 text-right font-mono font-bold text-sm ${d.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(d.total)}</td>
+                  <td className={`p-3 text-right font-bold text-sm ${d.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(d.total)}</td>
                 </tr>
                 {grouped && expandedGroup === d.group && d.children
-                  .sort((a: CustoCentroEntry, b: CustoCentroEntry) => b.total - a.total)
                   .map((child: CustoCentroEntry) => (
                     <tr key={child.cc} className="border-b border-border/30 bg-muted/20">
                       <td className="p-3 pl-12 text-muted-foreground text-xs">{child.cc}</td>
                       {COST_KEYS.map((k) => (
-                        <td key={k} className={`p-3 text-right font-mono text-xs ${child[k] < 0 ? "text-destructive" : "text-muted-foreground"}`}>
+                        <td key={k} className={`p-3 text-right text-xs ${child[k] < 0 ? "text-destructive" : "text-muted-foreground"}`}>
                           {child[k] !== 0 ? formatCurrency(child[k]) : "-"}
                         </td>
                       ))}
-                      <td className={`p-3 text-right font-mono font-semibold text-xs ${child.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(child.total)}</td>
+                      <td className={`p-3 text-right font-semibold text-xs ${child.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(child.total)}</td>
                     </tr>
                   ))}
               </>
@@ -190,9 +198,9 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
             <tr className="bg-muted/50 border-t-2 border-border">
               <td className="p-4 font-bold text-foreground">Total Geral</td>
               {COST_KEYS.map((k) => (
-                <td key={k} className={`p-3 text-right font-mono font-bold text-xs ${totals[k] < 0 ? "text-destructive" : ""}`}>{formatCurrency(totals[k])}</td>
+                <td key={k} className={`p-3 text-right font-bold text-xs ${totals[k] < 0 ? "text-destructive" : ""}`}>{formatCurrency(totals[k])}</td>
               ))}
-              <td className={`p-4 text-right font-mono font-bold ${grandTotal < 0 ? "text-destructive" : "text-primary"}`}>{formatCurrency(grandTotal)}</td>
+              <td className={`p-4 text-right font-bold ${grandTotal < 0 ? "text-destructive" : "text-primary"}`}>{formatCurrency(grandTotal)}</td>
             </tr>
           </tbody>
         </table>

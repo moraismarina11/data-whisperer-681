@@ -93,16 +93,16 @@ const Top10Tab = ({ data }: Props) => {
             {sorted.map((d, i) => (
               <tr key={d.supplier} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/10" : ""}`}>
                 <td className="p-4 text-foreground font-medium">{d.supplier}</td>
-                <td className={`p-4 text-right font-mono ${d.macae < 0 ? "text-destructive" : ""}`}>{d.macae !== 0 ? formatCurrency(d.macae) : "-"}</td>
-                <td className={`p-4 text-right font-mono ${d.meb < 0 ? "text-destructive" : ""}`}>{d.meb !== 0 ? formatCurrency(d.meb) : "-"}</td>
-                <td className={`p-4 text-right font-mono font-bold ${d.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(d.total)}</td>
+                <td className={`p-4 text-right ${d.macae < 0 ? "text-destructive" : ""}`}>{d.macae !== 0 ? formatCurrency(d.macae) : "-"}</td>
+                <td className={`p-4 text-right ${d.meb < 0 ? "text-destructive" : ""}`}>{d.meb !== 0 ? formatCurrency(d.meb) : "-"}</td>
+                <td className={`p-4 text-right font-bold ${d.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(d.total)}</td>
               </tr>
             ))}
             <tr className="bg-muted/50 border-t-2 border-border">
               <td className="p-4 font-bold text-foreground">Total</td>
-              <td className={`p-4 text-right font-mono font-bold ${totalMacae < 0 ? "text-destructive" : ""}`}>{formatCurrency(totalMacae)}</td>
-              <td className={`p-4 text-right font-mono font-bold ${totalMeb < 0 ? "text-destructive" : ""}`}>{formatCurrency(totalMeb)}</td>
-              <td className={`p-4 text-right font-mono font-bold ${totalGeral < 0 ? "text-destructive" : "text-primary"}`}>{formatCurrency(totalGeral)}</td>
+              <td className={`p-4 text-right font-bold ${totalMacae < 0 ? "text-destructive" : ""}`}>{formatCurrency(totalMacae)}</td>
+              <td className={`p-4 text-right font-bold ${totalMeb < 0 ? "text-destructive" : ""}`}>{formatCurrency(totalMeb)}</td>
+              <td className={`p-4 text-right font-bold ${totalGeral < 0 ? "text-destructive" : "text-primary"}`}>{formatCurrency(totalGeral)}</td>
             </tr>
           </tbody>
         </table>

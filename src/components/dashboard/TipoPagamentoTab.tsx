@@ -21,7 +21,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
             <span className="w-2 h-2 rounded-full" style={{ background: p.color }} />
             {p.name}
           </span>
-          <span className="font-semibold font-mono">{formatCurrency(p.value)}</span>
+          <span className="font-semibold">{formatCurrency(p.value)}</span>
         </div>
       ))}
     </div>
@@ -96,26 +96,26 @@ const TipoPagamentoTab = ({ data }: Props) => {
             {tableRows.map((r, i) => (
               <tr key={r.label} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/10" : ""}`}>
                 <td className="p-4 text-foreground font-semibold">{r.label}</td>
-                <td className={`p-4 text-right font-mono ${r.macae < 0 ? "text-destructive" : "text-foreground"}`}>
+                <td className={`p-4 text-right ${r.macae < 0 ? "text-destructive" : "text-foreground"}`}>
                   {r.macae !== 0 ? formatCurrency(r.macae) : "-"}
                 </td>
-                <td className={`p-4 text-right font-mono ${r.meb < 0 ? "text-destructive" : "text-foreground"}`}>
+                <td className={`p-4 text-right ${r.meb < 0 ? "text-destructive" : "text-foreground"}`}>
                   {r.meb !== 0 ? formatCurrency(r.meb) : "-"}
                 </td>
-                <td className={`p-4 text-right font-mono font-bold ${r.total < 0 ? "text-destructive" : "text-foreground"}`}>
+                <td className={`p-4 text-right font-bold ${r.total < 0 ? "text-destructive" : "text-foreground"}`}>
                   {formatCurrency(r.total)}
                 </td>
               </tr>
             ))}
             <tr className="bg-muted/50 border-t-2 border-border">
               <td className="p-4 font-bold text-foreground">Total Geral</td>
-              <td className={`p-4 text-right font-mono font-bold ${totalMacae < 0 ? "text-destructive" : "text-foreground"}`}>
+              <td className={`p-4 text-right font-bold ${totalMacae < 0 ? "text-destructive" : "text-foreground"}`}>
                 {formatCurrency(totalMacae)}
               </td>
-              <td className={`p-4 text-right font-mono font-bold ${totalMeb < 0 ? "text-destructive" : "text-foreground"}`}>
+              <td className={`p-4 text-right font-bold ${totalMeb < 0 ? "text-destructive" : "text-foreground"}`}>
                 {formatCurrency(totalMeb)}
               </td>
-              <td className="p-4 text-right font-mono font-bold text-primary">
+              <td className="p-4 text-right font-bold text-primary">
                 {formatCurrency(grandTotal)}
               </td>
             </tr>
