@@ -13,8 +13,8 @@ export interface FornecedorCompany {
   entries: FornecedorEntry[];
 }
 
-// ── Fornecedores s1 (Janeiro a 06/02) ──
-export const fornecedoresDataS1: FornecedorCompany[] = [
+// ── Fornecedores Janeiro ──
+export const fornecedoresDataJan: FornecedorCompany[] = [
   {
     company: "Consórcio Alsub",
     color: "hsl(210, 70%, 50%)",
@@ -33,7 +33,6 @@ export const fornecedoresDataS1: FornecedorCompany[] = [
     topLabel: "Top 4",
     entries: [
       { name: "EDIFICIO BENEDITO LAPIN", value: 3217.95 },
-      { name: "MUNICIPIO DE SAO PAULO", value: 0 },
       { name: "SECRETARIA FAZENDA", value: 465.88 },
       { name: "COLLEGE ENGLISH SCHOOL", value: 360.42 },
       { name: "PREFEITURA MUNICIPAL BH", value: 161.36 },
@@ -119,8 +118,8 @@ export const fornecedoresDataS1: FornecedorCompany[] = [
   },
 ];
 
-// ── Fornecedores s2 (06/02 a 20/02) ──
-export const fornecedoresDataS2: FornecedorCompany[] = [
+// ── Fornecedores Fevereiro ──
+export const fornecedoresDataFev: FornecedorCompany[] = [
   {
     company: "Consórcio Alsub",
     color: "hsl(210, 70%, 50%)",
@@ -230,38 +229,39 @@ export const fornecedoresDataS2: FornecedorCompany[] = [
   },
 ];
 
-// ── Fornecedores s3 (23/02 a 27/02) = Total Acumulado ──
-export const fornecedoresDataS3: FornecedorCompany[] = [
+// ── Fornecedores 02/03 a 06/03 = Total Acumulado ──
+export const fornecedoresDataS4: FornecedorCompany[] = [
   {
     company: "Consórcio Alsub",
     color: "hsl(210, 70%, 50%)",
-    total: 11106634.20,
+    total: 7660160.56,
     topLabel: "Top 10",
     entries: [
       { name: "NFX COMBUSTIVEIS MARITIMOS", value: 5176501.19 },
-      { name: "BRAM OFFSHORE TRANSP. MARITIMOS", value: 3875831.63 },
-      { name: "TECNOLOGIA EM CABOS DE ACO BRASCABO", value: 772091.25 },
       { name: "TOKIO MARINE SEGURADORA", value: 654766.93 },
-      { name: "PETROLEO BRASILEIRO S A PETROBRAS", value: 153105.72 },
-      { name: "LOADTEST DO BRASIL", value: 114993.60 },
-      { name: "INOVA SUBSEA SOLUTIONS", value: 103912.18 },
+      { name: "4PIPE HIDROPIG - ENG. INDUSTRIAL", value: 589815.00 },
+      { name: "TECNOLOGIA EM CABOS DE ACO BRASCABO", value: 514727.50 },
+      { name: "INOVA SUBSEA SOLUTIONS", value: 388884.53 },
       { name: "CEMOC", value: 93381.70 },
-      { name: "PETROVERA DERIVADOS", value: 82900.00 },
       { name: "DNA WORK", value: 79150.00 },
+      { name: "PETROLEO BRASILEIRO S A PETROBRAS", value: 54720.00 },
+      { name: "UNIMED DE MACAE", value: 54717.71 },
+      { name: "LIFTINGTEST DO BRASIL", value: 53396.00 },
     ],
   },
   {
     company: "MEFB",
     color: "hsl(150, 60%, 40%)",
-    total: 1970099.93,
-    topLabel: "Top 9",
+    total: 1986568.97,
+    topLabel: "Top 10",
     entries: [
       { name: "VEBER IND. METAL MECANICA", value: 598732.88 },
       { name: "MOTA-ENGIL BRASIL S/A", value: 552167.83 },
       { name: "MOP Y C SA", value: 400792.83 },
       { name: "MOTA-ENGIL LATIN AMERICA BV", value: 270938.03 },
-      { name: "MOTA-ENGIL GLOBAL SERV.", value: 88308.01 },
+      { name: "MOTA-ENGIL GLOBAL SERV.", value: 91030.37 },
       { name: "SHARE LOGISTICS LTDA", value: 41755.89 },
+      { name: "UNIMED LITORAL COOPERATIVA", value: 13746.68 },
       { name: "FERRAMENTAS GERAIS COM.", value: 13512.71 },
       { name: "TRANSPORTES SAVENHAGO", value: 3500.00 },
       { name: "CONEXAO MARITIMA", value: 391.75 },
@@ -281,37 +281,37 @@ export const fornecedoresDataS3: FornecedorCompany[] = [
   {
     company: "Macaé",
     color: "hsl(40, 90%, 50%)",
-    total: 34740729.51,
+    total: 35782379.96,
     topLabel: "Top 10",
     entries: [
       { name: "HOMY SRL", value: 19363767.59 },
-      { name: "UNIMED DE MACAE", value: 4365248.31 },
-      { name: "HYDRATIGHT EQUIPAMEN.", value: 3029569.56 },
-      { name: "TICKET SERVICOS SA", value: 2968508.67 },
-      { name: "FLP TRANSPORTES DE M", value: 1924910.23 },
-      { name: "PRINER LOCACAO DE EQ", value: 1265509.03 },
-      { name: "ASSISLANI LOCACAO", value: 576404.64 },
-      { name: "ACOS VITAL COM DE TU", value: 512489.41 },
+      { name: "UNIMED DE MACAE COOP", value: 4365248.31 },
+      { name: "HYDRATIGHT EQUIPAMEN", value: 3063392.69 },
+      { name: "TICKET SERVICOS SA", value: 2967311.48 },
+      { name: "PRINER LOCACAO DE EQ", value: 2241172.84 },
+      { name: "FLP TRANSPORTES DE M", value: 1631213.62 },
+      { name: "RAC SOLUCOES EM ENER", value: 684500.00 },
+      { name: "ASSISLANI LOCACAO", value: 589162.91 },
       { name: "CALDEX", value: 445482.45 },
-      { name: "JOTUN BRASIL", value: 288839.62 },
+      { name: "ACOS VITAL COM DE TU", value: 431128.07 },
     ],
   },
   {
     company: "Mota-Engil Brasil",
     color: "hsl(25, 90%, 55%)",
-    total: 5713317.39,
+    total: 5657500.80,
     topLabel: "Top 10",
     entries: [
       { name: "NOVATA ENGENHARIA", value: 2512839.30 },
       { name: "MILLS LOCAÇÃO E LOGISTICA", value: 1344537.66 },
+      { name: "ALELO INSTITUICAO DE PAGAMENTO SA", value: 297535.97 },
       { name: "DELL COMPUTADORES", value: 280357.57 },
-      { name: "LUIS FELIPE EBOLI IABRUDI", value: 266534.32 },
-      { name: "TOKIO MARINE SEGURADORA", value: 258005.17 },
-      { name: "MAAC TRAVEL CORPORATE", value: 246836.73 },
       { name: "GIOVANI GONCALVES CHAVES", value: 240853.64 },
+      { name: "TOKIO MARINE SEGURADORA", value: 235605.87 },
       { name: "VIA APIA SERVIÇOS ESPECIAIS", value: 214982.23 },
-      { name: "S.N. REFEIÇÕES E BUFFET", value: 187232.50 },
-      { name: "FROTA CAR LTDA", value: 161138.27 },
+      { name: "JLA CASAGRANDE SERVICOS", value: 214927.76 },
+      { name: "FROTA CAR LTDA", value: 161280.40 },
+      { name: "OPUS LOCAÇÕES E CONSTRUÇÕES", value: 154580.40 },
     ],
   },
   {
@@ -330,19 +330,19 @@ export const fornecedoresDataS3: FornecedorCompany[] = [
   {
     company: "Tracevia",
     color: "hsl(270, 50%, 55%)",
-    total: 1096456.68,
+    total: 756794.15,
     topLabel: "Top 10",
     entries: [
       { name: "RBR SECURITY COM. EQUIPAMENTOS", value: 261814.94 },
       { name: "PGL PRIME AGENCIAMENTO", value: 228698.45 },
       { name: "D2W INDUSTRIA E IMPORTAÇÃO", value: 219325.97 },
-      { name: "CONCRETO AMOROSO", value: 130000.00 },
-      { name: "ONFLY TECNOLOGIA", value: 58668.26 },
       { name: "AMBITO CONCRETO E ARTEFATOS", value: 51600.00 },
-      { name: "BANCO CNH CAPITAL S/A", value: 50176.80 },
-      { name: "MOTA-ENGIL GLOBAL SERV.", value: 37816.98 },
+      { name: "BANCO CNH CAPITAL S/A", value: 47361.42 },
+      { name: "MOTA-ENGIL GLOBAL SERV.", value: 39510.08 },
       { name: "BRADESCO SAUDE S/A", value: 31925.88 },
       { name: "ANDRE MARTELLINI CUCHIARO", value: 26429.40 },
+      { name: "NOTRE DAME INTERMEDICA", value: 26112.92 },
+      { name: "BRADESCO AUTO/RE", value: 24015.09 },
     ],
   },
 ];
@@ -352,6 +352,7 @@ export const fornecedoresDataS3: FornecedorCompany[] = [
 export interface ClienteEntry {
   name: string;
   value: number;
+  caucao?: number;
 }
 
 export interface ClienteCompany {
@@ -363,8 +364,8 @@ export interface ClienteCompany {
   entries: ClienteEntry[];
 }
 
-// ── Clientes s1 (Janeiro a 06/02) ──
-export const clientesDataS1: ClienteCompany[] = [
+// ── Clientes Janeiro ──
+export const clientesDataJan: ClienteCompany[] = [
   {
     company: "MEFB",
     color: "hsl(150, 60%, 40%)",
@@ -425,8 +426,8 @@ export const clientesDataS1: ClienteCompany[] = [
   },
 ];
 
-// ── Clientes s2 (06/02 a 20/02) ──
-export const clientesDataS2: ClienteCompany[] = [
+// ── Clientes Fevereiro ──
+export const clientesDataFev: ClienteCompany[] = [
   {
     company: "MEFB",
     color: "hsl(150, 60%, 40%)",
@@ -505,8 +506,8 @@ export const clientesDataS2: ClienteCompany[] = [
   },
 ];
 
-// ── Clientes s3 (23/02 a 27/02) = Total Acumulado ──
-export const clientesDataS3: ClienteCompany[] = [
+// ── Clientes 02/03 a 06/03 = Total Acumulado ──
+export const clientesDataS4: ClienteCompany[] = [
   {
     company: "MEFB",
     color: "hsl(150, 60%, 40%)",
@@ -529,7 +530,8 @@ export const clientesDataS3: ClienteCompany[] = [
     aberto: 24554990.95,
     caucao: 27739216.97,
     entries: [
-      { name: "PETROLEO BRASILEIRO S A PETROBRAS", value: 16889507.14 },
+      { name: "PETROLEO BRASILEIRO S A PETROBRAS", value: 16889507.14, caucao: 7729941.15 },
+      { name: "CONCESSIONARIA RODOVIAS DO OESTE SP", value: 0, caucao: 20009275.82 },
       { name: "VALE SA", value: 5866487.61 },
       { name: "GUARA-NORTE OPER. MARITIMAS", value: 549487.21 },
       { name: "AUTOPISTA FERNÃO DIAS", value: 544752.36 },
@@ -541,16 +543,16 @@ export const clientesDataS3: ClienteCompany[] = [
     company: "Tracevia",
     color: "hsl(270, 50%, 55%)",
     aberto: 1916935.56,
-    caucao: 46430.14,
+    caucao: 47401.96,
     entries: [
       { name: "CONC. ROTA DO OESTE S.A.", value: 698797.64 },
       { name: "VELSIS SIST. E TEC. VIÁRIA", value: 425009.98 },
-      { name: "CONC. RODOVIAS NOROESTE", value: 239357.99 },
-      { name: "VIABAHIA CONCESSIONÁRIA", value: 218150.48 },
+      { name: "CONC. RODOVIAS NOROESTE", value: 239357.99, caucao: 4019.25 },
+      { name: "VIABAHIA CONCESSIONÁRIA", value: 218150.48, caucao: 10573.59 },
       { name: "CONC. ECOVIAS", value: 121539.98 },
       { name: "LABOR ENG. E TECNOLOGIA", value: 66353.17 },
-      { name: "ECO101 CONC. DE RODOVIAS", value: 51897.79 },
-      { name: "CONC. RODOVIA NOVA 364", value: 46857.92 },
+      { name: "ECO101 CONC. DE RODOVIAS", value: 51897.79, caucao: 31837.30 },
+      { name: "CONC. RODOVIA NOVA 364", value: 45886.10, caucao: 971.82 },
       { name: "COLOMBIA ME SAS", value: 24685.88 },
       { name: "EPR VIA MINEIRA S.A.", value: 8096.49 },
       { name: "CONC. DAS RODOVIAS", value: 7465.47 },
@@ -561,16 +563,16 @@ export const clientesDataS3: ClienteCompany[] = [
   {
     company: "Macaé",
     color: "hsl(40, 90%, 50%)",
-    aberto: 37367934.42,
-    caucao: 10740919.21,
+    aberto: 37807216.75,
+    caucao: 10739039.21,
     multa: 6438733.72,
     entries: [
-      { name: "Petrobrás / 256", value: 33309959.71 },
-      { name: "Petrobrás / 232", value: 1961382.17 },
-      { name: "Petrobrás / 241", value: 1135315.68 },
+      { name: "Petrobrás / 256", value: 33336959.71, caucao: 6649130.66 },
+      { name: "Petrobrás / 232", value: 2373948.55, caucao: 1879.15 },
+      { name: "Petrobrás / 241", value: 1135315.68, caucao: 3784496.74 },
       { name: "Petrobrás / 251", value: 525985.31 },
       { name: "Outros Clientes / Base", value: 313383.05 },
-      { name: "Petrobrás / 259", value: 121908.50 },
+      { name: "Petrobrás / 259", value: 121908.50, caucao: 305412.66 },
     ],
   },
   {

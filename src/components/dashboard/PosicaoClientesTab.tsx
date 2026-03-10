@@ -9,6 +9,9 @@ const CustomTooltip = ({ active, payload }: any) => {
     <div className="bg-card border border-border rounded-lg p-3 shadow-xl text-sm">
       <p className="font-bold text-card-foreground">{d.name}</p>
       <p className="font-semibold mt-1">{formatCurrency(d.value)}</p>
+      {d.caucao != null && d.caucao > 0 && (
+        <p className="text-muted-foreground mt-0.5">Caução: {formatCurrency(d.caucao)}</p>
+      )}
     </div>
   );
 };
@@ -52,6 +55,7 @@ const PosicaoClientesTab = ({ data }: Props) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {data.map((company) => {
           const sorted = [...company.entries].sort((a, b) => b.value - a.value);
+          const hasCaucaoDetail = sorted.some(e => e.caucao != null && e.caucao > 0);
           const chartHeight = Math.max(160, sorted.length * 36 + 40);
           return (
             <div key={company.company} className="bg-card rounded-xl border border-border p-5 shadow-sm">
@@ -76,6 +80,31 @@ const PosicaoClientesTab = ({ data }: Props) => {
                   <Bar dataKey="value" fill={company.color} radius={[0, 4, 4, 0]} barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
+              {/* Caucao detail table */}
+              {hasCaucaoDetail && (
+                <div className="mt-3 overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-1.5 text-muted-foreground font-medium">Cliente</th>
+                        <th className="text-right py-1.5 text-muted-foreground font-medium">Aberto</th>
+                        <th className="text-right py-1.5 text-muted-foreground font-medium">Caução</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {sorted.map((e) => (
+                        <tr key={e.name} className="border-b border-border/30">
+                          <td className="py-1.5 text-foreground">{e.name}</td>
+                          <td className="py-1.5 text-right font-medium">{formatCurrency(e.value)}</td>
+                          <td className="py-1.5 text-right text-muted-foreground">
+                            {e.caucao != null && e.caucao > 0 ? formatCurrency(e.caucao) : "—"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           );
         })}

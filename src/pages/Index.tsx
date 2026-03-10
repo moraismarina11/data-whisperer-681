@@ -6,31 +6,30 @@ import TipoPagamentoTab from "@/components/dashboard/TipoPagamentoTab";
 import PosicaoFornecedoresTab from "@/components/dashboard/PosicaoFornecedoresTab";
 import PosicaoClientesTab from "@/components/dashboard/PosicaoClientesTab";
 import ResumoTab from "@/components/dashboard/ResumoTab";
-import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData, computeS2 } from "@/components/dashboard/data";
+import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData } from "@/components/dashboard/data";
 import {
-  fornecedoresDataS1, fornecedoresDataS2, fornecedoresDataS3,
-  clientesDataS1, clientesDataS2, clientesDataS3,
+  fornecedoresDataJan, fornecedoresDataFev, fornecedoresDataS4,
+  clientesDataJan, clientesDataFev, clientesDataS4,
 } from "@/components/dashboard/agingData";
 import { PERIODS, type PeriodId } from "@/components/dashboard/shared";
 
 const Index = () => {
-  const [period, setPeriod] = useState<PeriodId>("s1");
+  const [period, setPeriod] = useState<PeriodId>("jan");
 
-  const filterByPeriod = <T extends { period: string }>(data: T[], keyField: string): T[] => {
-    if (period === "s2") return computeS2(data, keyField);
+  const filterByPeriod = <T extends { period: string }>(data: T[]): T[] => {
     return data.filter((d) => d.period === period);
   };
 
   const getFornecedoresData = () => {
-    if (period === "s1") return fornecedoresDataS1;
-    if (period === "s2") return fornecedoresDataS2;
-    return fornecedoresDataS3; // s3 and total use latest snapshot
+    if (period === "jan") return fornecedoresDataJan;
+    if (period === "fev") return fornecedoresDataFev;
+    return fornecedoresDataS4; // s4 and total use latest snapshot
   };
 
   const getClientesData = () => {
-    if (period === "s1") return clientesDataS1;
-    if (period === "s2") return clientesDataS2;
-    return clientesDataS3;
+    if (period === "jan") return clientesDataJan;
+    if (period === "fev") return clientesDataFev;
+    return clientesDataS4;
   };
 
   return (
@@ -96,16 +95,16 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="top10">
-            <Top10Tab data={filterByPeriod(top10Data, "supplier")} />
+            <Top10Tab data={filterByPeriod(top10Data)} />
           </TabsContent>
 
           <TabsContent value="tipo">
-            <TipoPagamentoTab data={filterByPeriod(tipoPagamentoData, "company")} />
+            <TipoPagamentoTab data={filterByPeriod(tipoPagamentoData)} />
           </TabsContent>
 
           <TabsContent value="cc-meb">
             <CustoCentroTab
-              data={filterByPeriod(custoCentroMEBData, "cc")}
+              data={filterByPeriod(custoCentroMEBData)}
               title="Centro de Custo — Mota Engil Brasil"
               grouped
             />
@@ -113,7 +112,7 @@ const Index = () => {
 
           <TabsContent value="cc-macae">
             <CustoCentroTab
-              data={filterByPeriod(custoCentroMacaeData, "cc")}
+              data={filterByPeriod(custoCentroMacaeData)}
               title="Centro de Custo — Macaé"
             />
           </TabsContent>
