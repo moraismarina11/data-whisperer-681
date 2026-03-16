@@ -8,15 +8,23 @@ import PosicaoClientesTab from "@/components/dashboard/PosicaoClientesTab";
 import AgingFornecedoresTab from "@/components/dashboard/AgingFornecedoresTab";
 import AgingClientesTab from "@/components/dashboard/AgingClientesTab";
 import ResumoTab from "@/components/dashboard/ResumoTab";
-import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData } from "@/components/dashboard/data";
+import { top10Data as hardcodedTop10, custoCentroMEBData as hardcodedMEB, custoCentroMacaeData as hardcodedMacae, tipoPagamentoData as hardcodedTipo } from "@/components/dashboard/data";
 import {
   fornecedoresDataJan, fornecedoresDataFev, fornecedoresDataS4,
   clientesDataJan, clientesDataFev, clientesDataS4,
 } from "@/components/dashboard/agingData";
 import { PERIODS, type PeriodId } from "@/components/dashboard/shared";
+import { useFinancialData } from "@/hooks/useFinancialData";
 
 const Index = () => {
   const [period, setPeriod] = useState<PeriodId>("jan");
+  const { data: apiData, isLoading } = useFinancialData();
+
+  // Use API data if available, otherwise fall back to hardcoded
+  const top10Data = apiData?.hasData ? apiData.top10Data : hardcodedTop10;
+  const custoCentroMEBData = apiData?.hasData ? apiData.custoCentroMEBData : hardcodedMEB;
+  const custoCentroMacaeData = apiData?.hasData ? apiData.custoCentroMacaeData : hardcodedMacae;
+  const tipoPagamentoData = apiData?.hasData ? apiData.tipoPagamentoData : hardcodedTipo;
 
   const filterByPeriod = <T extends { period: string }>(data: T[]): T[] => {
     return data.filter((d) => d.period === period);
@@ -25,7 +33,7 @@ const Index = () => {
   const getFornecedoresData = () => {
     if (period === "jan") return fornecedoresDataJan;
     if (period === "fev") return fornecedoresDataFev;
-    return fornecedoresDataS4; // s4 and total use latest snapshot
+    return fornecedoresDataS4;
   };
 
   const getClientesData = () => {
@@ -43,7 +51,18 @@ const Index = () => {
             <h1 className="text-2xl font-bold text-foreground tracking-tight">
               Dashboard Financeiro
             </h1>
-            <p className="text-sm text-muted-foreground mt-0.5">Análise de Contas a Pagar e Receber</p>
+            <p className="text-sm text-muted-foreground mt-0.5">
+              Análise de Contas a Pagar e Receber
+              {apiData?.hasData && (
+                <span className="ml-2 inline-flex items-center gap-1 text-xs text-green-600">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  API conectada
+                </span>
+              )}
+              {isLoading && (
+                <span className="ml-2 text-xs text-muted-foreground">Carregando...</span>
+              )}
+            </p>
           </div>
 
           {/* Period selector */}

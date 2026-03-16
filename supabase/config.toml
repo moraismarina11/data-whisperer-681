@@ -1,0 +1,4 @@
+project_id = "lxrncjyfebktkjbablft"
+
+[functions.ingest-records]
+verify_jwt = false
