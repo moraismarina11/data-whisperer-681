@@ -31,6 +31,10 @@ function getPeriodForDate(dateStr: string): PeriodId | null {
   if (d >= "2025-01-01" && d <= "2025-01-31") return "jan";
   if (d >= "2025-02-01" && d <= "2025-02-28") return "fev";
   if (d >= "2025-03-02" && d <= "2025-03-06") return "s4";
+  if (d >= "2025-03-09" && d <= "2025-03-13") return "s5";
+  if (d >= "2025-03-16" && d <= "2025-03-20") return "s6";
+  if (d >= "2025-03-23" && d <= "2025-03-27") return "s7";
+  if (d >= "2025-03-01" && d <= "2025-03-31") return "mar";
   return null;
 }
 
