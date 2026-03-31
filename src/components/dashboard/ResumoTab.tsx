@@ -30,8 +30,8 @@ interface PeriodBlock {
 }
 
 const periods: PeriodBlock[] = [
-  { label: "Janeiro", fornData: fornecedoresDataJan, cliData: clientesDataJan },
-  { label: "Fevereiro", fornData: fornecedoresDataFev, cliData: clientesDataFev },
+  { label: "Janeiro", fornData: fornecedoresDataJan, cliData: clientesDataJan, fornTotalOverride: -70281028.78 },
+  { label: "Fevereiro", fornData: fornecedoresDataFev, cliData: clientesDataFev, fornTotalOverride: -30877801.47 },
   { label: "Março", fornData: fornecedoresDataS7, cliData: clientesDataS7, fornTotalOverride: agingFornecedoresTotals.valor },
   { label: "Total Acumulado", fornData: fornecedoresDataS7, cliData: clientesDataS7, fornTotalOverride: agingFornecedoresTotals.valor },
 ];
