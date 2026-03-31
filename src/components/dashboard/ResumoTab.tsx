@@ -1,7 +1,11 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { formatCurrency, formatShort } from "./shared";
-import { fornecedoresDataJan, fornecedoresDataFev, fornecedoresDataS4 } from "./agingData";
-import { clientesDataJan, clientesDataFev, clientesDataS4 } from "./agingData";
+import {
+  fornecedoresDataJan, fornecedoresDataFev,
+  fornecedoresDataS4, fornecedoresDataS5, fornecedoresDataS6, fornecedoresDataS7,
+  clientesDataJan, clientesDataFev,
+  clientesDataS4, clientesDataS5, clientesDataS6, clientesDataS7,
+} from "./agingData";
 import type { FornecedorCompany, ClienteCompany } from "./agingData";
 
 /* ── helpers ── */
@@ -17,18 +21,49 @@ const sumCaucao = (data: ClienteCompany[]) =>
 const sumMulta = (data: ClienteCompany[]) =>
   data.reduce((s, c) => s + (c.multa ?? 0), 0);
 
-/* Build per-company comparison data */
-const allCompanies = Array.from(
-  new Set([
-    ...fornecedoresDataJan.map((c) => c.company),
-    ...fornecedoresDataFev.map((c) => c.company),
-    ...fornecedoresDataS4.map((c) => c.company),
-    ...clientesDataJan.map((c) => c.company),
-    ...clientesDataFev.map((c) => c.company),
-    ...clientesDataS4.map((c) => c.company),
-  ])
-);
+/* ── Aggregate weekly data into "Março" and "Total Acumulado" ── */
+function mergeFornecedores(datasets: FornecedorCompany[][]): FornecedorCompany[] {
+  const map = new Map<string, FornecedorCompany>();
+  for (const ds of datasets) {
+    for (const c of ds) {
+      const existing = map.get(c.company);
+      if (existing) {
+        existing.total += c.total;
+      } else {
+        map.set(c.company, { ...c, total: c.total, entries: [...c.entries] });
+      }
+    }
+  }
+  return Array.from(map.values());
+}
 
+function mergeClientes(datasets: ClienteCompany[][]): ClienteCompany[] {
+  const map = new Map<string, ClienteCompany>();
+  for (const ds of datasets) {
+    for (const c of ds) {
+      const existing = map.get(c.company);
+      if (existing) {
+        existing.aberto += c.aberto;
+        existing.caucao = (existing.caucao ?? 0) + (c.caucao ?? 0);
+        existing.multa = (existing.multa ?? 0) + (c.multa ?? 0);
+      } else {
+        map.set(c.company, { ...c, aberto: c.aberto, caucao: c.caucao ?? 0, multa: c.multa ?? 0 });
+      }
+    }
+  }
+  return Array.from(map.values());
+}
+
+const marchWeeks = [fornecedoresDataS4, fornecedoresDataS5, fornecedoresDataS6, fornecedoresDataS7];
+const marchWeeksCli = [clientesDataS4, clientesDataS5, clientesDataS6, clientesDataS7];
+
+const fornecedoresDataMar = mergeFornecedores(marchWeeks);
+const clientesDataMar = mergeClientes(marchWeeksCli);
+
+const fornecedoresDataTotal = mergeFornecedores([fornecedoresDataJan, fornecedoresDataFev, ...marchWeeks]);
+const clientesDataTotal = mergeClientes([clientesDataJan, clientesDataFev, ...marchWeeksCli]);
+
+/* Fixed 4-column periods for Resumo */
 interface PeriodBlock {
   label: string;
   fornData: FornecedorCompany[];
@@ -38,25 +73,36 @@ interface PeriodBlock {
 const periods: PeriodBlock[] = [
   { label: "Janeiro", fornData: fornecedoresDataJan, cliData: clientesDataJan },
   { label: "Fevereiro", fornData: fornecedoresDataFev, cliData: clientesDataFev },
-  { label: "02/03 a 06/03", fornData: fornecedoresDataS4, cliData: clientesDataS4 },
-  { label: "Total Acumulado", fornData: fornecedoresDataS4, cliData: clientesDataS4 },
+  { label: "Março", fornData: fornecedoresDataMar, cliData: clientesDataMar },
+  { label: "Total Acumulado", fornData: fornecedoresDataTotal, cliData: clientesDataTotal },
 ];
+
+/* Build per-company comparison data */
+const allCompanies = Array.from(
+  new Set([
+    ...fornecedoresDataJan.map((c) => c.company),
+    ...fornecedoresDataFev.map((c) => c.company),
+    ...fornecedoresDataMar.map((c) => c.company),
+    ...clientesDataJan.map((c) => c.company),
+    ...clientesDataFev.map((c) => c.company),
+    ...clientesDataMar.map((c) => c.company),
+  ])
+);
 
 /* ── component ── */
 const ResumoTab = () => {
-  /* bar chart data: company × period for fornecedores */
   const fornBarData = allCompanies.map((co) => ({
     company: co,
     "Janeiro": fornecedoresDataJan.find((c) => c.company === co)?.total ?? 0,
     "Fevereiro": fornecedoresDataFev.find((c) => c.company === co)?.total ?? 0,
-    "02/03–06/03": fornecedoresDataS4.find((c) => c.company === co)?.total ?? 0,
+    "Março": fornecedoresDataMar.find((c) => c.company === co)?.total ?? 0,
   }));
 
   const cliBarData = allCompanies.map((co) => ({
     company: co,
     "Janeiro": clientesDataJan.find((c) => c.company === co)?.aberto ?? 0,
     "Fevereiro": clientesDataFev.find((c) => c.company === co)?.aberto ?? 0,
-    "02/03–06/03": clientesDataS4.find((c) => c.company === co)?.aberto ?? 0,
+    "Março": clientesDataMar.find((c) => c.company === co)?.aberto ?? 0,
   }));
 
   return (
@@ -64,7 +110,7 @@ const ResumoTab = () => {
       <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
         <h2 className="text-2xl font-bold italic text-primary mb-6">Resumo Geral</h2>
 
-        {/* Period summary cards */}
+        {/* Period summary cards — always 4 fixed columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {periods.map((p) => (
             <div key={p.label} className="bg-muted/40 rounded-xl border border-border p-5">
@@ -110,7 +156,7 @@ const ResumoTab = () => {
             <Legend />
             <Bar dataKey="Janeiro" fill="hsl(210, 70%, 60%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="Fevereiro" fill="hsl(25, 90%, 55%)" radius={[4, 4, 0, 0]} />
-            <Bar dataKey="02/03–06/03" fill="hsl(150, 60%, 45%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="Março" fill="hsl(150, 60%, 45%)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -127,7 +173,7 @@ const ResumoTab = () => {
             <Legend />
             <Bar dataKey="Janeiro" fill="hsl(150, 60%, 45%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="Fevereiro" fill="hsl(340, 60%, 50%)" radius={[4, 4, 0, 0]} />
-            <Bar dataKey="02/03–06/03" fill="hsl(210, 70%, 60%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="Março" fill="hsl(210, 70%, 60%)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
