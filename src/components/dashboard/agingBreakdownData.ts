@@ -92,4 +92,3 @@ export const agingClientesTotals = {
   de1a2anos: 1010574.92,
   de2a3anos: 1323724.19,
   mais3anos: 3277263.05,
-};
