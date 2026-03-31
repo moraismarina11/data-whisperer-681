@@ -19,6 +19,10 @@ const PERIOD_RANGES: Record<PeriodId, { from: string; to: string }> = {
   jan: { from: "2025-01-01", to: "2025-01-31" },
   fev: { from: "2025-02-01", to: "2025-02-28" },
   s4: { from: "2025-03-02", to: "2025-03-06" },
+  s5: { from: "2025-03-09", to: "2025-03-13" },
+  s6: { from: "2025-03-16", to: "2025-03-20" },
+  s7: { from: "2025-03-23", to: "2025-03-27" },
+  mar: { from: "2025-03-01", to: "2025-03-31" },
   total: { from: "2025-01-01", to: "2025-12-31" },
 };
 
@@ -27,6 +31,10 @@ function getPeriodForDate(dateStr: string): PeriodId | null {
   if (d >= "2025-01-01" && d <= "2025-01-31") return "jan";
   if (d >= "2025-02-01" && d <= "2025-02-28") return "fev";
   if (d >= "2025-03-02" && d <= "2025-03-06") return "s4";
+  if (d >= "2025-03-09" && d <= "2025-03-13") return "s5";
+  if (d >= "2025-03-16" && d <= "2025-03-20") return "s6";
+  if (d >= "2025-03-23" && d <= "2025-03-27") return "s7";
+  if (d >= "2025-03-01" && d <= "2025-03-31") return "mar";
   return null;
 }
 
