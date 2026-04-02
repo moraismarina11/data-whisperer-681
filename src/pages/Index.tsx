@@ -130,6 +130,8 @@ const Index = () => {
             <CustoCentroTab
               data={filterByPeriod(custoCentroMacaeData)}
               title="Centro de Custo — Macaé"
+              company="Macaé"
+              period={period}
             />
           </TabsContent>
 
