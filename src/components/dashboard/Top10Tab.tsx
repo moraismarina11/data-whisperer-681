@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import { formatCurrency, formatShort, COMPANY_COLORS } from "./shared";
 import type { Top10Entry } from "./shared";
+import Top10DrillModal, { type DrillSelection } from "./Top10DrillModal";
 
 const CustomTooltip = ({ active, payload }: any) => {
   if (!active || !payload?.length) return null;
@@ -28,14 +30,30 @@ const CustomTooltip = ({ active, payload }: any) => {
   );
 };
 
-interface Props { data: Top10Entry[] }
+interface Props {
+  data: Top10Entry[];
+  period: string;
+}
 
-const Top10Tab = ({ data }: Props) => {
+const Top10Tab = ({ data, period }: Props) => {
+  const [drillSelection, setDrillSelection] = useState<DrillSelection | null>(null);
+
   const sorted = [...data].sort((a, b) => a.total - b.total);
   const totalMacae = sorted.reduce((s, d) => s + d.macae, 0);
   const totalMeb = sorted.reduce((s, d) => s + d.meb, 0);
   const totalGeral = sorted.reduce((s, d) => s + d.total, 0);
   const chartHeight = Math.max(300, sorted.length * 48 + 60);
+
+  const handleSupplierClick = (supplier: string, company: string) => {
+    setDrillSelection({ supplier, company, period });
+  };
+
+  const handleBarClick = (data: any) => {
+    if (!data) return;
+    const entry = data as Top10Entry;
+    const company = entry.macae !== 0 ? "Macaé" : "Mota Engil Brasil";
+    handleSupplierClick(entry.supplier, company);
+  };
 
   return (
     <div className="space-y-6">
@@ -69,9 +87,22 @@ const Top10Tab = ({ data }: Props) => {
             <XAxis type="number" tickFormatter={formatShort} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} />
             <YAxis type="category" dataKey="supplier" width={220} tick={{ fill: "hsl(var(--foreground))", fontSize: 12 }} />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: "hsl(var(--muted) / 0.4)" }} />
-            <Bar dataKey="total" radius={[0, 4, 4, 0]} barSize={26}>
+            <Bar
+              dataKey="total"
+              radius={[0, 4, 4, 0]}
+              barSize={26}
+              className="cursor-pointer"
+              onClick={(_: any, __: any, e: any) => {
+                // The click handler on Cell handles this
+              }}
+            >
               {sorted.map((d, i) => (
-                <Cell key={i} fill={d.macae !== 0 ? COMPANY_COLORS["Macaé"] : COMPANY_COLORS["Mota Engil Brasil"]} />
+                <Cell
+                  key={i}
+                  fill={d.macae !== 0 ? COMPANY_COLORS["Macaé"] : COMPANY_COLORS["Mota Engil Brasil"]}
+                  className="cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => handleBarClick(d)}
+                />
               ))}
             </Bar>
           </BarChart>
@@ -91,10 +122,35 @@ const Top10Tab = ({ data }: Props) => {
           </thead>
           <tbody>
             {sorted.map((d, i) => (
-              <tr key={d.supplier} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/10" : ""}`}>
+              <tr
+                key={d.supplier}
+                className={`border-b border-border/50 cursor-pointer transition-colors hover:bg-muted/30 ${i % 2 === 0 ? "bg-muted/10" : ""}`}
+                onClick={() => {
+                  const company = d.macae !== 0 ? "Macaé" : "Mota Engil Brasil";
+                  handleSupplierClick(d.supplier, company);
+                }}
+              >
                 <td className="p-4 text-foreground font-medium">{d.supplier}</td>
-                <td className={`p-4 text-right ${d.macae < 0 ? "text-destructive" : ""}`}>{d.macae !== 0 ? formatCurrency(d.macae) : "-"}</td>
-                <td className={`p-4 text-right ${d.meb < 0 ? "text-destructive" : ""}`}>{d.meb !== 0 ? formatCurrency(d.meb) : "-"}</td>
+                <td className={`p-4 text-right ${d.macae < 0 ? "text-destructive" : ""}`}>
+                  {d.macae !== 0 ? (
+                    <button
+                      className="hover:underline"
+                      onClick={(e) => { e.stopPropagation(); handleSupplierClick(d.supplier, "Macaé"); }}
+                    >
+                      {formatCurrency(d.macae)}
+                    </button>
+                  ) : "-"}
+                </td>
+                <td className={`p-4 text-right ${d.meb < 0 ? "text-destructive" : ""}`}>
+                  {d.meb !== 0 ? (
+                    <button
+                      className="hover:underline"
+                      onClick={(e) => { e.stopPropagation(); handleSupplierClick(d.supplier, "Mota Engil Brasil"); }}
+                    >
+                      {formatCurrency(d.meb)}
+                    </button>
+                  ) : "-"}
+                </td>
                 <td className={`p-4 text-right font-bold ${d.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(d.total)}</td>
               </tr>
             ))}
@@ -107,6 +163,9 @@ const Top10Tab = ({ data }: Props) => {
           </tbody>
         </table>
       </div>
+
+      {/* Drill-down Modal */}
+      <Top10DrillModal selection={drillSelection} onClose={() => setDrillSelection(null)} />
     </div>
   );
 };

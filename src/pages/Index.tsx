@@ -109,7 +109,7 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="top10">
-            <Top10Tab data={filterByPeriod(top10Data)} />
+            <Top10Tab data={filterByPeriod(top10Data)} period={period} />
           </TabsContent>
 
           <TabsContent value="tipo">
