@@ -1,11 +1,25 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { useState } from "react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from "recharts";
 import { formatCurrency, formatShort, COST_TYPE_LABELS, COMPANY_COLORS } from "./shared";
 import type { TipoPagamentoEntry } from "./shared";
+import TipoPagamentoDrillModal, { type TipoDrillSelection } from "./TipoPagamentoDrillModal";
 
 const COST_KEYS = ["financiamento", "fornecedor", "imposto", "outrosCustos", "outrosRecebimentos", "recCliente", "salarios"] as const;
 
+// Map internal keys to the tipo values in drillData JSON
+const COST_KEY_TO_TIPO: Record<string, string> = {
+  financiamento: "FINANCIAMENTO",
+  fornecedor: "FORNECEDOR",
+  imposto: "IMPOSTO",
+  outrosCustos: "OUTROS CUSTOS",
+  outrosRecebimentos: "OUTROS RECEBIMENTOS",
+  recCliente: "RECEBIMENTO CLIENTE",
+  salarios: "SALARIOS",
+};
+
 interface ChartRow {
   type: string;
+  key: string;
   macae: number;
   meb: number;
 }
@@ -28,20 +42,29 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   );
 };
 
-interface Props { data: TipoPagamentoEntry[] }
+interface Props {
+  data: TipoPagamentoEntry[];
+  period: string;
+}
 
-const TipoPagamentoTab = ({ data }: Props) => {
+const TipoPagamentoTab = ({ data, period }: Props) => {
+  const [drillSelection, setDrillSelection] = useState<TipoDrillSelection | null>(null);
+
   const macaeRow = data.find((d) => d.company === "Macaé");
   const mebRow = data.find((d) => d.company === "Mota Engil Brasil");
 
   const chartData: ChartRow[] = COST_KEYS.map((k) => ({
     type: COST_TYPE_LABELS[k],
+    key: k,
     macae: macaeRow?.[k] ?? 0,
     meb: mebRow?.[k] ?? 0,
   }));
 
   const tableRows = COST_KEYS.map((k) => ({
+    key: k,
     label: COST_TYPE_LABELS[k].toUpperCase(),
+    tipoLabel: COST_TYPE_LABELS[k],
+    tipo: COST_KEY_TO_TIPO[k],
     macae: macaeRow?.[k] ?? 0,
     meb: mebRow?.[k] ?? 0,
     total: (macaeRow?.[k] ?? 0) + (mebRow?.[k] ?? 0),
@@ -50,6 +73,21 @@ const TipoPagamentoTab = ({ data }: Props) => {
   const totalMacae = data.filter(d => d.company === "Macaé").reduce((s, d) => s + d.total, 0);
   const totalMeb = data.filter(d => d.company === "Mota Engil Brasil").reduce((s, d) => s + d.total, 0);
   const grandTotal = totalMacae + totalMeb;
+
+  const openDrill = (tipo: string, tipoLabel: string, company: string) => {
+    setDrillSelection({ tipo, tipoLabel, company, period });
+  };
+
+  const handleBarClick = (data: any, companyKey: "macae" | "meb") => {
+    if (!data?.key) return;
+    const key = data.key as string;
+    const tipo = COST_KEY_TO_TIPO[key];
+    const tipoLabel = COST_TYPE_LABELS[key];
+    const company = companyKey === "macae" ? "Macaé" : "Mota Engil Brasil";
+    if (data[companyKey] !== 0) {
+      openDrill(tipo, tipoLabel, company);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -72,8 +110,22 @@ const TipoPagamentoTab = ({ data }: Props) => {
             <YAxis tickFormatter={formatShort} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: "hsl(var(--muted) / 0.4)" }} />
             <Legend />
-            <Bar dataKey="macae" name="Macaé" fill={COMPANY_COLORS["Macaé"]} barSize={28} />
-            <Bar dataKey="meb" name="Mota-Engil Brasil" fill={COMPANY_COLORS["Mota Engil Brasil"]} barSize={28} />
+            <Bar
+              dataKey="macae"
+              name="Macaé"
+              fill={COMPANY_COLORS["Macaé"]}
+              barSize={28}
+              className="cursor-pointer"
+              onClick={(data: any) => handleBarClick(data, "macae")}
+            />
+            <Bar
+              dataKey="meb"
+              name="Mota-Engil Brasil"
+              fill={COMPANY_COLORS["Mota Engil Brasil"]}
+              barSize={28}
+              className="cursor-pointer"
+              onClick={(data: any) => handleBarClick(data, "meb")}
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -96,13 +148,22 @@ const TipoPagamentoTab = ({ data }: Props) => {
             {tableRows.map((r, i) => (
               <tr key={r.label} className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/10" : ""}`}>
                 <td className="p-4 text-foreground font-semibold">{r.label}</td>
-                <td className={`p-4 text-right ${r.macae < 0 ? "text-destructive" : "text-foreground"}`}>
+                <td
+                  className={`p-4 text-right ${r.macae < 0 ? "text-destructive" : "text-foreground"} ${r.macae !== 0 ? "cursor-pointer hover:bg-muted/30 transition-colors rounded" : ""}`}
+                  onClick={() => r.macae !== 0 && openDrill(r.tipo, r.tipoLabel, "Macaé")}
+                >
                   {r.macae !== 0 ? formatCurrency(r.macae) : "-"}
                 </td>
-                <td className={`p-4 text-right ${r.meb < 0 ? "text-destructive" : "text-foreground"}`}>
+                <td
+                  className={`p-4 text-right ${r.meb < 0 ? "text-destructive" : "text-foreground"} ${r.meb !== 0 ? "cursor-pointer hover:bg-muted/30 transition-colors rounded" : ""}`}
+                  onClick={() => r.meb !== 0 && openDrill(r.tipo, r.tipoLabel, "Mota Engil Brasil")}
+                >
                   {r.meb !== 0 ? formatCurrency(r.meb) : "-"}
                 </td>
-                <td className={`p-4 text-right font-bold ${r.total < 0 ? "text-destructive" : "text-foreground"}`}>
+                <td
+                  className={`p-4 text-right font-bold ${r.total < 0 ? "text-destructive" : "text-foreground"} ${r.total !== 0 ? "cursor-pointer hover:bg-muted/30 transition-colors rounded" : ""}`}
+                  onClick={() => r.total !== 0 && openDrill(r.tipo, r.tipoLabel, "all")}
+                >
                   {formatCurrency(r.total)}
                 </td>
               </tr>
@@ -122,6 +183,8 @@ const TipoPagamentoTab = ({ data }: Props) => {
           </tbody>
         </table>
       </div>
+
+      <TipoPagamentoDrillModal selection={drillSelection} onClose={() => setDrillSelection(null)} />
     </div>
   );
 };
