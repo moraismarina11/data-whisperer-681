@@ -121,7 +121,10 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
             <p className="text-lg font-bold" style={{ color: COST_TYPE_COLORS[k] }}>{formatCurrency(totals[k])}</p>
           </div>
         ))}
-        <div className="bg-card rounded-xl border-2 border-primary/30 p-4 shadow-sm">
+        <div
+          className="bg-card rounded-xl border-2 border-primary/30 p-4 shadow-sm cursor-pointer hover:bg-muted/30 transition-colors"
+          onClick={() => setDrillSelection({ mode: "all", company, period })}
+        >
           <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Total Geral</span>
           <p className="text-lg font-bold text-primary mt-1.5">{formatCurrency(grandTotal)}</p>
         </div>
