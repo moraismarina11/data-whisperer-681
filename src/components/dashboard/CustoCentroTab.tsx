@@ -148,7 +148,8 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
                 paddingAngle={2}
                 strokeWidth={0}
                 cursor="pointer"
-                onClick={(entry: any) => {
+                onClick={(_: any, index: number) => {
+                  const entry = pieData[index];
                   const key = COST_KEYS.find((k) => COST_TYPE_LABELS[k] === entry.name);
                   if (key) {
                     setDrillSelection({ mode: "tipo", tipo: COST_KEY_TO_TIPO[key], tipoLabel: COST_TYPE_LABELS[key], company, period });
