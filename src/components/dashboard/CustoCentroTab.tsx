@@ -109,7 +109,11 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {COST_KEYS.filter((k) => totals[k] !== 0).map((k) => (
-          <div key={k} className="bg-card rounded-xl border border-border p-4 shadow-sm">
+          <div
+            key={k}
+            className="bg-card rounded-xl border border-border p-4 shadow-sm cursor-pointer hover:bg-muted/30 transition-colors"
+            onClick={() => setDrillSelection({ mode: "tipo", tipo: COST_KEY_TO_TIPO[k], tipoLabel: COST_TYPE_LABELS[k], company, period })}
+          >
             <div className="flex items-center gap-2 mb-1.5">
               <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: COST_TYPE_COLORS[k] }} />
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{COST_TYPE_LABELS[k]}</span>
