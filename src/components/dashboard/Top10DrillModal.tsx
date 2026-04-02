@@ -45,14 +45,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
   const filtered = useMemo(() => {
     if (!selection) return [];
 
-    let periodos: string[];
-    if (selection.period === "total") {
-      periodos = ["jan", "fev", "mar"];
-    } else if (selection.period === "mar" || selection.period === "s4" || selection.period === "s5" || selection.period === "s6" || selection.period === "s7") {
-      periodos = ["mar"];
-    } else {
-      periodos = [selection.period];
-    }
+    const periodos = [selection.period];
 
     let records = (drillData as DrillRecord[]).filter((r) => {
       const matchPeriod = periodos.includes(r.periodo);
