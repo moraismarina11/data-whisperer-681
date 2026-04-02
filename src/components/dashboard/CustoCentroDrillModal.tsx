@@ -69,6 +69,9 @@ const CustoCentroDrillModal = ({ selection, onClose }: Props) => {
       if (selection.mode === "tipo") {
         return r.tipo === selection.tipo;
       }
+      if (selection.mode === "cc_tipo") {
+        return r.cc === selection.cc && r.tipo === selection.tipo;
+      }
       return false;
     });
 
