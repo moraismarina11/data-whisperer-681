@@ -224,7 +224,11 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
                 </tr>
                 {grouped && expandedGroup === d.group && d.children
                   .map((child: CustoCentroEntry) => (
-                    <tr key={child.cc} className="border-b border-border/30 bg-muted/20">
+                    <tr
+                      key={child.cc}
+                      className="border-b border-border/30 bg-muted/20 cursor-pointer hover:bg-muted/40 transition-colors"
+                      onClick={() => setDrillSelection({ mode: "cc", cc: child.cc, company, period })}
+                    >
                       <td className="p-3 pl-12 text-muted-foreground text-xs">{child.cc}</td>
                       {COST_KEYS.map((k) => (
                         <td key={k} className={`p-3 text-right text-xs ${child[k] < 0 ? "text-destructive" : "text-muted-foreground"}`}>
