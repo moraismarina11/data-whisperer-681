@@ -134,7 +134,24 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
           <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Distribuição</h4>
           <ResponsiveContainer width="100%" height={220}>
             <PieChart>
-              <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={85} innerRadius={35} paddingAngle={2} strokeWidth={0}>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={85}
+                innerRadius={35}
+                paddingAngle={2}
+                strokeWidth={0}
+                cursor="pointer"
+                onClick={(entry: any) => {
+                  const key = COST_KEYS.find((k) => COST_TYPE_LABELS[k] === entry.name);
+                  if (key) {
+                    setDrillSelection({ mode: "tipo", tipo: COST_KEY_TO_TIPO[key], tipoLabel: COST_TYPE_LABELS[key], company, period });
+                  }
+                }}
+              >
                 {pieData.map((d, i) => <Cell key={i} fill={d.color} />)}
               </Pie>
               <Tooltip formatter={(v: number) => formatCurrency(v)} />
@@ -159,7 +176,19 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
               <XAxis type="number" tickFormatter={formatShort} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} />
               <YAxis type="category" dataKey={grouped ? "group" : "cc"} width={160} tick={{ fill: "hsl(var(--foreground))", fontSize: 12 }} />
               <Tooltip content={<CcTooltip />} cursor={{ fill: "hsl(var(--muted) / 0.4)" }} />
-              <Bar dataKey="total" radius={[0, 4, 4, 0]} barSize={26}>
+              <Bar
+                dataKey="total"
+                radius={[0, 4, 4, 0]}
+                barSize={26}
+                cursor="pointer"
+                onClick={(entry: any) => {
+                  if (grouped) {
+                    setDrillSelection({ mode: "group", group: entry.group, company, period });
+                  } else {
+                    setDrillSelection({ mode: "cc", cc: entry.cc, company, period });
+                  }
+                }}
+              >
                 {displayData.map((d: any, i) => (
                   <Cell key={i} fill={grouped ? (GROUP_COLORS[d.group] || "hsl(var(--primary))") : "hsl(var(--primary))"} />
                 ))}
