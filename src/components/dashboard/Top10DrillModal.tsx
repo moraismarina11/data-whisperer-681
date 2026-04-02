@@ -152,7 +152,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
             {filtered.length > 0 && (
               <tfoot>
                 <tr className="bg-muted/50 border-t-2 border-border">
-                  <td colSpan={6} className="p-3 font-bold text-foreground">Total</td>
+                  <td colSpan={isCompanyTotal ? 7 : 6} className="p-3 font-bold text-foreground">Total</td>
                   <td className={`p-3 text-right font-bold ${total < 0 ? "text-destructive" : ""}`}>
                     {formatCurrency(total)}
                   </td>
