@@ -6,7 +6,7 @@ import { ArrowLeft, Search } from "lucide-react";
 import drillData from "./top10DrillData.json";
 
 export interface CcDrillSelection {
-  mode: "group" | "cc" | "tipo";
+  mode: "group" | "cc" | "tipo" | "cc_tipo";
   group?: string;
   cc?: string;
   tipo?: string;
