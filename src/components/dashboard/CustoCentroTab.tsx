@@ -250,6 +250,7 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
           </tbody>
         </table>
       </div>
+      <CustoCentroDrillModal selection={drillSelection} onClose={() => setDrillSelection(null)} />
     </div>
   );
 };

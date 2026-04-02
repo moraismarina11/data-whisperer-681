@@ -121,6 +121,8 @@ const Index = () => {
               data={filterByPeriod(custoCentroMEBData)}
               title="Centro de Custo — Mota Engil Brasil"
               grouped
+              period={period}
+              company="Mota Engil Brasil"
             />
           </TabsContent>
 
