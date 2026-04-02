@@ -277,12 +277,24 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
                       onClick={() => setDrillSelection({ mode: "cc", cc: child.cc, company, period })}
                     >
                       <td className="p-3 pl-12 text-muted-foreground text-xs">{child.cc}</td>
-                      {COST_KEYS.map((k) => (
-                        <td key={k} className={`p-3 text-right text-xs ${child[k] < 0 ? "text-destructive" : "text-muted-foreground"}`}>
-                          {child[k] !== 0 ? formatCurrency(child[k]) : "-"}
-                        </td>
-                      ))}
-                      <td className={`p-3 text-right font-semibold text-xs ${child.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(child.total)}</td>
+                      {COST_KEYS.map((k) => {
+                        const val = child[k];
+                        const clickable = val !== 0;
+                        return (
+                          <td
+                            key={k}
+                            className={`p-3 text-right text-xs ${val < 0 ? "text-destructive" : "text-muted-foreground"} ${clickable ? "cursor-pointer hover:bg-muted/40 transition-colors" : ""}`}
+                            onClick={(e) => {
+                              if (!clickable) return;
+                              e.stopPropagation();
+                              setDrillSelection({ mode: "cc_tipo", cc: child.cc, tipo: COST_KEY_TO_TIPO[k], tipoLabel: COST_TYPE_LABELS[k], company, period });
+                            }}
+                          >
+                            {val !== 0 ? formatCurrency(val) : "-"}
+                          </td>
+                        );
+                      })}
+                      <td className={`p-3 text-right font-semibold text-xs ${child.total < 0 ? "text-destructive" : ""} cursor-pointer hover:bg-muted/40 transition-colors`}>{formatCurrency(child.total)}</td>
                     </tr>
                   ))}
               </>
