@@ -130,6 +130,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
                   className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/10" : ""}`}
                 >
                   <td className="p-3 text-foreground whitespace-nowrap">{r.data}</td>
+                  {isCompanyTotal && <td className="p-3 text-foreground">{r.fornecedor}</td>}
                   <td className="p-3 text-foreground">{r.num_doc}</td>
                   <td className="p-3 text-foreground">{r.cc}</td>
                   <td className="p-3 text-foreground">{r.grupo}</td>
