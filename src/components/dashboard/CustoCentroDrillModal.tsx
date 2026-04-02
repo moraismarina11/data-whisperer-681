@@ -99,6 +99,8 @@ const CustoCentroDrillModal = ({ selection, onClose }: Props) => {
     title = `CC ${selection.cc} — ${selection.company} — ${periodLabel(selection.period)}`;
   } else if (selection.mode === "tipo") {
     title = `${selection.tipoLabel?.toUpperCase()} — ${selection.company} — ${periodLabel(selection.period)}`;
+  } else if (selection.mode === "cc_tipo") {
+    title = `${selection.tipoLabel?.toUpperCase()} — CC ${selection.cc} — ${periodLabel(selection.period)}`;
   }
 
   return (
