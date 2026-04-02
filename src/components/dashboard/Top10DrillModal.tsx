@@ -7,8 +7,9 @@ import drillData from "./top10DrillData.json";
 
 export interface DrillSelection {
   supplier: string;
-  company: string; // "Macaé" | "Mota Engil Brasil"
+  company: string; // "Macaé" | "Mota Engil Brasil" | "all"
   period: string;  // PeriodId
+  mode?: "supplier" | "company-total"; // default "supplier"
 }
 
 interface DrillRecord {
@@ -39,10 +40,11 @@ interface Props {
 const Top10DrillModal = ({ selection, onClose }: Props) => {
   const [search, setSearch] = useState("");
 
+  const isCompanyTotal = selection?.mode === "company-total";
+
   const filtered = useMemo(() => {
     if (!selection) return [];
 
-    // Determine which periodos to include
     let periodos: string[];
     if (selection.period === "total") {
       periodos = ["jan", "fev", "mar"];
@@ -52,25 +54,27 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
       periodos = [selection.period];
     }
 
-    let records = (drillData as DrillRecord[]).filter(
-      (r) =>
-        r.fornecedor === selection.supplier &&
-        r.empresa === selection.company &&
-        periodos.includes(r.periodo)
-    );
+    let records = (drillData as DrillRecord[]).filter((r) => {
+      const matchPeriod = periodos.includes(r.periodo);
+      if (isCompanyTotal) {
+        const matchCompany = selection.company === "all" || r.empresa === selection.company;
+        return matchCompany && matchPeriod;
+      }
+      return r.fornecedor === selection.supplier && r.empresa === selection.company && matchPeriod;
+    });
 
     if (search.trim()) {
       const q = search.toLowerCase();
       records = records.filter(
         (r) =>
+          r.fornecedor.toLowerCase().includes(q) ||
           r.historico.toLowerCase().includes(q) ||
           r.num_doc.toLowerCase().includes(q)
       );
     }
 
-    // Sort by date descending
     return records.sort((a, b) => parseDate(b.data).getTime() - parseDate(a.data).getTime());
-  }, [selection, search]);
+  }, [selection, search, isCompanyTotal]);
 
   const total = useMemo(() => filtered.reduce((s, r) => s + r.valor, 0), [filtered]);
 
@@ -90,12 +94,14 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
             </button>
           </div>
           <DialogTitle className="text-lg font-bold">
-            {selection.supplier} — {selection.company} — {periodLabel(selection.period)}
+            {isCompanyTotal
+              ? `Total ${selection.company === "all" ? "Geral" : selection.company} — ${periodLabel(selection.period)}`
+              : `${selection.supplier} — ${selection.company} — ${periodLabel(selection.period)}`}
           </DialogTitle>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Pesquisar por histórico ou nº doc..."
+              placeholder={isCompanyTotal ? "Pesquisar por fornecedor, histórico ou nº doc..." : "Pesquisar por histórico ou nº doc..."}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="pl-9"
@@ -108,6 +114,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
             <thead>
               <tr className="border-b-2 border-border bg-muted/40 sticky top-0">
                 <th className="text-left p-3 font-bold text-foreground">Data</th>
+                {isCompanyTotal && <th className="text-left p-3 font-bold text-foreground">Fornecedor</th>}
                 <th className="text-left p-3 font-bold text-foreground">Nº Doc</th>
                 <th className="text-left p-3 font-bold text-foreground">CC</th>
                 <th className="text-left p-3 font-bold text-foreground">Grupo</th>
@@ -123,6 +130,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
                   className={`border-b border-border/50 ${i % 2 === 0 ? "bg-muted/10" : ""}`}
                 >
                   <td className="p-3 text-foreground whitespace-nowrap">{r.data}</td>
+                  {isCompanyTotal && <td className="p-3 text-foreground">{r.fornecedor}</td>}
                   <td className="p-3 text-foreground">{r.num_doc}</td>
                   <td className="p-3 text-foreground">{r.cc}</td>
                   <td className="p-3 text-foreground">{r.grupo}</td>
@@ -135,7 +143,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
               ))}
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="p-8 text-center text-muted-foreground">
+                  <td colSpan={isCompanyTotal ? 8 : 7} className="p-8 text-center text-muted-foreground">
                     Nenhum registo encontrado.
                   </td>
                 </tr>
@@ -144,7 +152,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
             {filtered.length > 0 && (
               <tfoot>
                 <tr className="bg-muted/50 border-t-2 border-border">
-                  <td colSpan={6} className="p-3 font-bold text-foreground">Total</td>
+                  <td colSpan={isCompanyTotal ? 7 : 6} className="p-3 font-bold text-foreground">Total</td>
                   <td className={`p-3 text-right font-bold ${total < 0 ? "text-destructive" : ""}`}>
                     {formatCurrency(total)}
                   </td>
