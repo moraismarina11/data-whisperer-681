@@ -48,6 +48,10 @@ const Top10Tab = ({ data, period }: Props) => {
     setDrillSelection({ supplier, company, period });
   };
 
+  const handleCardClick = (company: string) => {
+    setDrillSelection({ supplier: "", company, period, mode: "company-total" });
+  };
+
   const handleBarClick = (data: any) => {
     if (!data) return;
     const entry = data as Top10Entry;
