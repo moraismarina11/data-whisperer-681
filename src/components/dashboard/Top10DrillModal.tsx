@@ -40,10 +40,11 @@ interface Props {
 const Top10DrillModal = ({ selection, onClose }: Props) => {
   const [search, setSearch] = useState("");
 
+  const isCompanyTotal = selection?.mode === "company-total";
+
   const filtered = useMemo(() => {
     if (!selection) return [];
 
-    // Determine which periodos to include
     let periodos: string[];
     if (selection.period === "total") {
       periodos = ["jan", "fev", "mar"];
@@ -53,25 +54,27 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
       periodos = [selection.period];
     }
 
-    let records = (drillData as DrillRecord[]).filter(
-      (r) =>
-        r.fornecedor === selection.supplier &&
-        r.empresa === selection.company &&
-        periodos.includes(r.periodo)
-    );
+    let records = (drillData as DrillRecord[]).filter((r) => {
+      const matchPeriod = periodos.includes(r.periodo);
+      if (isCompanyTotal) {
+        const matchCompany = selection.company === "all" || r.empresa === selection.company;
+        return matchCompany && matchPeriod;
+      }
+      return r.fornecedor === selection.supplier && r.empresa === selection.company && matchPeriod;
+    });
 
     if (search.trim()) {
       const q = search.toLowerCase();
       records = records.filter(
         (r) =>
+          r.fornecedor.toLowerCase().includes(q) ||
           r.historico.toLowerCase().includes(q) ||
           r.num_doc.toLowerCase().includes(q)
       );
     }
 
-    // Sort by date descending
     return records.sort((a, b) => parseDate(b.data).getTime() - parseDate(a.data).getTime());
-  }, [selection, search]);
+  }, [selection, search, isCompanyTotal]);
 
   const total = useMemo(() => filtered.reduce((s, r) => s + r.valor, 0), [filtered]);
 
