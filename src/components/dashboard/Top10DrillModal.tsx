@@ -7,8 +7,9 @@ import drillData from "./top10DrillData.json";
 
 export interface DrillSelection {
   supplier: string;
-  company: string; // "Macaé" | "Mota Engil Brasil"
+  company: string; // "Macaé" | "Mota Engil Brasil" | "all"
   period: string;  // PeriodId
+  mode?: "supplier" | "company-total"; // default "supplier"
 }
 
 interface DrillRecord {
