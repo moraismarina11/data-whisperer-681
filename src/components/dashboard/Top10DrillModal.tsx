@@ -114,6 +114,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
             <thead>
               <tr className="border-b-2 border-border bg-muted/40 sticky top-0">
                 <th className="text-left p-3 font-bold text-foreground">Data</th>
+                {isCompanyTotal && <th className="text-left p-3 font-bold text-foreground">Fornecedor</th>}
                 <th className="text-left p-3 font-bold text-foreground">Nº Doc</th>
                 <th className="text-left p-3 font-bold text-foreground">CC</th>
                 <th className="text-left p-3 font-bold text-foreground">Grupo</th>
