@@ -143,7 +143,7 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
               ))}
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="p-8 text-center text-muted-foreground">
+                  <td colSpan={isCompanyTotal ? 8 : 7} className="p-8 text-center text-muted-foreground">
                     Nenhum registo encontrado.
                   </td>
                 </tr>
