@@ -191,8 +191,23 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
               <>
                 <tr
                   key={d.group || d.cc}
-                  className={`border-b border-border/50 transition-colors ${grouped ? "cursor-pointer hover:bg-muted/30" : ""} ${i % 2 === 0 ? "bg-muted/10" : ""}`}
-                  onClick={() => grouped && setExpandedGroup(expandedGroup === d.group ? null : d.group)}
+                  className={`border-b border-border/50 transition-colors cursor-pointer hover:bg-muted/30 ${i % 2 === 0 ? "bg-muted/10" : ""}`}
+                  onClick={() => {
+                    if (grouped) {
+                      if (expandedGroup === d.group) {
+                        setExpandedGroup(null);
+                      } else {
+                        setExpandedGroup(d.group);
+                      }
+                    } else {
+                      setDrillSelection({ mode: "cc", cc: d.cc, company, period });
+                    }
+                  }}
+                  onDoubleClick={() => {
+                    if (grouped) {
+                      setDrillSelection({ mode: "group", group: d.group, company, period });
+                    }
+                  }}
                 >
                   <td className="p-3 text-foreground font-medium">
                     {grouped && (
