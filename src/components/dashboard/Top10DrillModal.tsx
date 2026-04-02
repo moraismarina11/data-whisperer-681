@@ -94,7 +94,9 @@ const Top10DrillModal = ({ selection, onClose }: Props) => {
             </button>
           </div>
           <DialogTitle className="text-lg font-bold">
-            {selection.supplier} — {selection.company} — {periodLabel(selection.period)}
+            {isCompanyTotal
+              ? `Total ${selection.company === "all" ? "Geral" : selection.company} — ${periodLabel(selection.period)}`
+              : `${selection.supplier} — ${selection.company} — ${periodLabel(selection.period)}`}
           </DialogTitle>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
