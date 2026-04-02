@@ -2,6 +2,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { formatCurrency, formatShort, COST_TYPE_COLORS, COST_TYPE_LABELS, GROUP_COLORS, groupLabel, MEB_GROUP_ORDER, MACAE_CC_ORDER } from "./shared";
 import type { CustoCentroEntry } from "./shared";
 import { useState } from "react";
+import CustoCentroDrillModal, { COST_KEY_TO_TIPO, type CcDrillSelection } from "./CustoCentroDrillModal";
 
 const COST_KEYS = ["financiamento", "fornecedor", "imposto", "outrosCustos", "outrosRecebimentos", "recCliente", "salarios"] as const;
 
