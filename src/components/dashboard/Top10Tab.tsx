@@ -64,11 +64,15 @@ const Top10Tab = ({ data, period }: Props) => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
-          { label: "Macaé", value: totalMacae, color: COMPANY_COLORS["Macaé"], dot: true },
-          { label: "Mota Engil Brasil", value: totalMeb, color: COMPANY_COLORS["Mota Engil Brasil"], dot: true },
-          { label: "Total Geral", value: totalGeral, color: undefined, dot: false },
+          { label: "Macaé", value: totalMacae, color: COMPANY_COLORS["Macaé"], dot: true, clickCompany: "Macaé" },
+          { label: "Mota Engil Brasil", value: totalMeb, color: COMPANY_COLORS["Mota Engil Brasil"], dot: true, clickCompany: "Mota Engil Brasil" },
+          { label: "Total Geral", value: totalGeral, color: undefined, dot: false, clickCompany: "all" },
         ].map((k) => (
-          <div key={k.label} className="bg-card rounded-xl border border-border p-5 shadow-sm">
+          <div
+            key={k.label}
+            className="bg-card rounded-xl border border-border p-5 shadow-sm cursor-pointer transition-colors hover:bg-muted/30"
+            onClick={() => handleCardClick(k.clickCompany)}
+          >
             <div className="flex items-center gap-2 mb-2">
               {k.dot && <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: k.color }} />}
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{k.label}</span>
