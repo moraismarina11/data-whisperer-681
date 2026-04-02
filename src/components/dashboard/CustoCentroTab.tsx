@@ -184,7 +184,8 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
                 radius={[0, 4, 4, 0]}
                 barSize={26}
                 cursor="pointer"
-                onClick={(entry: any) => {
+                onClick={(_: any, index: number) => {
+                  const entry = displayData[index];
                   if (grouped) {
                     setDrillSelection({ mode: "group", group: entry.group, company, period });
                   } else {
