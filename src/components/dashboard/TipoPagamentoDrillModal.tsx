@@ -43,14 +43,7 @@ const TipoPagamentoDrillModal = ({ selection, onClose }: Props) => {
   const filtered = useMemo(() => {
     if (!selection) return [];
 
-    let periodos: string[];
-    if (selection.period === "total") {
-      periodos = ["jan", "fev", "mar"];
-    } else if (["mar", "s4", "s5", "s6", "s7"].includes(selection.period)) {
-      periodos = ["mar"];
-    } else {
-      periodos = [selection.period];
-    }
+    const periodos = [selection.period];
 
     let records = (drillData as DrillRecord[]).filter((r) => {
       const matchPeriod = periodos.includes(r.periodo);
