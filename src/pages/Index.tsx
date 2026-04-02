@@ -113,7 +113,7 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="tipo">
-            <TipoPagamentoTab data={filterByPeriod(tipoPagamentoData)} />
+            <TipoPagamentoTab data={filterByPeriod(tipoPagamentoData)} period={period} />
           </TabsContent>
 
           <TabsContent value="cc-meb">
