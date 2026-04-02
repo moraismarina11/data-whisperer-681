@@ -60,10 +60,13 @@ interface Props {
   data: CustoCentroEntry[];
   title: string;
   grouped?: boolean;
+  period?: string;
+  company?: string;
 }
 
-const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
+const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company = "Mota Engil Brasil" }: Props) => {
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
+  const [drillSelection, setDrillSelection] = useState<CcDrillSelection | null>(null);
   const groupedData = grouped ? groupData(data) : null;
 
   let displayData: any[];
