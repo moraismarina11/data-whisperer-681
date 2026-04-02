@@ -6,7 +6,7 @@ import { ArrowLeft, Search } from "lucide-react";
 import drillData from "./top10DrillData.json";
 
 export interface CcDrillSelection {
-  mode: "group" | "cc" | "tipo";
+  mode: "group" | "cc" | "tipo" | "cc_tipo";
   group?: string;
   cc?: string;
   tipo?: string;
@@ -69,6 +69,9 @@ const CustoCentroDrillModal = ({ selection, onClose }: Props) => {
       if (selection.mode === "tipo") {
         return r.tipo === selection.tipo;
       }
+      if (selection.mode === "cc_tipo") {
+        return r.cc === selection.cc && r.tipo === selection.tipo;
+      }
       return false;
     });
 
@@ -96,6 +99,8 @@ const CustoCentroDrillModal = ({ selection, onClose }: Props) => {
     title = `CC ${selection.cc} — ${selection.company} — ${periodLabel(selection.period)}`;
   } else if (selection.mode === "tipo") {
     title = `${selection.tipoLabel?.toUpperCase()} — ${selection.company} — ${periodLabel(selection.period)}`;
+  } else if (selection.mode === "cc_tipo") {
+    title = `${selection.tipoLabel?.toUpperCase()} — CC ${selection.cc} — ${periodLabel(selection.period)}`;
   }
 
   return (
