@@ -2,6 +2,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { formatCurrency, formatShort, COST_TYPE_COLORS, COST_TYPE_LABELS, GROUP_COLORS, groupLabel, MEB_GROUP_ORDER, MACAE_CC_ORDER } from "./shared";
 import type { CustoCentroEntry } from "./shared";
 import { useState } from "react";
+import CustoCentroDrillModal, { COST_KEY_TO_TIPO, type CcDrillSelection } from "./CustoCentroDrillModal";
 
 const COST_KEYS = ["financiamento", "fornecedor", "imposto", "outrosCustos", "outrosRecebimentos", "recCliente", "salarios"] as const;
 
@@ -59,10 +60,13 @@ interface Props {
   data: CustoCentroEntry[];
   title: string;
   grouped?: boolean;
+  period?: string;
+  company?: string;
 }
 
-const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
+const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company = "Mota Engil Brasil" }: Props) => {
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
+  const [drillSelection, setDrillSelection] = useState<CcDrillSelection | null>(null);
   const groupedData = grouped ? groupData(data) : null;
 
   let displayData: any[];
@@ -105,7 +109,11 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
       {/* KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {COST_KEYS.filter((k) => totals[k] !== 0).map((k) => (
-          <div key={k} className="bg-card rounded-xl border border-border p-4 shadow-sm">
+          <div
+            key={k}
+            className="bg-card rounded-xl border border-border p-4 shadow-sm cursor-pointer hover:bg-muted/30 transition-colors"
+            onClick={() => setDrillSelection({ mode: "tipo", tipo: COST_KEY_TO_TIPO[k], tipoLabel: COST_TYPE_LABELS[k], company, period })}
+          >
             <div className="flex items-center gap-2 mb-1.5">
               <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: COST_TYPE_COLORS[k] }} />
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{COST_TYPE_LABELS[k]}</span>
@@ -183,8 +191,23 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
               <>
                 <tr
                   key={d.group || d.cc}
-                  className={`border-b border-border/50 transition-colors ${grouped ? "cursor-pointer hover:bg-muted/30" : ""} ${i % 2 === 0 ? "bg-muted/10" : ""}`}
-                  onClick={() => grouped && setExpandedGroup(expandedGroup === d.group ? null : d.group)}
+                  className={`border-b border-border/50 transition-colors cursor-pointer hover:bg-muted/30 ${i % 2 === 0 ? "bg-muted/10" : ""}`}
+                  onClick={() => {
+                    if (grouped) {
+                      if (expandedGroup === d.group) {
+                        setExpandedGroup(null);
+                      } else {
+                        setExpandedGroup(d.group);
+                      }
+                    } else {
+                      setDrillSelection({ mode: "cc", cc: d.cc, company, period });
+                    }
+                  }}
+                  onDoubleClick={() => {
+                    if (grouped) {
+                      setDrillSelection({ mode: "group", group: d.group, company, period });
+                    }
+                  }}
                 >
                   <td className="p-3 text-foreground font-medium">
                     {grouped && (
@@ -201,7 +224,11 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
                 </tr>
                 {grouped && expandedGroup === d.group && d.children
                   .map((child: CustoCentroEntry) => (
-                    <tr key={child.cc} className="border-b border-border/30 bg-muted/20">
+                    <tr
+                      key={child.cc}
+                      className="border-b border-border/30 bg-muted/20 cursor-pointer hover:bg-muted/40 transition-colors"
+                      onClick={() => setDrillSelection({ mode: "cc", cc: child.cc, company, period })}
+                    >
                       <td className="p-3 pl-12 text-muted-foreground text-xs">{child.cc}</td>
                       {COST_KEYS.map((k) => (
                         <td key={k} className={`p-3 text-right text-xs ${child[k] < 0 ? "text-destructive" : "text-muted-foreground"}`}>
@@ -223,6 +250,7 @@ const CustoCentroTab = ({ data, title, grouped = false }: Props) => {
           </tbody>
         </table>
       </div>
+      <CustoCentroDrillModal selection={drillSelection} onClose={() => setDrillSelection(null)} />
     </div>
   );
 };
