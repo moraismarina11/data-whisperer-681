@@ -246,10 +246,28 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
                     {d.group || d.cc}
                     {grouped && <span className="ml-2 text-xs text-muted-foreground">({d.children.length})</span>}
                   </td>
-                  {COST_KEYS.map((k) => (
-                    <td key={k} className={`p-3 text-right text-xs ${d[k] < 0 ? "text-destructive" : ""}`}>{d[k] !== 0 ? formatCurrency(d[k]) : "-"}</td>
-                  ))}
-                  <td className={`p-3 text-right font-bold text-sm ${d.total < 0 ? "text-destructive" : ""}`}>{formatCurrency(d.total)}</td>
+                  {COST_KEYS.map((k) => {
+                    const val = d[k];
+                    const clickable = val !== 0;
+                    return (
+                      <td
+                        key={k}
+                        className={`p-3 text-right text-xs ${val < 0 ? "text-destructive" : ""} ${clickable ? "cursor-pointer hover:bg-muted/30 transition-colors" : ""}`}
+                        onClick={(e) => {
+                          if (!clickable) return;
+                          e.stopPropagation();
+                          if (grouped) {
+                            setDrillSelection({ mode: "tipo", tipo: COST_KEY_TO_TIPO[k], tipoLabel: COST_TYPE_LABELS[k], company, period });
+                          } else {
+                            setDrillSelection({ mode: "cc_tipo", cc: d.cc, tipo: COST_KEY_TO_TIPO[k], tipoLabel: COST_TYPE_LABELS[k], company, period });
+                          }
+                        }}
+                      >
+                        {val !== 0 ? formatCurrency(val) : "-"}
+                      </td>
+                    );
+                  })}
+                  <td className={`p-3 text-right font-bold text-sm ${d.total < 0 ? "text-destructive" : ""} cursor-pointer hover:bg-muted/30 transition-colors`}>{formatCurrency(d.total)}</td>
                 </tr>
                 {grouped && expandedGroup === d.group && d.children
                   .map((child: CustoCentroEntry) => (
