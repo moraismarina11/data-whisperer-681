@@ -144,7 +144,7 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="aging-forn">
-            <AgingFornecedoresTab />
+            <AgingFornecedoresTab period={period} />
           </TabsContent>
 
           <TabsContent value="aging-cli">

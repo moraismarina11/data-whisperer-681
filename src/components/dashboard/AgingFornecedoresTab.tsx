@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { formatCurrency, formatShort } from "./shared";
 import { agingFornecedoresData, agingFornecedoresTotals } from "./agingBreakdownData";
 import type { AgingFornecedorEntry } from "./agingBreakdownData";
+import AgingFornDrillModal, { type AgingFornDrillSelection } from "./AgingFornDrillModal";
 
 const COLORS = [
   "hsl(210, 70%, 50%)", "hsl(340, 60%, 50%)", "hsl(40, 90%, 50%)",
@@ -23,7 +25,13 @@ const AGING_COLORS = [
   "hsl(25, 85%, 55%)", "hsl(340, 60%, 50%)", "hsl(0, 65%, 50%)", "hsl(270, 50%, 55%)",
 ];
 
-const AgingFornecedoresTab = () => {
+interface Props {
+  period: string;
+}
+
+const AgingFornecedoresTab = ({ period }: Props) => {
+  const [drillSelection, setDrillSelection] = useState<AgingFornDrillSelection | null>(null);
+
   // Pie data by empresa
   const pieData = agingFornecedoresData.map((e, i) => ({
     name: e.empresa,
@@ -34,9 +42,22 @@ const AgingFornecedoresTab = () => {
   // Aging distribution for stacked bar
   const agingDistribution = AGING_COLS.map((col) => ({
     name: col.label,
+    key: col.key,
     value: Math.abs(agingFornecedoresTotals[col.key] as number),
     pct: ((Math.abs(agingFornecedoresTotals[col.key] as number) / Math.abs(agingFornecedoresTotals.valor)) * 100).toFixed(1),
   }));
+
+  const handleEmpresaClick = (empresa: string) => {
+    setDrillSelection({ mode: "empresa", empresa, period });
+  };
+
+  const handleFaixaClick = (empresa: string, faixa: string) => {
+    setDrillSelection({ mode: "empresa_faixa", empresa, faixa, period });
+  };
+
+  const handleTotalClick = () => {
+    setDrillSelection({ mode: "all", period });
+  };
 
   return (
     <div className="space-y-6">
@@ -50,14 +71,29 @@ const AgingFornecedoresTab = () => {
             <h3 className="text-sm font-bold text-foreground mb-3">Distribuição por Empresa</h3>
             <ResponsiveContainer width="100%" height={220}>
               <PieChart>
-                <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={85} innerRadius={40} paddingAngle={2} strokeWidth={0}>
+                <Pie
+                  data={pieData}
+                  dataKey="value"
+                  nameKey="name"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={85}
+                  innerRadius={40}
+                  paddingAngle={2}
+                  strokeWidth={0}
+                  style={{ cursor: "pointer" }}
+                  onClick={(_: any, index: number) => {
+                    const entry = pieData[index];
+                    handleEmpresaClick(agingFornecedoresData[index].empresa);
+                  }}
+                >
                   {pieData.map((d, i) => <Cell key={i} fill={d.color} />)}
                 </Pie>
                 <Tooltip formatter={(v: number) => formatCurrency(v)} />
               </PieChart>
             </ResponsiveContainer>
             <div className="flex flex-wrap gap-3 justify-center mt-2">
-              {pieData.map((d) => (
+              {pieData.map((d, i) => (
                 <div key={d.name} className="flex items-center gap-1.5 text-xs">
                   <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: d.color }} />
                   <span className="text-muted-foreground">{d.name}</span>
@@ -75,7 +111,16 @@ const AgingFornecedoresTab = () => {
                 <XAxis dataKey="name" tick={{ fill: "hsl(var(--foreground))", fontSize: 10 }} />
                 <YAxis tickFormatter={formatShort} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }} />
                 <Tooltip formatter={(v: number) => formatCurrency(v)} />
-                <Bar dataKey="value" radius={[4, 4, 0, 0]} barSize={32}>
+                <Bar
+                  dataKey="value"
+                  radius={[4, 4, 0, 0]}
+                  barSize={32}
+                  style={{ cursor: "pointer" }}
+                  onClick={(_: any, index: number) => {
+                    // Clicking a bar opens all records for that aging bucket
+                    setDrillSelection({ mode: "all", period });
+                  }}
+                >
                   {agingDistribution.map((_, i) => <Cell key={i} fill={AGING_COLORS[i]} />)}
                 </Bar>
               </BarChart>
@@ -109,20 +154,39 @@ const AgingFornecedoresTab = () => {
             <tbody>
               {agingFornecedoresData.map((row, i) => (
                 <tr key={row.empresa} className="border-b border-border/30">
-                  <td className="py-2 text-foreground flex items-center gap-2">
+                  <td
+                    className="py-2 text-foreground flex items-center gap-2 cursor-pointer hover:text-primary transition-colors"
+                    onClick={() => handleEmpresaClick(row.empresa)}
+                  >
                     <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: COLORS[i % COLORS.length] }} />
                     {row.empresa}
                   </td>
-                  <td className="py-2 text-right font-medium">{formatCurrency(row.valor)}</td>
+                  <td
+                    className="py-2 text-right font-medium cursor-pointer hover:text-primary transition-colors"
+                    onClick={() => handleEmpresaClick(row.empresa)}
+                  >
+                    {formatCurrency(row.valor)}
+                  </td>
                   {AGING_COLS.map((c) => (
-                    <td key={c.key} className="py-2 text-right text-muted-foreground">
+                    <td
+                      key={c.key}
+                      className={`py-2 text-right text-muted-foreground ${(row[c.key] as number) !== 0 ? "cursor-pointer hover:text-primary transition-colors" : ""}`}
+                      onClick={() => {
+                        if ((row[c.key] as number) !== 0) {
+                          handleFaixaClick(row.empresa, c.key);
+                        }
+                      }}
+                    >
                       {(row[c.key] as number) !== 0 ? formatCurrency(row[c.key] as number) : "—"}
                     </td>
                   ))}
                 </tr>
               ))}
               {/* Totals */}
-              <tr className="border-t-2 border-border font-bold">
+              <tr
+                className="border-t-2 border-border font-bold cursor-pointer hover:bg-muted/30 transition-colors"
+                onClick={handleTotalClick}
+              >
                 <td className="py-2 text-foreground">Total Geral</td>
                 <td className="py-2 text-right">{formatCurrency(agingFornecedoresTotals.valor)}</td>
                 {AGING_COLS.map((c) => (
@@ -135,6 +199,8 @@ const AgingFornecedoresTab = () => {
           </table>
         </div>
       </div>
+
+      <AgingFornDrillModal selection={drillSelection} onClose={() => setDrillSelection(null)} />
     </div>
   );
 };
