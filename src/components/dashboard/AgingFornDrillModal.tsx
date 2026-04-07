@@ -23,8 +23,9 @@ export interface AgingFornDrillSelection {
   mode: "empresa" | "empresa_faixa" | "all" | "bar" | "faixa_only";
   empresa?: string;
   faixa?: string;
+  fornecedor?: string;
   period: string;
-  titleContext?: string; // e.g. "Posição Fornecedores" instead of "Aging Fornecedores"
+  titleContext?: string;
 }
 
 // Reference dates per period
