@@ -1,0 +1,784 @@
+{
+  "jan": {
+    "ME BRASIL": [
+      {
+        "cliente": "Outros",
+        "valor": 189112306.83
+      }
+    ],
+    "MOTA FUNDAÇOES": [
+      {
+        "cliente": "Outros",
+        "valor": 30298879.08
+      }
+    ],
+    "TRACEVIA": [
+      {
+        "cliente": "Outros",
+        "valor": 2561884.47
+      }
+    ],
+    "REDUC": [
+      {
+        "cliente": "10242",
+        "valor": 309715.88
+      }
+    ],
+    "MOTA ENGIL MACAE": [
+      {
+        "cliente": "251",
+        "valor": 32881336.13
+      },
+      {
+        "cliente": "256",
+        "valor": 8163217.82
+      },
+      {
+        "cliente": "232",
+        "valor": 7575928.55
+      },
+      {
+        "cliente": "241",
+        "valor": 4310482.05
+      },
+      {
+        "cliente": "259",
+        "valor": 360463.04
+      },
+      {
+        "cliente": "Base",
+        "valor": 313383.05
+      }
+    ]
+  },
+  "fev": {
+    "MOTA ENGIL ENGENHARIA": [
+      {
+        "cliente": "PETROLEO BRASILEIRO",
+        "valor": 36145833.95
+      },
+      {
+        "cliente": "Outros Clientes / Base",
+        "valor": 313383.05
+      }
+    ],
+    "REDUC": [
+      {
+        "cliente": "PETROLEO BRASILEIRO",
+        "valor": 229612.06
+      },
+      {
+        "cliente": "ECBSA UO BC LOTE 3",
+        "valor": 68824.12
+      },
+      {
+        "cliente": "MOTA ENGIL ENGENHARIA",
+        "valor": 11179.7
+      }
+    ],
+    "MOTA ENGIL FUNDAÇÕES": [
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 30298879.08
+      }
+    ],
+    "CONSORCIO ALSUB": [
+      {
+        "cliente": "ECOLOGIKA AMBIENTAL TRANSPORTE",
+        "valor": 26076.0
+      }
+    ],
+    "MOTA ENGIL BRASIL S/A": [
+      {
+        "cliente": "PETROLEO BRASILEIRO",
+        "valor": 34286993.58
+      },
+      {
+        "cliente": "VALE SA",
+        "valor": 5866487.61
+      },
+      {
+        "cliente": "GUARA-NORTE OPERACOES MARITIMAS LTD",
+        "valor": 549487.21
+      },
+      {
+        "cliente": "AUTOPISTA FERNAO DIAS S.A",
+        "valor": 544752.36
+      },
+      {
+        "cliente": "TUPI NORDESTE OPERACOES MARITIMAS L",
+        "valor": 160732.33
+      },
+      {
+        "cliente": "CONCESSIONARIA RODOVIAS DO OESTE SP",
+        "valor": 0.0
+      },
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 0.0
+      }
+    ],
+    "TRACEVIA": [
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIA NOVA 381",
+        "valor": 710307.76
+      },
+      {
+        "cliente": "CONCESSIONARIA ROTA DO OESTE S.A.",
+        "valor": 698797.64
+      },
+      {
+        "cliente": "VELSIS SISTEMA E TECNOLOGIA VIARIA",
+        "valor": 425009.98
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIAS NOROESTE",
+        "valor": 239357.99
+      },
+      {
+        "cliente": "VIABAHIA CONCESSIONARIA",
+        "valor": 228724.07
+      },
+      {
+        "cliente": "CONCESSIONARIA ECOVIAS",
+        "valor": 121539.98
+      },
+      {
+        "cliente": "LABOR ENGENHARIA E TECNOLOGIA LTDA",
+        "valor": 66353.17
+      },
+      {
+        "cliente": "ECO101 CONCESSIONARIA DE RODOVIAS S",
+        "valor": 51897.79
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIA NOVA 364",
+        "valor": 46857.92
+      },
+      {
+        "cliente": "COLOMBIA ME SAS",
+        "valor": 24685.88
+      }
+    ]
+  },
+  "s4": {
+    "MOTA ENGIL ENGENHARIA": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 37494117.75
+      },
+      {
+        "cliente": "Outros Clientes / Base",
+        "valor": 313383.05
+      }
+    ],
+    "REDUC": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 229612.06
+      },
+      {
+        "cliente": "ECBSA UO BC LOTE 3",
+        "valor": 68824.12
+      },
+      {
+        "cliente": "MOTA ENGIL ENGENHARIA",
+        "valor": 11179.7
+      }
+    ],
+    "MOTA ENGIL FUNDAÇÕES": [
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 26284602.92
+      }
+    ],
+    "CONSORCIO ALSUB": [
+      {
+        "cliente": "ECOLOGIKA AMBIENTAL TRANSPORTE",
+        "valor": 7636.0
+      }
+    ],
+    "MOTA ENGIL BRASIL S/A": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 16889507.14
+      },
+      {
+        "cliente": "VALE SA",
+        "valor": 5866487.61
+      },
+      {
+        "cliente": "GUARA-NORTE OPERACOES MARITIMAS LTD",
+        "valor": 549487.21
+      },
+      {
+        "cliente": "AUTOPISTA FERNAO DIAS S.A",
+        "valor": 544752.36
+      },
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 544024.3
+      },
+      {
+        "cliente": "TUPI NORDESTE OPERACOES MARITIMAS L",
+        "valor": 160732.33
+      },
+      {
+        "cliente": "CONCESSIONARIA RODOVIAS DO OESTE SP",
+        "valor": 0.0
+      }
+    ],
+    "TRACEVIA": [
+      {
+        "cliente": "CONCESSIONARIA ROTA DO OESTE S.A.",
+        "valor": 698797.64
+      },
+      {
+        "cliente": "VELSIS SISTEMA E TECNOLOGIA VIARIA",
+        "valor": 425009.98
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIAS NOROESTE",
+        "valor": 239357.99
+      },
+      {
+        "cliente": "VIABAHIA CONCESSIONARIA",
+        "valor": 218150.48
+      },
+      {
+        "cliente": "CONCESSIONARIA ECOVIAS",
+        "valor": 121539.98
+      },
+      {
+        "cliente": "LABOR ENGENHARIA E TECNOLOGIA LTDA",
+        "valor": 66353.17
+      },
+      {
+        "cliente": "ECO101 CONCESSIONARIA DE RODOVIAS S",
+        "valor": 51897.79
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIA NOVA 364",
+        "valor": 45886.1
+      },
+      {
+        "cliente": "COLOMBIA ME SAS",
+        "valor": 24685.88
+      },
+      {
+        "cliente": "EPR VIA MINEIRA S.A.",
+        "valor": 8096.49
+      }
+    ]
+  },
+  "s5": {
+    "MOTA ENGIL ENGENHARIA": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 69427212.26
+      },
+      {
+        "cliente": "Outros Clientes / Base",
+        "valor": 313383.05
+      }
+    ],
+    "CONSÓRCIO ALSUB": [
+      {
+        "cliente": "ECOLOGIKA AMBIENTAL TRANSPORTE",
+        "valor": 84160.0
+      }
+    ],
+    "MOTA ENGIL FUNDAÇÕES": [
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 27097858.01
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "cliente": "PETROLEO BRASILEIRO S A PETROBRAS",
+        "valor": 132139387.75
+      },
+      {
+        "cliente": "VALE SA",
+        "valor": 5866487.61
+      },
+      {
+        "cliente": "GUARA-NORTE OPERACOES MARITIMAS LTD",
+        "valor": 549487.21
+      },
+      {
+        "cliente": "AUTOPISTA FERNAO DIAS S.A",
+        "valor": 544752.36
+      },
+      {
+        "cliente": "TUPI NORDESTE OPERACOES MARITIMAS L",
+        "valor": 160732.33
+      }
+    ],
+    "TRACEVIA": [
+      {
+        "cliente": "CONCESSIONARIA ROTA DO OESTE S.A.",
+        "valor": 698797.64
+      },
+      {
+        "cliente": "VELSIS SISTEMA E TECNOLOGIA VIARIA",
+        "valor": 425009.98
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIAS NOROESTE",
+        "valor": 241215.63
+      },
+      {
+        "cliente": "VIABAHIA CONCESSIONARIA",
+        "valor": 218150.48
+      },
+      {
+        "cliente": "CONCESSIONARIA ECOVIAS",
+        "valor": 121539.98
+      },
+      {
+        "cliente": "LABOR ENGENHARIA E TECNOLOGIA LTDA",
+        "valor": 66353.17
+      },
+      {
+        "cliente": "ECO101 CONCESSIONARIA DE RODOVIAS S",
+        "valor": 51897.79
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIA NOVA 364",
+        "valor": 45886.1
+      },
+      {
+        "cliente": "COLOMBIA ME SAS",
+        "valor": 24685.88
+      },
+      {
+        "cliente": "EPR VIA MINEIRA S.A.",
+        "valor": 8096.49
+      }
+    ],
+    "REDUC": [
+      {
+        "cliente": "PETROLEO BRASILEIRO",
+        "valor": 229612.06
+      },
+      {
+        "cliente": "ECBSA UO BC LOTE 3",
+        "valor": 68824.12
+      },
+      {
+        "cliente": "MOTA ENGIL ENGENHARIA",
+        "valor": 11179.7
+      }
+    ]
+  },
+  "s6": {
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "cliente": "ECOLOGIKA AMBIENTAL TRANSPORTE",
+        "valor": 46384.0
+      }
+    ],
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 27097858.01
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "cliente": "PETROLEO BRASILEIRO S A PETROBRAS",
+        "valor": 132139387.75
+      },
+      {
+        "cliente": "VALE SA",
+        "valor": 3262186.84
+      },
+      {
+        "cliente": "GUARA-NORTE OPERACOES MARITIMAS LTD",
+        "valor": 549487.21
+      },
+      {
+        "cliente": "AUTOPISTA FERNAO DIAS S.A",
+        "valor": 544752.36
+      },
+      {
+        "cliente": "TUPI NORDESTE OPERACOES MARITIMAS L",
+        "valor": 160732.33
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "cliente": "CONCESSIONARIA ROTA DO OESTE S.A.",
+        "valor": 857878.17
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIAS NOROESTE",
+        "valor": 444802.64
+      },
+      {
+        "cliente": "VELSIS SISTEMA E TECNOLOGIA VIARIA",
+        "valor": 425009.98
+      },
+      {
+        "cliente": "VIABAHIA CONCESSIONARIA",
+        "valor": 218150.48
+      },
+      {
+        "cliente": "CONCESSIONARIA ECOVIAS",
+        "valor": 121539.98
+      },
+      {
+        "cliente": "CONCESSIONARIA DAS RODOVIAS",
+        "valor": 72589.02
+      },
+      {
+        "cliente": "LABOR ENGENHARIA E TECNOLOGIA LTDA",
+        "valor": 66353.17
+      },
+      {
+        "cliente": "ECO101 CONCESSIONARIA DE RODOVIAS S",
+        "valor": 51897.79
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIA NOVA 364",
+        "valor": 45886.1
+      },
+      {
+        "cliente": "COLOMBIA ME SAS",
+        "valor": 24685.88
+      }
+    ],
+    "MOTA ENGIL ENGENHARIA": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 71733239.24
+      },
+      {
+        "cliente": "Outros Recebimentos / Base",
+        "valor": 313383.05
+      }
+    ],
+    "REDUC": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 229612.06
+      },
+      {
+        "cliente": "ECBSA UO BC LOTE 3",
+        "valor": 68824.12
+      },
+      {
+        "cliente": "MOTA ENGIL ENGENHARIA",
+        "valor": 11179.7
+      }
+    ]
+  },
+  "s7": {
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "cliente": "ECOLOGIKA AMBIENTAL TRANSPORTE",
+        "valor": 26452.0
+      }
+    ],
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 27097858.01
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "cliente": "PETROLEO BRASILEIRO S A PETROBRAS",
+        "valor": 48769945.54
+      },
+      {
+        "cliente": "VALE SA",
+        "valor": 3262186.84
+      },
+      {
+        "cliente": "GUARA-NORTE OPERACOES MARITIMAS LTD",
+        "valor": 549487.21
+      },
+      {
+        "cliente": "AUTOPISTA FERNAO DIAS S.A",
+        "valor": 544752.36
+      },
+      {
+        "cliente": "TUPI NORDESTE OPERACOES MARITIMAS L",
+        "valor": 160732.33
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "cliente": "CONCESSIONARIA ROTA DO OESTE S.A.",
+        "valor": 857878.17
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIAS NOROESTE",
+        "valor": 444802.64
+      },
+      {
+        "cliente": "VELSIS SISTEMA E TECNOLOGIA VIARIA",
+        "valor": 425009.98
+      },
+      {
+        "cliente": "VIABAHIA CONCESSIONARIA",
+        "valor": 218150.48
+      },
+      {
+        "cliente": "CONCESSIONARIA ECOVIAS",
+        "valor": 121539.98
+      },
+      {
+        "cliente": "CONCESSIONARIA DAS RODOVIAS",
+        "valor": 72589.02
+      },
+      {
+        "cliente": "LABOR ENGENHARIA E TECNOLOGIA LTDA",
+        "valor": 66353.17
+      },
+      {
+        "cliente": "ECO101 CONCESSIONARIA DE RODOVIAS S",
+        "valor": 51897.79
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIA NOVA 364",
+        "valor": 45886.1
+      },
+      {
+        "cliente": "COLOMBIA ME SAS",
+        "valor": 24685.88
+      }
+    ],
+    "MOTA ENGIL ENGENHARIA": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 47815341.29
+      },
+      {
+        "cliente": "Outros",
+        "valor": 313383.05
+      }
+    ],
+    "REDUC": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 229612.06
+      },
+      {
+        "cliente": "ECBSA UO BC LOTE 3",
+        "valor": 68824.12
+      },
+      {
+        "cliente": "MOTA ENGIL ENGENHARIA",
+        "valor": 11179.7
+      }
+    ]
+  },
+  "mar": {
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "cliente": "ECOLOGIKA AMBIENTAL TRANSPORTE",
+        "valor": 26452.0
+      }
+    ],
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 27097858.01
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "cliente": "PETROLEO BRASILEIRO S A PETROBRAS",
+        "valor": 48769945.54
+      },
+      {
+        "cliente": "VALE SA",
+        "valor": 3262186.84
+      },
+      {
+        "cliente": "GUARA-NORTE OPERACOES MARITIMAS LTD",
+        "valor": 549487.21
+      },
+      {
+        "cliente": "AUTOPISTA FERNAO DIAS S.A",
+        "valor": 544752.36
+      },
+      {
+        "cliente": "TUPI NORDESTE OPERACOES MARITIMAS L",
+        "valor": 160732.33
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "cliente": "CONCESSIONARIA ROTA DO OESTE S.A.",
+        "valor": 857878.17
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIAS NOROESTE",
+        "valor": 444802.64
+      },
+      {
+        "cliente": "VELSIS SISTEMA E TECNOLOGIA VIARIA",
+        "valor": 425009.98
+      },
+      {
+        "cliente": "VIABAHIA CONCESSIONARIA",
+        "valor": 218150.48
+      },
+      {
+        "cliente": "CONCESSIONARIA ECOVIAS",
+        "valor": 121539.98
+      },
+      {
+        "cliente": "CONCESSIONARIA DAS RODOVIAS",
+        "valor": 72589.02
+      },
+      {
+        "cliente": "LABOR ENGENHARIA E TECNOLOGIA LTDA",
+        "valor": 66353.17
+      },
+      {
+        "cliente": "ECO101 CONCESSIONARIA DE RODOVIAS S",
+        "valor": 51897.79
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIA NOVA 364",
+        "valor": 45886.1
+      },
+      {
+        "cliente": "COLOMBIA ME SAS",
+        "valor": 24685.88
+      }
+    ],
+    "MOTA ENGIL ENGENHARIA": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 47815341.29
+      },
+      {
+        "cliente": "Outros",
+        "valor": 313383.05
+      }
+    ],
+    "REDUC": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 229612.06
+      },
+      {
+        "cliente": "ECBSA UO BC LOTE 3",
+        "valor": 68824.12
+      },
+      {
+        "cliente": "MOTA ENGIL ENGENHARIA",
+        "valor": 11179.7
+      }
+    ]
+  },
+  "total": {
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "cliente": "ECOLOGIKA AMBIENTAL TRANSPORTE",
+        "valor": 26452.0
+      }
+    ],
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "cliente": "BESIX-ECB SPE LTDA",
+        "valor": 27097858.01
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "cliente": "PETROLEO BRASILEIRO S A PETROBRAS",
+        "valor": 48769945.54
+      },
+      {
+        "cliente": "VALE SA",
+        "valor": 3262186.84
+      },
+      {
+        "cliente": "GUARA-NORTE OPERACOES MARITIMAS LTD",
+        "valor": 549487.21
+      },
+      {
+        "cliente": "AUTOPISTA FERNAO DIAS S.A",
+        "valor": 544752.36
+      },
+      {
+        "cliente": "TUPI NORDESTE OPERACOES MARITIMAS L",
+        "valor": 160732.33
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "cliente": "CONCESSIONARIA ROTA DO OESTE S.A.",
+        "valor": 857878.17
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIAS NOROESTE",
+        "valor": 444802.64
+      },
+      {
+        "cliente": "VELSIS SISTEMA E TECNOLOGIA VIARIA",
+        "valor": 425009.98
+      },
+      {
+        "cliente": "VIABAHIA CONCESSIONARIA",
+        "valor": 218150.48
+      },
+      {
+        "cliente": "CONCESSIONARIA ECOVIAS",
+        "valor": 121539.98
+      },
+      {
+        "cliente": "CONCESSIONARIA DAS RODOVIAS",
+        "valor": 72589.02
+      },
+      {
+        "cliente": "LABOR ENGENHARIA E TECNOLOGIA LTDA",
+        "valor": 66353.17
+      },
+      {
+        "cliente": "ECO101 CONCESSIONARIA DE RODOVIAS S",
+        "valor": 51897.79
+      },
+      {
+        "cliente": "CONCESSIONARIA DE RODOVIA NOVA 364",
+        "valor": 45886.1
+      },
+      {
+        "cliente": "COLOMBIA ME SAS",
+        "valor": 24685.88
+      }
+    ],
+    "MOTA ENGIL ENGENHARIA": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 47815341.29
+      },
+      {
+        "cliente": "Outros",
+        "valor": 313383.05
+      }
+    ],
+    "REDUC": [
+      {
+        "cliente": "PETROBRAS",
+        "valor": 229612.06
+      },
+      {
+        "cliente": "ECBSA UO BC LOTE 3",
+        "valor": 68824.12
+      },
+      {
+        "cliente": "MOTA ENGIL ENGENHARIA",
+        "valor": 11179.7
+      }
+    ]
+  }
+}

@@ -1,0 +1,2104 @@
+{
+  "jan": {
+    "MOTA ENGIL - MACAE": [
+      {
+        "fornecedor": "HOMY SRL",
+        "valor": -19363767.59
+      },
+      {
+        "fornecedor": "HYDRATIGHT EQUIPAMEN",
+        "valor": -3326786.8
+      },
+      {
+        "fornecedor": "UNIMED DE MACAE COOP",
+        "valor": -2181851.35
+      },
+      {
+        "fornecedor": "FLP TRANSPORTES DE M",
+        "valor": -1936587.6
+      },
+      {
+        "fornecedor": "PRINER LOCACAO DE EQ",
+        "valor": -1843033.42
+      },
+      {
+        "fornecedor": "TICKET SERVICOS SA",
+        "valor": -1509466.53
+      },
+      {
+        "fornecedor": "ASSISLANI LOCACAO DE",
+        "valor": -648455.22
+      },
+      {
+        "fornecedor": "JOTUN BRASIL",
+        "valor": -486027.81
+      },
+      {
+        "fornecedor": "ALMEQ SERVICOS TECNI",
+        "valor": -351979.89
+      },
+      {
+        "fornecedor": "KROMINOX ACOS E META",
+        "valor": -334377.68
+      }
+    ],
+    "Mota-Engil Brasil": [
+      {
+        "fornecedor": "NOVATA ENGENHARIA LTDA",
+        "valor": -2680361.92
+      },
+      {
+        "fornecedor": "MILLS LOCACAO, SERVICOS E LOGISTICA",
+        "valor": -1344537.66
+      },
+      {
+        "fornecedor": "UPSTAR AVIATION S/A",
+        "valor": -661000.0
+      },
+      {
+        "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+        "valor": -380709.47
+      },
+      {
+        "fornecedor": "OPUS LOCACOES E CONSTRUCOES",
+        "valor": -346662.89
+      },
+      {
+        "fornecedor": "ALELO INSTITUICAO DE PAGAMENTO SA",
+        "valor": -343861.27
+      },
+      {
+        "fornecedor": "ITAMIX LTDA",
+        "valor": -277165.09
+      },
+      {
+        "fornecedor": "LUIS FELIPE EBOLI IABRUDI EPP",
+        "valor": -266534.32
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -258098.71
+      },
+      {
+        "fornecedor": "CHB LOCACOES E SERVICOS ESPECIAIS L",
+        "valor": -257041.9
+      }
+    ],
+    "MEFB": [
+      {
+        "fornecedor": "MOTA-ENGIL BRASIL S/A",
+        "valor": -607167.83
+      },
+      {
+        "fornecedor": "VEBER INDUSTRIA METAL MECANICA LTDA",
+        "valor": -598732.88
+      },
+      {
+        "fornecedor": "MOP Y C SA",
+        "valor": -400792.83
+      },
+      {
+        "fornecedor": "MOTA-ENGIL LATIN AMERICA BV",
+        "valor": -270938.03
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -88308.01
+      },
+      {
+        "fornecedor": "SHARE LOGISTICS LTDA",
+        "valor": -41755.89
+      },
+      {
+        "fornecedor": "COMPANHIA DE SEGUROS ALIANCA DA BAH",
+        "valor": -33840.35
+      },
+      {
+        "fornecedor": "FERRAMENTAS GERAIS COMERCIO E",
+        "valor": -13512.71
+      },
+      {
+        "fornecedor": "POTTENCIAL SEGURADORA S.A.",
+        "valor": -11220.66
+      },
+      {
+        "fornecedor": "TRANSPORTES SAVENHAGO LTDA",
+        "valor": -3500.0
+      }
+    ],
+    "Consórcio Alsub": [
+      {
+        "fornecedor": "BRAM OFFSHORE TRANSPORTES MARITIMOS",
+        "valor": -15694989.33
+      },
+      {
+        "fornecedor": "NFX COMBUSTIVEIS MARITIMOS LTDA",
+        "valor": -9817760.35
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -1309533.86
+      },
+      {
+        "fornecedor": "LOADTEST DO BRASIL LOCACOES E SERVI",
+        "valor": -79687.44
+      },
+      {
+        "fornecedor": "SEVEN SEAS ENGENHARIA LTDA",
+        "valor": -61434.21
+      },
+      {
+        "fornecedor": "MAAC TRAVEL CORPORATE LTDA",
+        "valor": -45211.8
+      },
+      {
+        "fornecedor": "UNIAO COMERCIAL BARAO S/A",
+        "valor": -23606.6
+      },
+      {
+        "fornecedor": "WGL SOLUCOES EM TECNOLOGIAS",
+        "valor": -22000.0
+      },
+      {
+        "fornecedor": "VIFERRO FERRAMENTAS E FERRAGENS LTD",
+        "valor": -16789.26
+      },
+      {
+        "fornecedor": "TOP UNIFORMES LTDA",
+        "valor": -15138.5
+      }
+    ],
+    "MEBR": [
+      {
+        "fornecedor": "EDIFICIO BENEDITO LAPIN",
+        "valor": -3217.95
+      },
+      {
+        "fornecedor": "SECRETARIA DE ESTADO DE FAZENDA DE",
+        "valor": -465.88
+      },
+      {
+        "fornecedor": "TELEFONICA BRASIL S.A.",
+        "valor": -349.47
+      },
+      {
+        "fornecedor": "PREFEITURA MUNICIPAL DE BELO HORIZO",
+        "valor": -161.36
+      }
+    ],
+    "Tracevia": [
+      {
+        "fornecedor": "PGL PRIME AGENCIAMENTO DE CARGA LTD",
+        "valor": -446543.89
+      },
+      {
+        "fornecedor": "NOVACOS CO. LTD",
+        "valor": -446253.3
+      },
+      {
+        "fornecedor": "RBR SECURITY COMERCIO DE EQUIPAMENT",
+        "valor": -269748.28
+      },
+      {
+        "fornecedor": "PREXX COMERCIO E IMPORTACAO LTDA",
+        "valor": -115717.45
+      },
+      {
+        "fornecedor": "AMBITO CONCRETO E ARTEFATOS LTDA",
+        "valor": -62100.0
+      },
+      {
+        "fornecedor": "BANCO CNH CAPITAL S/A",
+        "valor": -50176.8
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -37816.98
+      },
+      {
+        "fornecedor": "BRADESCO SAUDE S/A",
+        "valor": -31925.88
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDICA SAUDE S.A.",
+        "valor": -26112.92
+      },
+      {
+        "fornecedor": "PGL EXPRESS SERVICE LTDA",
+        "valor": -22835.49
+      }
+    ],
+    "REDUC": [
+      {
+        "fornecedor": "ENGEDRILL ENGENHARIA",
+        "valor": -47368.61
+      },
+      {
+        "fornecedor": "VBC TECNOLOGIA LTDA",
+        "valor": -25592.8
+      },
+      {
+        "fornecedor": "MUNICIPIO DE MACAE",
+        "valor": -5573.04
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDI",
+        "valor": -1942.44
+      },
+      {
+        "fornecedor": "JUNTA COMERCIAL DO E",
+        "valor": -1200.0
+      }
+    ]
+  },
+  "fev": {
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "fornecedor": "VEBER INDUSTRIA METAL MECANICA LTDA",
+        "valor": -598732.88
+      },
+      {
+        "fornecedor": "MOTA-ENGIL BRASIL S/A",
+        "valor": -552167.83
+      },
+      {
+        "fornecedor": "MOP Y C SA",
+        "valor": -400792.83
+      },
+      {
+        "fornecedor": "MOTA-ENGIL LATIN AMERICA BV",
+        "valor": -270938.03
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -88308.01
+      },
+      {
+        "fornecedor": "SHARE LOGISTICS LTDA",
+        "valor": -41755.89
+      },
+      {
+        "fornecedor": "FERRAMENTAS GERAIS COMERCIO E",
+        "valor": -13512.71
+      },
+      {
+        "fornecedor": "TRANSPORTES SAVENHAGO LTDA",
+        "valor": -3500.0
+      },
+      {
+        "fornecedor": "CONEXAO MARITIMA SERVICOS LOGISTICO",
+        "valor": -391.75
+      }
+    ],
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "fornecedor": "NFX COMBUSTIVEIS MARITIMOS LTDA",
+        "valor": -5176501.19
+      },
+      {
+        "fornecedor": "BRAM OFFSHORE TRANSPORTES MARITIMOS",
+        "valor": -3875831.63
+      },
+      {
+        "fornecedor": "TECNOLOGIA EM CABOS DE ACO BRASCABO",
+        "valor": -772091.25
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -654766.93
+      },
+      {
+        "fornecedor": "PETROLEO BRASILEIRO S A PETROBRAS",
+        "valor": -153105.72
+      },
+      {
+        "fornecedor": "LOADTEST DO BRASIL LOCACOES E SERVI",
+        "valor": -114993.6
+      },
+      {
+        "fornecedor": "INOVA SUBSEA SOLUTIONS LTDA",
+        "valor": -103912.18
+      },
+      {
+        "fornecedor": "CEMOC - CENTRO DE MEDICINA",
+        "valor": -93381.7
+      },
+      {
+        "fornecedor": "PETROVERA DERIVADOS DE PETROLEO LTD",
+        "valor": -82900.0
+      },
+      {
+        "fornecedor": "DNA WORK COMERCIO E SERVICOS LTDA",
+        "valor": -79150.0
+      }
+    ],
+    "MEBR - Part. Consultoria": [
+      {
+        "fornecedor": "SECRETARIA DE ESTADO DE FAZENDA DE",
+        "valor": -465.88
+      },
+      {
+        "fornecedor": "COLLEGE ENGLISH SCHOOL ENSINO",
+        "valor": -360.42
+      },
+      {
+        "fornecedor": "PREFEITURA MUNICIPAL DE BELO HORIZO",
+        "valor": -161.36
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "fornecedor": "NOVATA ENGENHARIA LTDA",
+        "valor": -2512839.3
+      },
+      {
+        "fornecedor": "MILLS LOCACAO, SERVICOS E LOGISTICA",
+        "valor": -1344537.66
+      },
+      {
+        "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+        "valor": -280357.57
+      },
+      {
+        "fornecedor": "LUIS FELIPE EBOLI IABRUDI EPP",
+        "valor": -266534.32
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -258005.17
+      },
+      {
+        "fornecedor": "MAAC TRAVEL CORPORATE LTDA",
+        "valor": -246836.73
+      },
+      {
+        "fornecedor": "GIOVANI GONCALVES CHAVES SERVICOS L",
+        "valor": -240853.64
+      },
+      {
+        "fornecedor": "VIA APIA SERVICOS ESPECIAIS LTDA",
+        "valor": -214982.23
+      },
+      {
+        "fornecedor": "S.N. REFEICOES E BUFFET LTDA",
+        "valor": -187232.5
+      },
+      {
+        "fornecedor": "FROTA CAR LTDA",
+        "valor": -161138.27
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "fornecedor": "RBR SECURITY COMERCIO DE EQUIPAMENT",
+        "valor": -261814.94
+      },
+      {
+        "fornecedor": "PGL PRIME AGENCIAMENTO DE CARGA LTD",
+        "valor": -228698.45
+      },
+      {
+        "fornecedor": "D2W INDUSTRIA, COMERCIO E IMPORTACA",
+        "valor": -219325.97
+      },
+      {
+        "fornecedor": "CONCRETO AMOROSO LTDA",
+        "valor": -130000.0
+      },
+      {
+        "fornecedor": "ONFLY TECNOLOGIA LTDA",
+        "valor": -58668.26
+      },
+      {
+        "fornecedor": "AMBITO CONCRETO E ARTEFATOS LTDA",
+        "valor": -51600.0
+      },
+      {
+        "fornecedor": "BANCO CNH CAPITAL S/A",
+        "valor": -50176.8
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -37816.98
+      },
+      {
+        "fornecedor": "BRADESCO SAUDE S/A",
+        "valor": -31925.88
+      },
+      {
+        "fornecedor": "ANDRE MARTELLINI CUCHIARO E CIA LTD",
+        "valor": -26429.4
+      }
+    ],
+    "Mota Engil Engenharia": [
+      {
+        "fornecedor": "HOMY SRL",
+        "valor": -19363767.59
+      },
+      {
+        "fornecedor": "UNIMED DE MACAE COOP",
+        "valor": -4365248.31
+      },
+      {
+        "fornecedor": "HYDRATIGHT EQUIPAMEN",
+        "valor": -3029569.56
+      },
+      {
+        "fornecedor": "TICKET SERVICOS SA",
+        "valor": -2968508.67
+      },
+      {
+        "fornecedor": "FLP TRANSPORTES DE M",
+        "valor": -1924910.23
+      },
+      {
+        "fornecedor": "PRINER LOCACAO DE EQ",
+        "valor": -1265509.03
+      },
+      {
+        "fornecedor": "ASSISLANI LOCACAO DE",
+        "valor": -576404.64
+      },
+      {
+        "fornecedor": "ACOS VITAL COM DE TU",
+        "valor": -512489.41
+      },
+      {
+        "fornecedor": "CALDEX",
+        "valor": -445482.45
+      },
+      {
+        "fornecedor": "JOTUN BRASIL",
+        "valor": -288839.62
+      }
+    ],
+    "Reduc": [
+      {
+        "fornecedor": "ENGEDRILL ENGENHARIA",
+        "valor": -47368.61
+      },
+      {
+        "fornecedor": "VBC TECNOLOGIA LTDA",
+        "valor": -25592.8
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDI",
+        "valor": -2913.66
+      },
+      {
+        "fornecedor": "JUNTA COMERCIAL DO E",
+        "valor": -1200.0
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGUR.",
+        "valor": -86.64
+      }
+    ]
+  },
+  "s4": {
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "fornecedor": "VEBER INDUSTRIA METAL MECANICA LTDA",
+        "valor": -598732.88
+      },
+      {
+        "fornecedor": "MOTA-ENGIL BRASIL S/A",
+        "valor": -552167.83
+      },
+      {
+        "fornecedor": "MOP Y C SA",
+        "valor": -400792.83
+      },
+      {
+        "fornecedor": "MOTA-ENGIL LATIN AMERICA BV",
+        "valor": -270938.03
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -91030.37
+      },
+      {
+        "fornecedor": "SHARE LOGISTICS LTDA",
+        "valor": -41755.89
+      },
+      {
+        "fornecedor": "UNIMED LITORAL COOPERATIVA",
+        "valor": -13746.68
+      },
+      {
+        "fornecedor": "FERRAMENTAS GERAIS COMERCIO E",
+        "valor": -13512.71
+      },
+      {
+        "fornecedor": "TRANSPORTES SAVENHAGO LTDA",
+        "valor": -3500.0
+      },
+      {
+        "fornecedor": "CONEXAO MARITIMA SERVICOS LOGISTICO",
+        "valor": -391.75
+      }
+    ],
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "fornecedor": "NFX COMBUSTIVEIS MARITIMOS LTDA",
+        "valor": -5176501.19
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -654766.93
+      },
+      {
+        "fornecedor": "4PIPE HIDROPIG - ENG. INDUSTRIAL LT",
+        "valor": -589815.0
+      },
+      {
+        "fornecedor": "TECNOLOGIA EM CABOS DE ACO BRASCABO",
+        "valor": -514727.5
+      },
+      {
+        "fornecedor": "INOVA SUBSEA SOLUTIONS LTDA",
+        "valor": -388884.53
+      },
+      {
+        "fornecedor": "CEMOC - CENTRO DE MEDICINA",
+        "valor": -93381.7
+      },
+      {
+        "fornecedor": "DNA WORK COMERCIO E SERVICOS LTDA",
+        "valor": -79150.0
+      },
+      {
+        "fornecedor": "PETROLEO BRASILEIRO S A PETROBRAS",
+        "valor": -54720.0
+      },
+      {
+        "fornecedor": "UNIMED DE MACAE COOPERATIVA DE ASSI",
+        "valor": -54717.71
+      },
+      {
+        "fornecedor": "LIFTINGTEST DO BRASIL LTDA",
+        "valor": -53396.0
+      }
+    ],
+    "MEBR - Part. Consultoria": [
+      {
+        "fornecedor": "SECRETARIA DE ESTADO DE FAZENDA DE",
+        "valor": -465.88
+      },
+      {
+        "fornecedor": "COLLEGE ENGLISH SCHOOL ENSINO",
+        "valor": -360.42
+      },
+      {
+        "fornecedor": "PREFEITURA MUNICIPAL DE BELO HORIZO",
+        "valor": -161.36
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "fornecedor": "NOVATA ENGENHARIA LTDA",
+        "valor": -2512839.3
+      },
+      {
+        "fornecedor": "MILLS LOCACAO, SERVICOS E LOGISTICA",
+        "valor": -1344537.66
+      },
+      {
+        "fornecedor": "ALELO INSTITUICAO DE PAGAMENTO SA",
+        "valor": -297535.97
+      },
+      {
+        "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+        "valor": -280357.57
+      },
+      {
+        "fornecedor": "GIOVANI GONCALVES CHAVES SERVICOS L",
+        "valor": -240853.64
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -235605.87
+      },
+      {
+        "fornecedor": "VIA APIA SERVICOS ESPECIAIS LTDA",
+        "valor": -214982.23
+      },
+      {
+        "fornecedor": "JLA CASAGRANDE SERVICOS E CONSULTOR",
+        "valor": -214927.76
+      },
+      {
+        "fornecedor": "FROTA CAR LTDA",
+        "valor": -161280.4
+      },
+      {
+        "fornecedor": "OPUS LOCACOES E CONSTRUCOES",
+        "valor": -154580.4
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "fornecedor": "RBR SECURITY COMERCIO DE EQUIPAMENT",
+        "valor": -261814.94
+      },
+      {
+        "fornecedor": "PGL PRIME AGENCIAMENTO DE CARGA LTD",
+        "valor": -228698.45
+      },
+      {
+        "fornecedor": "D2W INDUSTRIA, COMERCIO E IMPORTACA",
+        "valor": -219325.97
+      },
+      {
+        "fornecedor": "AMBITO CONCRETO E ARTEFATOS LTDA",
+        "valor": -51600.0
+      },
+      {
+        "fornecedor": "BANCO CNH CAPITAL S/A",
+        "valor": -47361.42
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -39510.08
+      },
+      {
+        "fornecedor": "BRADESCO SAUDE S/A",
+        "valor": -31925.88
+      },
+      {
+        "fornecedor": "ANDRE MARTELLINI CUCHIARO E CIA LTD",
+        "valor": -26429.4
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDICA SAUDE S.A.",
+        "valor": -26112.92
+      },
+      {
+        "fornecedor": "BRADESCO AUTO/RE COMPANHIA DE SEGUR",
+        "valor": -24015.09
+      }
+    ],
+    "Mota Engil Engenharia": [
+      {
+        "fornecedor": "HOMY SRL",
+        "valor": -19363767.59
+      },
+      {
+        "fornecedor": "UNIMED DE MACAE COOP",
+        "valor": -4365248.31
+      },
+      {
+        "fornecedor": "HYDRATIGHT EQUIPAMEN",
+        "valor": -3063392.69
+      },
+      {
+        "fornecedor": "TICKET SERVICOS SA",
+        "valor": -2967311.48
+      },
+      {
+        "fornecedor": "PRINER LOCACAO DE EQ",
+        "valor": -2241172.84
+      },
+      {
+        "fornecedor": "FLP TRANSPORTES DE M",
+        "valor": -1631213.62
+      },
+      {
+        "fornecedor": "RAC SOLUCOES EM ENER",
+        "valor": -684500.0
+      },
+      {
+        "fornecedor": "ASSISLANI LOCACAO DE",
+        "valor": -589162.91
+      },
+      {
+        "fornecedor": "CALDEX",
+        "valor": -445482.45
+      },
+      {
+        "fornecedor": "ACOS VITAL COM DE TU",
+        "valor": -431128.07
+      }
+    ],
+    "REDUC": [
+      {
+        "fornecedor": "ENGEDRILL ENGENHARIA",
+        "valor": -47368.61
+      },
+      {
+        "fornecedor": "VBC TECNOLOGIA LTDA",
+        "valor": -25592.8
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDI",
+        "valor": -2913.66
+      },
+      {
+        "fornecedor": "JUNTA COMERCIAL DO E",
+        "valor": -1200.0
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGUR.",
+        "valor": -86.64
+      }
+    ]
+  },
+  "s5": {
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "fornecedor": "VEBER INDUSTRIA METAL MECANICA LTDA",
+        "valor": -598732.88
+      },
+      {
+        "fornecedor": "MOP Y C SA",
+        "valor": -400792.83
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -91030.37
+      },
+      {
+        "fornecedor": "SHARE LOGISTICS LTDA",
+        "valor": -41755.89
+      },
+      {
+        "fornecedor": "UNIMED LITORAL COOPERATIVA",
+        "valor": -13746.68
+      },
+      {
+        "fornecedor": "FERRAMENTAS GERAIS COMERCIO E",
+        "valor": -13512.71
+      },
+      {
+        "fornecedor": "TRANSPORTES SAVENHAGO LTDA",
+        "valor": -3500.0
+      },
+      {
+        "fornecedor": "TELEFONICA BRASIL S.A.",
+        "valor": -884.32
+      },
+      {
+        "fornecedor": "CONEXAO MARITIMA SERVICOS LOGISTICO",
+        "valor": -391.75
+      },
+      {
+        "fornecedor": "FABIO DO CARMO GENTIL",
+        "valor": -360.0
+      }
+    ],
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "fornecedor": "NFX COMBUSTIVEIS MARITIMOS LTDA",
+        "valor": -2680248.06
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -654766.93
+      },
+      {
+        "fornecedor": "4PIPE HIDROPIG - ENG. INDUSTRIAL LT",
+        "valor": -589815.0
+      },
+      {
+        "fornecedor": "TECNOGERA LOC E TRANSFORM DE ENERGI",
+        "valor": -538983.33
+      },
+      {
+        "fornecedor": "INOVA SUBSEA SOLUTIONS LTDA",
+        "valor": -284972.35
+      },
+      {
+        "fornecedor": "TECNOTEXTIL-INDUSTRIA E COMERCIO",
+        "valor": -137067.11
+      },
+      {
+        "fornecedor": "DNA WORK COMERCIO E SERVICOS LTDA",
+        "valor": -79150.0
+      },
+      {
+        "fornecedor": "LIFTINGTEST DO BRASIL LTDA",
+        "valor": -53396.0
+      },
+      {
+        "fornecedor": "PETROVERA DERIVADOS DE PETROLEO LTD",
+        "valor": -41450.0
+      },
+      {
+        "fornecedor": "LOADTEST DO BRASIL LOCACOES E SERVI",
+        "valor": -40870.0
+      }
+    ],
+    "MEBR - Part. Consultoria": [
+      {
+        "fornecedor": "SECRETARIA DE ESTADO DE FAZENDA DE",
+        "valor": -465.88
+      },
+      {
+        "fornecedor": "COLLEGE ENGLISH SCHOOL ENSINO",
+        "valor": -360.42
+      },
+      {
+        "fornecedor": "PREFEITURA MUNICIPAL DE BELO HORIZO",
+        "valor": -161.36
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "fornecedor": "NOVATA ENGENHARIA LTDA",
+        "valor": -2512839.3
+      },
+      {
+        "fornecedor": "MILLS LOCACAO, SERVICOS E LOGISTICA",
+        "valor": -1344537.66
+      },
+      {
+        "fornecedor": "MAAC TRAVEL CORPORATE LTDA",
+        "valor": -425753.1
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -247133.08
+      },
+      {
+        "fornecedor": "GIOVANI GONCALVES CHAVES SERVICOS L",
+        "valor": -240853.64
+      },
+      {
+        "fornecedor": "CAIXA DE PREVIDENCIA DOS FUNCIONARI",
+        "valor": -233258.48
+      },
+      {
+        "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+        "valor": -226777.43
+      },
+      {
+        "fornecedor": "VIA APIA SERVICOS ESPECIAIS LTDA",
+        "valor": -214982.23
+      },
+      {
+        "fornecedor": "JLA CASAGRANDE SERVICOS E CONSULTOR",
+        "valor": -214927.76
+      },
+      {
+        "fornecedor": "LUIS FELIPE EBOLI IABRUDI EPP",
+        "valor": -192441.0
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "fornecedor": "RBR SECURITY COMERCIO DE EQUIPAMENT",
+        "valor": -261814.94
+      },
+      {
+        "fornecedor": "KLINT DISTRIBUIDORA DE FIOS E CABOS",
+        "valor": -260030.48
+      },
+      {
+        "fornecedor": "PGL PRIME AGENCIAMENTO DE CARGA LTD",
+        "valor": -228698.45
+      },
+      {
+        "fornecedor": "D2W INDUSTRIA, COMERCIO E IMPORTACA",
+        "valor": -219325.97
+      },
+      {
+        "fornecedor": "BRADESCO SAUDE S/A",
+        "valor": -63302.17
+      },
+      {
+        "fornecedor": "AMBITO CONCRETO E ARTEFATOS LTDA",
+        "valor": -51600.0
+      },
+      {
+        "fornecedor": "BANCO CNH CAPITAL S/A",
+        "valor": -47361.42
+      },
+      {
+        "fornecedor": "TICKET SOLUCOES HDFGT S/A",
+        "valor": -42865.31
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -39510.08
+      },
+      {
+        "fornecedor": "CONCRETO AMOROSO LTDA",
+        "valor": -30000.0
+      }
+    ],
+    "Mota Engil Engenharia": [
+      {
+        "fornecedor": "HOMY SRL",
+        "valor": -18395975.51
+      },
+      {
+        "fornecedor": "UNIMED DE MACAE COOP",
+        "valor": -6540458.49
+      },
+      {
+        "fornecedor": "HYDRATIGHT EQUIPAMEN",
+        "valor": -2970010.88
+      },
+      {
+        "fornecedor": "TICKET SERVICOS SA",
+        "valor": -2967311.48
+      },
+      {
+        "fornecedor": "FLP TRANSPORTES DE M",
+        "valor": -1628685.73
+      },
+      {
+        "fornecedor": "PRINER LOCACAO DE EQ",
+        "valor": -1216656.07
+      },
+      {
+        "fornecedor": "ASSISLANI LOCACAO DE",
+        "valor": -589162.91
+      },
+      {
+        "fornecedor": "RAC SOLUCOES EM ENER",
+        "valor": -479149.99
+      },
+      {
+        "fornecedor": "ACOS VITAL COM DE TU",
+        "valor": -432271.43
+      },
+      {
+        "fornecedor": "TORNADO IMP.,EXP.",
+        "valor": -229696.0
+      }
+    ],
+    "Reduc": [
+      {
+        "fornecedor": "ABB AUTOMACAO LTDA",
+        "valor": -100000.0
+      },
+      {
+        "fornecedor": "ENGEDRILL ENGENHARIA",
+        "valor": -47368.61
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDI",
+        "valor": -2913.66
+      },
+      {
+        "fornecedor": "JUNTA COMERCIAL DO E",
+        "valor": -1200.0
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGUR.",
+        "valor": -86.64
+      },
+      {
+        "fornecedor": "VBC TECNOLOGIA LTDA",
+        "valor": 0.0
+      }
+    ],
+    "Total Geral": [
+      {
+        "fornecedor": "Outros",
+        "valor": -57793291.46
+      }
+    ]
+  },
+  "s6": {
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "fornecedor": "VEBER INDUSTRIA METAL MECANICA LTDA",
+        "valor": -598732.88
+      },
+      {
+        "fornecedor": "MOP Y C SA",
+        "valor": -400792.83
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -91030.37
+      },
+      {
+        "fornecedor": "SHARE LOGISTICS LTDA",
+        "valor": -41755.89
+      },
+      {
+        "fornecedor": "UNIMED LITORAL COOPERATIVA",
+        "valor": -14366.96
+      },
+      {
+        "fornecedor": "FERRAMENTAS GERAIS COMERCIO E",
+        "valor": -13512.71
+      },
+      {
+        "fornecedor": "TRANSPORTES SAVENHAGO LTDA",
+        "valor": -3500.0
+      },
+      {
+        "fornecedor": "TELEFONICA BRASIL S.A.",
+        "valor": -884.32
+      },
+      {
+        "fornecedor": "PERSONAE BUSINESS INTELIGENCE LTDA",
+        "valor": -472.56
+      },
+      {
+        "fornecedor": "CONEXAO MARITIMA SERVICOS LOGISTICO",
+        "valor": -391.75
+      }
+    ],
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "fornecedor": "NFX COMBUSTIVEIS MARITIMOS LTDA",
+        "valor": -7558001.07
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -654766.93
+      },
+      {
+        "fornecedor": "4PIPE HIDROPIG - ENG. INDUSTRIAL LT",
+        "valor": -294907.5
+      },
+      {
+        "fornecedor": "TECNOGERA LOC E TRANSFORM DE ENERGI",
+        "valor": -292150.0
+      },
+      {
+        "fornecedor": "TECNOTEXTIL-INDUSTRIA E COMERCIO",
+        "valor": -137067.11
+      },
+      {
+        "fornecedor": "LOADTEST DO BRASIL LOCACOES E SERVI",
+        "valor": -100428.8
+      },
+      {
+        "fornecedor": "DNA WORK COMERCIO E SERVICOS LTDA",
+        "valor": -79150.0
+      },
+      {
+        "fornecedor": "PETROVERA DERIVADOS DE PETROLEO LTD",
+        "valor": -41450.0
+      },
+      {
+        "fornecedor": "SEVEN SEAS ENGENHARIA LTDA",
+        "valor": -32809.96
+      },
+      {
+        "fornecedor": "UNIAO COMERCIAL BARAO S/A",
+        "valor": -23606.6
+      }
+    ],
+    "MEBR - Part. Consultoria": [
+      {
+        "fornecedor": "CLAUDIO LUIZ MAIA PETRILLI",
+        "valor": -34706.43
+      },
+      {
+        "fornecedor": "ANA MARIA NORIEGA PETRILLI",
+        "valor": -34706.43
+      },
+      {
+        "fornecedor": "EDIFICIO BENEDITO LAPIN",
+        "valor": -3140.11
+      },
+      {
+        "fornecedor": "MUNICIPIO DE SAO PAULO",
+        "valor": -1804.87
+      },
+      {
+        "fornecedor": "SECRETARIA DE ESTADO DE FAZENDA DE",
+        "valor": -465.88
+      },
+      {
+        "fornecedor": "CEMIG DISTRIBUICAO S.A",
+        "valor": -384.2
+      },
+      {
+        "fornecedor": "COLLEGE ENGLISH SCHOOL ENSINO",
+        "valor": -360.42
+      },
+      {
+        "fornecedor": "PREFEITURA MUNICIPAL DE BELO HORIZO",
+        "valor": -161.36
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "fornecedor": "NOVATA ENGENHARIA LTDA",
+        "valor": -2512839.3
+      },
+      {
+        "fornecedor": "MILLS LOCACAO, SERVICOS E LOGISTICA",
+        "valor": -1344537.66
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -247133.08
+      },
+      {
+        "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+        "valor": -226777.43
+      },
+      {
+        "fornecedor": "VIA APIA SERVICOS ESPECIAIS LTDA",
+        "valor": -214982.23
+      },
+      {
+        "fornecedor": "JLA CASAGRANDE SERVICOS E CONSULTOR",
+        "valor": -214927.76
+      },
+      {
+        "fornecedor": "LUIS FELIPE EBOLI IABRUDI EPP",
+        "valor": -192441.0
+      },
+      {
+        "fornecedor": "TICKET SOLUCOES HDFGT S/A",
+        "valor": -188220.94
+      },
+      {
+        "fornecedor": "OPUS LOCACOES E CONSTRUCOES",
+        "valor": -154580.4
+      },
+      {
+        "fornecedor": "LOCAR BELL LOCACOES LTDA",
+        "valor": -133787.73
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "fornecedor": "RBR SECURITY COMERCIO DE EQUIPAMENT",
+        "valor": -261814.94
+      },
+      {
+        "fornecedor": "KLINT DISTRIBUIDORA DE FIOS E CABOS",
+        "valor": -260030.48
+      },
+      {
+        "fornecedor": "PGL PRIME AGENCIAMENTO DE CARGA LTD",
+        "valor": -228698.45
+      },
+      {
+        "fornecedor": "D2W INDUSTRIA, COMERCIO E IMPORTACA",
+        "valor": -138530.6
+      },
+      {
+        "fornecedor": "BRADESCO SAUDE S/A",
+        "valor": -63302.17
+      },
+      {
+        "fornecedor": "AMBITO CONCRETO E ARTEFATOS LTDA",
+        "valor": -51600.0
+      },
+      {
+        "fornecedor": "BANCO CNH CAPITAL S/A",
+        "valor": -47361.42
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -39510.08
+      },
+      {
+        "fornecedor": "F.D. TELECOM LTDA",
+        "valor": -31783.1
+      },
+      {
+        "fornecedor": "CONCRETO AMOROSO LTDA",
+        "valor": -30000.0
+      }
+    ],
+    "Mota Engil Engenharia": [
+      {
+        "fornecedor": "UNIMED DE MACAE COOP",
+        "valor": -4738372.64
+      },
+      {
+        "fornecedor": "FLOW LATINO AMERICAN",
+        "valor": -4630319.97
+      },
+      {
+        "fornecedor": "HYDRATIGHT EQUIPAMEN",
+        "valor": -2809772.51
+      },
+      {
+        "fornecedor": "FLP TRANSPORTES DE M",
+        "valor": -1361192.74
+      },
+      {
+        "fornecedor": "PRINER LOCACAO DE EQ",
+        "valor": -1214993.94
+      },
+      {
+        "fornecedor": "RAC SOLUCOES EM ENER",
+        "valor": -684500.02
+      },
+      {
+        "fornecedor": "ASSISLANI LOCACAO DE",
+        "valor": -576404.64
+      },
+      {
+        "fornecedor": "ACOS VITAL COM DE TU",
+        "valor": -421923.23
+      },
+      {
+        "fornecedor": "JOTUN BRASIL",
+        "valor": -314620.81
+      },
+      {
+        "fornecedor": "CISARENTAL ADMINISTR",
+        "valor": -230312.76
+      }
+    ],
+    "REDUC": [
+      {
+        "fornecedor": "ABB AUTOMACAO LTDA",
+        "valor": -100000.0
+      },
+      {
+        "fornecedor": "ENGEDRILL ENGENHARIA",
+        "valor": -47368.61
+      },
+      {
+        "fornecedor": "VBC TECNOLOGIA LTDA",
+        "valor": -25592.8
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDI",
+        "valor": -2913.66
+      },
+      {
+        "fornecedor": "JUNTA COMERCIAL DO E",
+        "valor": -1200.0
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGUR.",
+        "valor": -86.64
+      }
+    ]
+  },
+  "s7": {
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "fornecedor": "VEBER INDUSTRIA METAL MECANICA LTDA",
+        "valor": -598732.88
+      },
+      {
+        "fornecedor": "MOP Y C SA",
+        "valor": -400792.83
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -91030.37
+      },
+      {
+        "fornecedor": "SHARE LOGISTICS LTDA",
+        "valor": -41755.89
+      },
+      {
+        "fornecedor": "UNIMED LITORAL COOPERATIVA",
+        "valor": -14366.96
+      },
+      {
+        "fornecedor": "FERRAMENTAS GERAIS COMERCIO E",
+        "valor": -13512.71
+      },
+      {
+        "fornecedor": "TRANSPORTES SAVENHAGO LTDA",
+        "valor": -3500.0
+      },
+      {
+        "fornecedor": "LEAN TECNOLOGIA E ENGENHARIA LTDA",
+        "valor": -1089.24
+      },
+      {
+        "fornecedor": "TELEFONICA BRASIL S.A.",
+        "valor": -884.32
+      },
+      {
+        "fornecedor": "PERSONAE BUSINESS INTELIGENCE LTDA",
+        "valor": -472.56
+      }
+    ],
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "fornecedor": "NFX COMBUSTIVEIS MARITIMOS LTDA",
+        "valor": -7239590.96
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -654766.93
+      },
+      {
+        "fornecedor": "TECNOGERA LOC E TRANSFORM DE ENERGI",
+        "valor": -439650.0
+      },
+      {
+        "fornecedor": "4PIPE HIDROPIG - ENG. INDUSTRIAL LT",
+        "valor": -294907.5
+      },
+      {
+        "fornecedor": "LOADTEST DO BRASIL LOCACOES E SERVI",
+        "valor": -265563.6
+      },
+      {
+        "fornecedor": "TECNOTEXTIL-INDUSTRIA E COMERCIO",
+        "valor": -137067.11
+      },
+      {
+        "fornecedor": "DNA WORK COMERCIO E SERVICOS LTDA",
+        "valor": -79150.0
+      },
+      {
+        "fornecedor": "SEVEN SEAS ENGENHARIA LTDA",
+        "valor": -32809.96
+      },
+      {
+        "fornecedor": "R.GOMES RODRIGUES",
+        "valor": -28344.65
+      },
+      {
+        "fornecedor": "VIFERRO FERRAMENTAS E FERRAGENS LTD",
+        "valor": -20687.5
+      }
+    ],
+    "MEBR - Part. Consultoria": [
+      {
+        "fornecedor": "IMTRAFF - CONSULTORIA E PROJETOS DE",
+        "valor": -36996.75
+      },
+      {
+        "fornecedor": "CLAUDIO LUIZ MAIA PETRILLI",
+        "valor": -36147.7
+      },
+      {
+        "fornecedor": "ANA MARIA NORIEGA PETRILLI",
+        "valor": -36147.7
+      },
+      {
+        "fornecedor": "EDIFICIO BENEDITO LAPIN",
+        "valor": -3140.11
+      },
+      {
+        "fornecedor": "MUNICIPIO DE SAO PAULO",
+        "valor": -1804.87
+      },
+      {
+        "fornecedor": "SECRETARIA DE ESTADO DE FAZENDA DE",
+        "valor": -465.88
+      },
+      {
+        "fornecedor": "CEMIG DISTRIBUICAO S.A",
+        "valor": -384.2
+      },
+      {
+        "fornecedor": "COLLEGE ENGLISH SCHOOL ENSINO",
+        "valor": -360.42
+      },
+      {
+        "fornecedor": "PREFEITURA MUNICIPAL DE BELO HORIZO",
+        "valor": -161.36
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "fornecedor": "NOVATA ENGENHARIA LTDA",
+        "valor": -2345316.68
+      },
+      {
+        "fornecedor": "MILLS LOCACAO, SERVICOS E LOGISTICA",
+        "valor": -1344537.66
+      },
+      {
+        "fornecedor": "ALELO INSTITUICAO DE PAGAMENTO SA",
+        "valor": -338581.03
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -247133.08
+      },
+      {
+        "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+        "valor": -226777.43
+      },
+      {
+        "fornecedor": "VIA APIA SERVICOS ESPECIAIS LTDA",
+        "valor": -200650.09
+      },
+      {
+        "fornecedor": "LUIS FELIPE EBOLI IABRUDI EPP",
+        "valor": -192441.0
+      },
+      {
+        "fornecedor": "TICKET SOLUCOES HDFGT S/A",
+        "valor": -190000.4
+      },
+      {
+        "fornecedor": "S.N. REFEICOES E BUFFET LTDA",
+        "valor": -156452.84
+      },
+      {
+        "fornecedor": "OPUS LOCACOES E CONSTRUCOES",
+        "valor": -154580.4
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "fornecedor": "D2W INDUSTRIA, COMERCIO E IMPORTACA",
+        "valor": -328995.88
+      },
+      {
+        "fornecedor": "KLINT DISTRIBUIDORA DE FIOS E CABOS",
+        "valor": -260030.48
+      },
+      {
+        "fornecedor": "PGL PRIME AGENCIAMENTO DE CARGA LTD",
+        "valor": -228698.45
+      },
+      {
+        "fornecedor": "BRADESCO SAUDE S/A",
+        "valor": -91751.98
+      },
+      {
+        "fornecedor": "LIGHTERA LATAM S.A.",
+        "valor": -73160.76
+      },
+      {
+        "fornecedor": "AMBITO CONCRETO E ARTEFATOS LTDA",
+        "valor": -51600.0
+      },
+      {
+        "fornecedor": "BANCO CNH CAPITAL S/A",
+        "valor": -47361.42
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -39510.08
+      },
+      {
+        "fornecedor": "CONCRETO AMOROSO LTDA",
+        "valor": -30000.0
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDICA SAUDE S.A.",
+        "valor": -26112.92
+      }
+    ],
+    "Mota Engil Engenharia": [
+      {
+        "fornecedor": "FLOW LATINO AMERICAN",
+        "valor": -4619706.59
+      },
+      {
+        "fornecedor": "HYDRATIGHT EQUIPAMEN",
+        "valor": -2902466.08
+      },
+      {
+        "fornecedor": "FLP TRANSPORTES DE M",
+        "valor": -1476088.24
+      },
+      {
+        "fornecedor": "PRINER LOCACAO DE EQ",
+        "valor": -1459637.95
+      },
+      {
+        "fornecedor": "TICKET SERVICOS SA",
+        "valor": -1271534.0
+      },
+      {
+        "fornecedor": "VIFERRO FERRAMENTAS",
+        "valor": -1239369.61
+      },
+      {
+        "fornecedor": "RAC SOLUCOES EM ENER",
+        "valor": -684500.02
+      },
+      {
+        "fornecedor": "ASSISLANI LOCACAO DE",
+        "valor": -504354.06
+      },
+      {
+        "fornecedor": "ACOS VITAL COM DE TU",
+        "valor": -414675.51
+      },
+      {
+        "fornecedor": "JOTUN BRASIL",
+        "valor": -404686.5
+      }
+    ],
+    "REDUC": [
+      {
+        "fornecedor": "ABB AUTOMACAO LTDA",
+        "valor": -100000.0
+      },
+      {
+        "fornecedor": "ENGEDRILL ENGENHARIA",
+        "valor": -47368.61
+      },
+      {
+        "fornecedor": "VBC TECNOLOGIA LTDA",
+        "valor": -25592.8
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDI",
+        "valor": -2913.66
+      },
+      {
+        "fornecedor": "JUNTA COMERCIAL DO E",
+        "valor": -1200.0
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGUR.",
+        "valor": -86.64
+      }
+    ]
+  },
+  "mar": {
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "fornecedor": "VEBER INDUSTRIA METAL MECANICA LTDA",
+        "valor": -598732.88
+      },
+      {
+        "fornecedor": "MOP Y C SA",
+        "valor": -400792.83
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -91030.37
+      },
+      {
+        "fornecedor": "SHARE LOGISTICS LTDA",
+        "valor": -41755.89
+      },
+      {
+        "fornecedor": "UNIMED LITORAL COOPERATIVA",
+        "valor": -14366.96
+      },
+      {
+        "fornecedor": "FERRAMENTAS GERAIS COMERCIO E",
+        "valor": -13512.71
+      },
+      {
+        "fornecedor": "TRANSPORTES SAVENHAGO LTDA",
+        "valor": -3500.0
+      },
+      {
+        "fornecedor": "LEAN TECNOLOGIA E ENGENHARIA LTDA",
+        "valor": -1089.24
+      },
+      {
+        "fornecedor": "TELEFONICA BRASIL S.A.",
+        "valor": -884.32
+      },
+      {
+        "fornecedor": "PERSONAE BUSINESS INTELIGENCE LTDA",
+        "valor": -472.56
+      }
+    ],
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "fornecedor": "NFX COMBUSTIVEIS MARITIMOS LTDA",
+        "valor": -7239590.96
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -654766.93
+      },
+      {
+        "fornecedor": "TECNOGERA LOC E TRANSFORM DE ENERGI",
+        "valor": -439650.0
+      },
+      {
+        "fornecedor": "4PIPE HIDROPIG - ENG. INDUSTRIAL LT",
+        "valor": -294907.5
+      },
+      {
+        "fornecedor": "LOADTEST DO BRASIL LOCACOES E SERVI",
+        "valor": -265563.6
+      },
+      {
+        "fornecedor": "TECNOTEXTIL-INDUSTRIA E COMERCIO",
+        "valor": -137067.11
+      },
+      {
+        "fornecedor": "DNA WORK COMERCIO E SERVICOS LTDA",
+        "valor": -79150.0
+      },
+      {
+        "fornecedor": "SEVEN SEAS ENGENHARIA LTDA",
+        "valor": -32809.96
+      },
+      {
+        "fornecedor": "R.GOMES RODRIGUES",
+        "valor": -28344.65
+      },
+      {
+        "fornecedor": "VIFERRO FERRAMENTAS E FERRAGENS LTD",
+        "valor": -20687.5
+      }
+    ],
+    "MEBR - Part. Consultoria": [
+      {
+        "fornecedor": "IMTRAFF - CONSULTORIA E PROJETOS DE",
+        "valor": -36996.75
+      },
+      {
+        "fornecedor": "CLAUDIO LUIZ MAIA PETRILLI",
+        "valor": -36147.7
+      },
+      {
+        "fornecedor": "ANA MARIA NORIEGA PETRILLI",
+        "valor": -36147.7
+      },
+      {
+        "fornecedor": "EDIFICIO BENEDITO LAPIN",
+        "valor": -3140.11
+      },
+      {
+        "fornecedor": "MUNICIPIO DE SAO PAULO",
+        "valor": -1804.87
+      },
+      {
+        "fornecedor": "SECRETARIA DE ESTADO DE FAZENDA DE",
+        "valor": -465.88
+      },
+      {
+        "fornecedor": "CEMIG DISTRIBUICAO S.A",
+        "valor": -384.2
+      },
+      {
+        "fornecedor": "COLLEGE ENGLISH SCHOOL ENSINO",
+        "valor": -360.42
+      },
+      {
+        "fornecedor": "PREFEITURA MUNICIPAL DE BELO HORIZO",
+        "valor": -161.36
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "fornecedor": "NOVATA ENGENHARIA LTDA",
+        "valor": -2345316.68
+      },
+      {
+        "fornecedor": "MILLS LOCACAO, SERVICOS E LOGISTICA",
+        "valor": -1344537.66
+      },
+      {
+        "fornecedor": "ALELO INSTITUICAO DE PAGAMENTO SA",
+        "valor": -338581.03
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -247133.08
+      },
+      {
+        "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+        "valor": -226777.43
+      },
+      {
+        "fornecedor": "VIA APIA SERVICOS ESPECIAIS LTDA",
+        "valor": -200650.09
+      },
+      {
+        "fornecedor": "LUIS FELIPE EBOLI IABRUDI EPP",
+        "valor": -192441.0
+      },
+      {
+        "fornecedor": "TICKET SOLUCOES HDFGT S/A",
+        "valor": -190000.4
+      },
+      {
+        "fornecedor": "S.N. REFEICOES E BUFFET LTDA",
+        "valor": -156452.84
+      },
+      {
+        "fornecedor": "OPUS LOCACOES E CONSTRUCOES",
+        "valor": -154580.4
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "fornecedor": "D2W INDUSTRIA, COMERCIO E IMPORTACA",
+        "valor": -328995.88
+      },
+      {
+        "fornecedor": "KLINT DISTRIBUIDORA DE FIOS E CABOS",
+        "valor": -260030.48
+      },
+      {
+        "fornecedor": "PGL PRIME AGENCIAMENTO DE CARGA LTD",
+        "valor": -228698.45
+      },
+      {
+        "fornecedor": "BRADESCO SAUDE S/A",
+        "valor": -91751.98
+      },
+      {
+        "fornecedor": "LIGHTERA LATAM S.A.",
+        "valor": -73160.76
+      },
+      {
+        "fornecedor": "AMBITO CONCRETO E ARTEFATOS LTDA",
+        "valor": -51600.0
+      },
+      {
+        "fornecedor": "BANCO CNH CAPITAL S/A",
+        "valor": -47361.42
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -39510.08
+      },
+      {
+        "fornecedor": "CONCRETO AMOROSO LTDA",
+        "valor": -30000.0
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDICA SAUDE S.A.",
+        "valor": -26112.92
+      }
+    ],
+    "Mota Engil Engenharia": [
+      {
+        "fornecedor": "FLOW LATINO AMERICAN",
+        "valor": -4619706.59
+      },
+      {
+        "fornecedor": "HYDRATIGHT EQUIPAMEN",
+        "valor": -2902466.08
+      },
+      {
+        "fornecedor": "FLP TRANSPORTES DE M",
+        "valor": -1476088.24
+      },
+      {
+        "fornecedor": "PRINER LOCACAO DE EQ",
+        "valor": -1459637.95
+      },
+      {
+        "fornecedor": "TICKET SERVICOS SA",
+        "valor": -1271534.0
+      },
+      {
+        "fornecedor": "VIFERRO FERRAMENTAS",
+        "valor": -1239369.61
+      },
+      {
+        "fornecedor": "RAC SOLUCOES EM ENER",
+        "valor": -684500.02
+      },
+      {
+        "fornecedor": "ASSISLANI LOCACAO DE",
+        "valor": -504354.06
+      },
+      {
+        "fornecedor": "ACOS VITAL COM DE TU",
+        "valor": -414675.51
+      },
+      {
+        "fornecedor": "JOTUN BRASIL",
+        "valor": -404686.5
+      }
+    ],
+    "REDUC": [
+      {
+        "fornecedor": "ABB AUTOMACAO LTDA",
+        "valor": -100000.0
+      },
+      {
+        "fornecedor": "ENGEDRILL ENGENHARIA",
+        "valor": -47368.61
+      },
+      {
+        "fornecedor": "VBC TECNOLOGIA LTDA",
+        "valor": -25592.8
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDI",
+        "valor": -2913.66
+      },
+      {
+        "fornecedor": "JUNTA COMERCIAL DO E",
+        "valor": -1200.0
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGUR.",
+        "valor": -86.64
+      }
+    ]
+  },
+  "total": {
+    "ME FUNDAÇÕES BRASIL LTDA": [
+      {
+        "fornecedor": "VEBER INDUSTRIA METAL MECANICA LTDA",
+        "valor": -598732.88
+      },
+      {
+        "fornecedor": "MOP Y C SA",
+        "valor": -400792.83
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -91030.37
+      },
+      {
+        "fornecedor": "SHARE LOGISTICS LTDA",
+        "valor": -41755.89
+      },
+      {
+        "fornecedor": "UNIMED LITORAL COOPERATIVA",
+        "valor": -14366.96
+      },
+      {
+        "fornecedor": "FERRAMENTAS GERAIS COMERCIO E",
+        "valor": -13512.71
+      },
+      {
+        "fornecedor": "TRANSPORTES SAVENHAGO LTDA",
+        "valor": -3500.0
+      },
+      {
+        "fornecedor": "LEAN TECNOLOGIA E ENGENHARIA LTDA",
+        "valor": -1089.24
+      },
+      {
+        "fornecedor": "TELEFONICA BRASIL S.A.",
+        "valor": -884.32
+      },
+      {
+        "fornecedor": "PERSONAE BUSINESS INTELIGENCE LTDA",
+        "valor": -472.56
+      }
+    ],
+    "CONSÓRCIO ECB SEA_ALSUB": [
+      {
+        "fornecedor": "NFX COMBUSTIVEIS MARITIMOS LTDA",
+        "valor": -7239590.96
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -654766.93
+      },
+      {
+        "fornecedor": "TECNOGERA LOC E TRANSFORM DE ENERGI",
+        "valor": -439650.0
+      },
+      {
+        "fornecedor": "4PIPE HIDROPIG - ENG. INDUSTRIAL LT",
+        "valor": -294907.5
+      },
+      {
+        "fornecedor": "LOADTEST DO BRASIL LOCACOES E SERVI",
+        "valor": -265563.6
+      },
+      {
+        "fornecedor": "TECNOTEXTIL-INDUSTRIA E COMERCIO",
+        "valor": -137067.11
+      },
+      {
+        "fornecedor": "DNA WORK COMERCIO E SERVICOS LTDA",
+        "valor": -79150.0
+      },
+      {
+        "fornecedor": "SEVEN SEAS ENGENHARIA LTDA",
+        "valor": -32809.96
+      },
+      {
+        "fornecedor": "R.GOMES RODRIGUES",
+        "valor": -28344.65
+      },
+      {
+        "fornecedor": "VIFERRO FERRAMENTAS E FERRAGENS LTD",
+        "valor": -20687.5
+      }
+    ],
+    "MEBR - Part. Consultoria": [
+      {
+        "fornecedor": "IMTRAFF - CONSULTORIA E PROJETOS DE",
+        "valor": -36996.75
+      },
+      {
+        "fornecedor": "CLAUDIO LUIZ MAIA PETRILLI",
+        "valor": -36147.7
+      },
+      {
+        "fornecedor": "ANA MARIA NORIEGA PETRILLI",
+        "valor": -36147.7
+      },
+      {
+        "fornecedor": "EDIFICIO BENEDITO LAPIN",
+        "valor": -3140.11
+      },
+      {
+        "fornecedor": "MUNICIPIO DE SAO PAULO",
+        "valor": -1804.87
+      },
+      {
+        "fornecedor": "SECRETARIA DE ESTADO DE FAZENDA DE",
+        "valor": -465.88
+      },
+      {
+        "fornecedor": "CEMIG DISTRIBUICAO S.A",
+        "valor": -384.2
+      },
+      {
+        "fornecedor": "COLLEGE ENGLISH SCHOOL ENSINO",
+        "valor": -360.42
+      },
+      {
+        "fornecedor": "PREFEITURA MUNICIPAL DE BELO HORIZO",
+        "valor": -161.36
+      }
+    ],
+    "MOTA-ENGIL BRASIL S/A": [
+      {
+        "fornecedor": "NOVATA ENGENHARIA LTDA",
+        "valor": -2345316.68
+      },
+      {
+        "fornecedor": "MILLS LOCACAO, SERVICOS E LOGISTICA",
+        "valor": -1344537.66
+      },
+      {
+        "fornecedor": "ALELO INSTITUICAO DE PAGAMENTO SA",
+        "valor": -338581.03
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGURADORA SA",
+        "valor": -247133.08
+      },
+      {
+        "fornecedor": "DELL COMPUTADORES DO BRASIL LTDA",
+        "valor": -226777.43
+      },
+      {
+        "fornecedor": "VIA APIA SERVICOS ESPECIAIS LTDA",
+        "valor": -200650.09
+      },
+      {
+        "fornecedor": "LUIS FELIPE EBOLI IABRUDI EPP",
+        "valor": -192441.0
+      },
+      {
+        "fornecedor": "TICKET SOLUCOES HDFGT S/A",
+        "valor": -190000.4
+      },
+      {
+        "fornecedor": "S.N. REFEICOES E BUFFET LTDA",
+        "valor": -156452.84
+      },
+      {
+        "fornecedor": "OPUS LOCACOES E CONSTRUCOES",
+        "valor": -154580.4
+      }
+    ],
+    "Tracevia Brasil": [
+      {
+        "fornecedor": "D2W INDUSTRIA, COMERCIO E IMPORTACA",
+        "valor": -328995.88
+      },
+      {
+        "fornecedor": "KLINT DISTRIBUIDORA DE FIOS E CABOS",
+        "valor": -260030.48
+      },
+      {
+        "fornecedor": "PGL PRIME AGENCIAMENTO DE CARGA LTD",
+        "valor": -228698.45
+      },
+      {
+        "fornecedor": "BRADESCO SAUDE S/A",
+        "valor": -91751.98
+      },
+      {
+        "fornecedor": "LIGHTERA LATAM S.A.",
+        "valor": -73160.76
+      },
+      {
+        "fornecedor": "AMBITO CONCRETO E ARTEFATOS LTDA",
+        "valor": -51600.0
+      },
+      {
+        "fornecedor": "BANCO CNH CAPITAL S/A",
+        "valor": -47361.42
+      },
+      {
+        "fornecedor": "MOTA-ENGIL GLOBAL SERV.PART.ADMN.TE",
+        "valor": -39510.08
+      },
+      {
+        "fornecedor": "CONCRETO AMOROSO LTDA",
+        "valor": -30000.0
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDICA SAUDE S.A.",
+        "valor": -26112.92
+      }
+    ],
+    "Mota Engil Engenharia": [
+      {
+        "fornecedor": "FLOW LATINO AMERICAN",
+        "valor": -4619706.59
+      },
+      {
+        "fornecedor": "HYDRATIGHT EQUIPAMEN",
+        "valor": -2902466.08
+      },
+      {
+        "fornecedor": "FLP TRANSPORTES DE M",
+        "valor": -1476088.24
+      },
+      {
+        "fornecedor": "PRINER LOCACAO DE EQ",
+        "valor": -1459637.95
+      },
+      {
+        "fornecedor": "TICKET SERVICOS SA",
+        "valor": -1271534.0
+      },
+      {
+        "fornecedor": "VIFERRO FERRAMENTAS",
+        "valor": -1239369.61
+      },
+      {
+        "fornecedor": "RAC SOLUCOES EM ENER",
+        "valor": -684500.02
+      },
+      {
+        "fornecedor": "ASSISLANI LOCACAO DE",
+        "valor": -504354.06
+      },
+      {
+        "fornecedor": "ACOS VITAL COM DE TU",
+        "valor": -414675.51
+      },
+      {
+        "fornecedor": "JOTUN BRASIL",
+        "valor": -404686.5
+      }
+    ],
+    "REDUC": [
+      {
+        "fornecedor": "ABB AUTOMACAO LTDA",
+        "valor": -100000.0
+      },
+      {
+        "fornecedor": "ENGEDRILL ENGENHARIA",
+        "valor": -47368.61
+      },
+      {
+        "fornecedor": "VBC TECNOLOGIA LTDA",
+        "valor": -25592.8
+      },
+      {
+        "fornecedor": "NOTRE DAME INTERMEDI",
+        "valor": -2913.66
+      },
+      {
+        "fornecedor": "JUNTA COMERCIAL DO E",
+        "valor": -1200.0
+      },
+      {
+        "fornecedor": "TOKIO MARINE SEGUR.",
+        "valor": -86.64
+      }
+    ]
+  }
+}
