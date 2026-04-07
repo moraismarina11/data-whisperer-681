@@ -20,9 +20,9 @@ interface DrillRecord {
 }
 
 export interface AgingFornDrillSelection {
-  mode: "empresa" | "empresa_faixa" | "all" | "bar";
-  empresa?: string; // summary empresa name
-  faixa?: string;   // aging bucket key
+  mode: "empresa" | "empresa_faixa" | "all" | "bar" | "faixa_only";
+  empresa?: string;
+  faixa?: string;
   period: string;
 }
 
@@ -111,6 +111,11 @@ const AgingFornDrillModal = ({ selection, onClose }: Props) => {
         const diff = daysDiff(refDate, venc);
         return getAgingBucket(diff) === selection.faixa;
       }
+      if (selection.mode === "faixa_only") {
+        const venc = parseDate(r.vencimento);
+        const diff = daysDiff(refDate, venc);
+        return getAgingBucket(diff) === selection.faixa;
+      }
       // mode === "all"
       return true;
     });
@@ -138,6 +143,8 @@ const AgingFornDrillModal = ({ selection, onClose }: Props) => {
     title = `${selection.empresa} — Aging Fornecedores — ${pl}`;
   } else if (selection.mode === "empresa_faixa") {
     title = `${selection.empresa} — ${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${pl}`;
+  } else if (selection.mode === "faixa_only") {
+    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — Aging Fornecedores — ${pl}`;
   } else {
     title = `Total Geral — Aging Fornecedores — ${pl}`;
   }

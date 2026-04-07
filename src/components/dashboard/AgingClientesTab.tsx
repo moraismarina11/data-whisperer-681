@@ -162,7 +162,11 @@ const AgingClientesTab = ({ period }: Props) => {
                   radius={[4, 4, 0, 0]}
                   barSize={32}
                   style={{ cursor: "pointer" }}
-                  onClick={() => setDrillSelection({ mode: "all", period })}
+                  onClick={(data: any) => {
+                    if (data && data.key) {
+                      setDrillSelection({ mode: "faixa_only", faixa: data.key, period });
+                    }
+                  }}
                 >
                   {agingDistribution.map((_, i) => <Cell key={i} fill={AGING_COLORS[i]} />)}
                 </Bar>
