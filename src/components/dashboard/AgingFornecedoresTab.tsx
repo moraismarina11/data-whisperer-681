@@ -1,7 +1,16 @@
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { formatCurrency, formatShort } from "./shared";
-import { agingFornecedoresData, agingFornecedoresTotals } from "./agingBreakdownData";
+import {
+  agingFornecedoresData_jan, agingFornecedoresTotals_jan,
+  agingFornecedoresData_fev, agingFornecedoresTotals_fev,
+  agingFornecedoresData_s4, agingFornecedoresTotals_s4,
+  agingFornecedoresData_s5, agingFornecedoresTotals_s5,
+  agingFornecedoresData_s6, agingFornecedoresTotals_s6,
+  agingFornecedoresData_s7, agingFornecedoresTotals_s7,
+  agingFornecedoresData_mar, agingFornecedoresTotals_mar,
+  agingFornecedoresData_total, agingFornecedoresTotals_total,
+} from "./agingBreakdownData";
 import type { AgingFornecedorEntry } from "./agingBreakdownData";
 import AgingFornDrillModal, { type AgingFornDrillSelection } from "./AgingFornDrillModal";
 
@@ -25,12 +34,41 @@ const AGING_COLORS = [
   "hsl(25, 85%, 55%)", "hsl(340, 60%, 50%)", "hsl(0, 65%, 50%)", "hsl(270, 50%, 55%)",
 ];
 
+// Ref dates por período
+const REF_DATES: Record<string, string> = {
+  jan:   "06/02/2026",
+  fev:   "27/02/2026",
+  s4:    "06/03/2026",
+  s5:    "13/03/2026",
+  s6:    "20/03/2026",
+  s7:    "27/03/2026",
+  mar:   "27/03/2026",
+  total: "27/03/2026",
+};
+
+function getDataForPeriod(period: string): { data: AgingFornecedorEntry[]; totals: AgingFornecedorEntry } {
+  switch (period) {
+    case "jan":   return { data: agingFornecedoresData_jan,   totals: agingFornecedoresTotals_jan };
+    case "fev":   return { data: agingFornecedoresData_fev,   totals: agingFornecedoresTotals_fev };
+    case "s4":    return { data: agingFornecedoresData_s4,    totals: agingFornecedoresTotals_s4 };
+    case "s5":    return { data: agingFornecedoresData_s5,    totals: agingFornecedoresTotals_s5 };
+    case "s6":    return { data: agingFornecedoresData_s6,    totals: agingFornecedoresTotals_s6 };
+    case "s7":    return { data: agingFornecedoresData_s7,    totals: agingFornecedoresTotals_s7 };
+    case "mar":   return { data: agingFornecedoresData_mar,   totals: agingFornecedoresTotals_mar };
+    case "total": return { data: agingFornecedoresData_total, totals: agingFornecedoresTotals_total };
+    default:      return { data: agingFornecedoresData_s7,    totals: agingFornecedoresTotals_s7 };
+  }
+}
+
 interface Props {
   period: string;
 }
 
 const AgingFornecedoresTab = ({ period }: Props) => {
   const [drillSelection, setDrillSelection] = useState<AgingFornDrillSelection | null>(null);
+
+  const { data: agingFornecedoresData, totals: agingFornecedoresTotals } = getDataForPeriod(period);
+  const refDate = REF_DATES[period] ?? REF_DATES["s7"];
 
   // Pie data by empresa
   const pieData = agingFornecedoresData.map((e, i) => ({
@@ -63,7 +101,7 @@ const AgingFornecedoresTab = ({ period }: Props) => {
     <div className="space-y-6">
       <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
         <h2 className="text-2xl font-bold italic text-primary mb-2">Aging Fornecedores</h2>
-        <p className="text-sm text-muted-foreground mb-4">Partidas em aberto até 06/03/2026</p>
+        <p className="text-sm text-muted-foreground mb-4">Partidas em aberto até {refDate}</p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Donut by empresa */}
@@ -83,7 +121,6 @@ const AgingFornecedoresTab = ({ period }: Props) => {
                   strokeWidth={0}
                   style={{ cursor: "pointer" }}
                   onClick={(_: any, index: number) => {
-                    const entry = pieData[index];
                     handleEmpresaClick(agingFornecedoresData[index].empresa);
                   }}
                 >
@@ -93,7 +130,7 @@ const AgingFornecedoresTab = ({ period }: Props) => {
               </PieChart>
             </ResponsiveContainer>
             <div className="flex flex-wrap gap-3 justify-center mt-2">
-              {pieData.map((d, i) => (
+              {pieData.map((d) => (
                 <div key={d.name} className="flex items-center gap-1.5 text-xs">
                   <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: d.color }} />
                   <span className="text-muted-foreground">{d.name}</span>
@@ -116,10 +153,7 @@ const AgingFornecedoresTab = ({ period }: Props) => {
                   radius={[4, 4, 0, 0]}
                   barSize={32}
                   style={{ cursor: "pointer" }}
-                  onClick={(_: any, index: number) => {
-                    // Clicking a bar opens all records for that aging bucket
-                    setDrillSelection({ mode: "all", period });
-                  }}
+                  onClick={() => setDrillSelection({ mode: "all", period })}
                 >
                   {agingDistribution.map((_, i) => <Cell key={i} fill={AGING_COLORS[i]} />)}
                 </Bar>
@@ -182,7 +216,6 @@ const AgingFornecedoresTab = ({ period }: Props) => {
                   ))}
                 </tr>
               ))}
-              {/* Totals */}
               <tr
                 className="border-t-2 border-border font-bold cursor-pointer hover:bg-muted/30 transition-colors"
                 onClick={handleTotalClick}
