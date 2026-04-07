@@ -103,7 +103,7 @@ const PosicaoFornecedoresTab = ({ period }: Props) => {
   const [detailDrill, setDetailDrill] = useState<AgingFornDrillSelection | null>(null);
 
   const openDetailDrill = (company: FornecedorCompany) => {
-    setDetailDrill({ mode: "empresa", empresa: company.company, period });
+    setDetailDrill({ mode: "empresa", empresa: company.company, period, titleContext: "Posição Fornecedores" });
   };
 
   const pieData = data.map((c) => ({
