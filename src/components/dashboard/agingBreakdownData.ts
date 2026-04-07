@@ -1,5 +1,5 @@
 // ── Aging Fornecedores por Período ──
-// Gerado automaticamente a partir das abas Aging Fornecedores_DDMM
+// Gerado a partir das abas Aging Fornecedores_DDMM
  
 export interface AgingFornecedorEntry {
   empresa: string;
