@@ -19,6 +19,19 @@ const dataByPeriod: Record<string, FornecedorCompany[]> = {
   total: fornecedoresDataS7,
 };
 
+// Map agingData company names → drill data empresa names
+const FORN_EMPRESA_MAP: Record<string, string[]> = {
+  "Consórcio Alsub": ["CONSÓRCIO ECB SEA_ALSUB"],
+  "MEBR": ["MEBR - Part. Consultoria"],
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
+  "Mota-Engil Brasil": ["Mota-Engil Brasil"],
+  "Tracevia": ["Tracevia Brasil"],
+  "Macaé": ["MOTA ENGIL - MACAE"],
+  "REDUC": ["REDUC"],
+  "Reduc": ["REDUC"],
+  "Mota Engil Engenharia": ["Mota Engil Engenharia"],
+};
+
 const CustomTooltip = ({ active, payload }: any) => {
   if (!active || !payload?.length) return null;
   const d = payload[0].payload;
