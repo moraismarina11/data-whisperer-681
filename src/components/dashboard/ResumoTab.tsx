@@ -4,7 +4,7 @@ import {
   fornecedoresDataJan, fornecedoresDataFev, fornecedoresDataS7,
   clientesDataJan, clientesDataFev, clientesDataS7,
 } from "./agingData";
-import { agingFornecedoresTotals } from "./agingBreakdownData";
+import { agingFornecedoresTotals_s7 } from "./agingBreakdownData";
 import type { FornecedorCompany, ClienteCompany } from "./agingData";
 
 /* ── helpers ── */
@@ -25,15 +25,14 @@ interface PeriodBlock {
   label: string;
   fornData: FornecedorCompany[];
   cliData: ClienteCompany[];
-  /** Override fornecedores total (e.g. from aging snapshot) */
   fornTotalOverride?: number;
 }
 
 const periods: PeriodBlock[] = [
   { label: "Janeiro", fornData: fornecedoresDataJan, cliData: clientesDataJan, fornTotalOverride: -70281028.78 },
   { label: "Fevereiro", fornData: fornecedoresDataFev, cliData: clientesDataFev, fornTotalOverride: -30877801.47 },
-  { label: "Março", fornData: fornecedoresDataS7, cliData: clientesDataS7, fornTotalOverride: agingFornecedoresTotals.valor },
-  { label: "Total Acumulado", fornData: fornecedoresDataS7, cliData: clientesDataS7, fornTotalOverride: agingFornecedoresTotals.valor },
+  { label: "Março", fornData: fornecedoresDataS7, cliData: clientesDataS7, fornTotalOverride: agingFornecedoresTotals_s7.valor },
+  { label: "Total Acumulado", fornData: fornecedoresDataS7, cliData: clientesDataS7, fornTotalOverride: agingFornecedoresTotals_s7.valor },
 ];
 
 /* Build per-company comparison data for charts */
