@@ -22,6 +22,7 @@ export interface AgingCliDrillSelection {
   empresa?: string;
   faixa?: string;
   period: string;
+  titleContext?: string;
 }
 
 const REF_DATES: Record<string, string> = {
