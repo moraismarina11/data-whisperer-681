@@ -163,7 +163,7 @@ const PosicaoFornecedoresTab = ({ period }: Props) => {
             <div
               key={company.company}
               className="bg-card rounded-xl border border-border p-5 shadow-sm cursor-pointer hover:border-primary/40 transition-colors"
-              onClick={() => setDrill({ company })}
+              onClick={() => openDetailDrill(company)}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
