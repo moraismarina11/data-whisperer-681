@@ -100,14 +100,16 @@ const AgingCliDrillModal = ({ selection, onClose }: Props) => {
     const refDateStr = REF_DATES[selection.period];
     const refDate = refDateStr ? parseDate(refDateStr) : new Date();
 
+    const drillEmpresas = selection.empresa ? (CLI_EMPRESA_MAP[selection.empresa] ?? [selection.empresa]) : [];
+
     let records = (drillData as DrillRecord[]).filter((r) => {
       if (r.periodo !== effPeriod) return false;
 
       if (selection.mode === "empresa") {
-        return r.empresa === selection.empresa;
+        return drillEmpresas.some((e) => r.empresa === e);
       }
       if (selection.mode === "empresa_faixa") {
-        if (r.empresa !== selection.empresa) return false;
+        if (!drillEmpresas.some((e) => r.empresa === e)) return false;
         const venc = parseDate(r.vencimento);
         const diff = daysDiff(refDate, venc);
         return getAgingBucket(diff) === selection.faixa;
@@ -139,14 +141,15 @@ const AgingCliDrillModal = ({ selection, onClose }: Props) => {
 
   let title = "";
   const pl = periodLabel(selection.period);
+  const ctx = selection.titleContext || "Aging Clientes";
   if (selection.mode === "empresa") {
-    title = `${selection.empresa} — Aging Clientes — ${pl}`;
+    title = `${selection.empresa} — ${ctx} — ${pl}`;
   } else if (selection.mode === "empresa_faixa") {
     title = `${selection.empresa} — ${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${pl}`;
   } else if (selection.mode === "faixa_only") {
-    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — Aging Clientes — ${pl}`;
+    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${ctx} — ${pl}`;
   } else {
-    title = `Total Geral — Aging Clientes — ${pl}`;
+    title = `Total Geral — ${ctx} — ${pl}`;
   }
 
   return (
