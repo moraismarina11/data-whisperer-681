@@ -23,8 +23,9 @@ export interface AgingFornDrillSelection {
   mode: "empresa" | "empresa_faixa" | "all" | "bar" | "faixa_only";
   empresa?: string;
   faixa?: string;
+  fornecedor?: string;
   period: string;
-  titleContext?: string; // e.g. "Posição Fornecedores" instead of "Aging Fornecedores"
+  titleContext?: string;
 }
 
 // Reference dates per period
@@ -112,7 +113,11 @@ const AgingFornDrillModal = ({ selection, onClose }: Props) => {
       if (r.periodo !== effPeriod) return false;
 
       if (selection.mode === "empresa" || selection.mode === "bar") {
-        return drillEmpresas.some((e) => r.empresa === e);
+        if (!drillEmpresas.some((e) => r.empresa === e)) return false;
+        if (selection.fornecedor) {
+          return r.descricao === selection.fornecedor;
+        }
+        return true;
       }
       if (selection.mode === "empresa_faixa") {
         if (!drillEmpresas.some((e) => r.empresa === e)) return false;
@@ -150,7 +155,9 @@ const AgingFornDrillModal = ({ selection, onClose }: Props) => {
   const pl = periodLabel(selection.period);
   const ctx = selection.titleContext || "Aging Fornecedores";
   if (selection.mode === "empresa" || selection.mode === "bar") {
-    title = `${selection.empresa} — ${ctx} — ${pl}`;
+    title = selection.fornecedor
+      ? `${selection.fornecedor} — ${selection.empresa} — ${pl}`
+      : `${selection.empresa} — ${ctx} — ${pl}`;
   } else if (selection.mode === "empresa_faixa") {
     title = `${selection.empresa} — ${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${pl}`;
   } else if (selection.mode === "faixa_only") {

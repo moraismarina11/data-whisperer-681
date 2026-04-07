@@ -21,6 +21,7 @@ export interface AgingCliDrillSelection {
   mode: "empresa" | "empresa_faixa" | "all" | "faixa_only";
   empresa?: string;
   faixa?: string;
+  cliente?: string;
   period: string;
   titleContext?: string;
 }
@@ -106,7 +107,11 @@ const AgingCliDrillModal = ({ selection, onClose }: Props) => {
       if (r.periodo !== effPeriod) return false;
 
       if (selection.mode === "empresa") {
-        return drillEmpresas.some((e) => r.empresa === e);
+        if (!drillEmpresas.some((e) => r.empresa === e)) return false;
+        if (selection.cliente) {
+          return r.cliente === selection.cliente;
+        }
+        return true;
       }
       if (selection.mode === "empresa_faixa") {
         if (!drillEmpresas.some((e) => r.empresa === e)) return false;
@@ -143,7 +148,9 @@ const AgingCliDrillModal = ({ selection, onClose }: Props) => {
   const pl = periodLabel(selection.period);
   const ctx = selection.titleContext || "Aging Clientes";
   if (selection.mode === "empresa") {
-    title = `${selection.empresa} — ${ctx} — ${pl}`;
+    title = selection.cliente
+      ? `${selection.cliente} — ${selection.empresa} — ${pl}`
+      : `${selection.empresa} — ${ctx} — ${pl}`;
   } else if (selection.mode === "empresa_faixa") {
     title = `${selection.empresa} — ${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${pl}`;
   } else if (selection.mode === "faixa_only") {

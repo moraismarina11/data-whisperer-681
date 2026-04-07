@@ -106,6 +106,10 @@ const PosicaoFornecedoresTab = ({ period }: Props) => {
     setDetailDrill({ mode: "empresa", empresa: company.company, period, titleContext: "Posição Fornecedores" });
   };
 
+  const openBarDrill = (company: FornecedorCompany, fornecedorName: string) => {
+    setDetailDrill({ mode: "empresa", empresa: company.company, fornecedor: fornecedorName, period, titleContext: "Posição Fornecedores" });
+  };
+
   const pieData = data.map((c) => ({
     name: c.company,
     value: c.total,
@@ -173,15 +177,24 @@ const PosicaoFornecedoresTab = ({ period }: Props) => {
                 </div>
                 <span className="text-sm font-semibold text-foreground">Total: {formatCurrency(company.total)}</span>
               </div>
-              <ResponsiveContainer width="100%" height={chartHeight}>
-                <BarChart data={sorted} layout="vertical" margin={{ left: 10, right: 30, top: 0, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="hsl(var(--border))" />
-                  <XAxis type="number" tickFormatter={formatShort} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }} />
-                  <YAxis type="category" dataKey="name" width={180} tick={{ fill: "hsl(var(--foreground))", fontSize: 10 }} />
-                  <Tooltip content={<CustomTooltip />} cursor={{ fill: "hsl(var(--muted) / 0.4)" }} />
-                  <Bar dataKey="value" fill={company.color} radius={[0, 4, 4, 0]} barSize={20} />
-                </BarChart>
-              </ResponsiveContainer>
+              <div onClick={(e) => e.stopPropagation()}>
+                <ResponsiveContainer width="100%" height={chartHeight}>
+                  <BarChart data={sorted} layout="vertical" margin={{ left: 10, right: 30, top: 0, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="hsl(var(--border))" />
+                    <XAxis type="number" tickFormatter={formatShort} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }} />
+                    <YAxis type="category" dataKey="name" width={180} tick={{ fill: "hsl(var(--foreground))", fontSize: 10 }} />
+                    <Tooltip content={<CustomTooltip />} cursor={{ fill: "hsl(var(--muted) / 0.4)" }} />
+                    <Bar
+                      dataKey="value"
+                      fill={company.color}
+                      radius={[0, 4, 4, 0]}
+                      barSize={20}
+                      style={{ cursor: "pointer" }}
+                      onClick={(data: any) => openBarDrill(company, data.name)}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
             </div>
           );
         })}
