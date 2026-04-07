@@ -132,11 +132,11 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="pos-forn">
-            <PosicaoFornecedoresTab data={getFornecedoresData()} />
+            <PosicaoFornecedoresTab period={period} />
           </TabsContent>
 
           <TabsContent value="pos-cli">
-            <PosicaoClientesTab data={getClientesData()} />
+            <PosicaoClientesTab period={period} />
           </TabsContent>
 
           <TabsContent value="aging-forn">
