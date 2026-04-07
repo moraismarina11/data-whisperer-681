@@ -119,6 +119,11 @@ interface Props {
 const PosicaoClientesTab = ({ period }: Props) => {
   const data = useMemo(() => dataByPeriod[period] || clientesDataS7, [period]);
   const [drill, setDrill] = useState<DrillSelection | null>(null);
+  const [detailDrill, setDetailDrill] = useState<AgingCliDrillSelection | null>(null);
+
+  const openDetailDrill = (company: ClienteCompany) => {
+    setDetailDrill({ mode: "empresa", empresa: company.company, period, titleContext: "Posição Clientes" });
+  };
 
   const pieData = data.map((c) => ({
     name: c.company,
@@ -178,7 +183,7 @@ const PosicaoClientesTab = ({ period }: Props) => {
             <div
               key={company.company}
               className="bg-card rounded-xl border border-border p-5 shadow-sm cursor-pointer hover:border-primary/40 transition-colors"
-              onClick={() => setDrill({ company })}
+              onClick={() => openDetailDrill(company)}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -232,6 +237,7 @@ const PosicaoClientesTab = ({ period }: Props) => {
       </div>
 
       <DrillModal selection={drill} onClose={() => setDrill(null)} />
+      <AgingCliDrillModal selection={detailDrill} onClose={() => setDetailDrill(null)} />
     </div>
   );
 };
