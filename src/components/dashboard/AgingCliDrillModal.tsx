@@ -98,6 +98,11 @@ const AgingCliDrillModal = ({ selection, onClose }: Props) => {
         const diff = daysDiff(refDate, venc);
         return getAgingBucket(diff) === selection.faixa;
       }
+      if (selection.mode === "faixa_only") {
+        const venc = parseDate(r.vencimento);
+        const diff = daysDiff(refDate, venc);
+        return getAgingBucket(diff) === selection.faixa;
+      }
       return true;
     });
 
@@ -124,6 +129,8 @@ const AgingCliDrillModal = ({ selection, onClose }: Props) => {
     title = `${selection.empresa} — Aging Clientes — ${pl}`;
   } else if (selection.mode === "empresa_faixa") {
     title = `${selection.empresa} — ${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${pl}`;
+  } else if (selection.mode === "faixa_only") {
+    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — Aging Clientes — ${pl}`;
   } else {
     title = `Total Geral — Aging Clientes — ${pl}`;
   }
