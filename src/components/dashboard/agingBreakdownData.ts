@@ -217,13 +217,13 @@ export const agingClientesData_s7: AgingClienteBreakdownEntry[] = [
   { empresa: "CONSÓRCIO ECB SEA_ALSUB", aReceber: 26452.0, aVencer: 7064.0, ate30: 19388.0, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a1ano: 0.0, de1a2anos: 0.0, de2a3anos: 0.0, mais3anos: 0.0 },
   { empresa: "ME FUNDAÇÕES BRASIL LTDA", aReceber: 27097858.01, aVencer: 813255.09, ate30: 14524602.92, de31a60: 0.0, de61a90: 11760000.0, de91a180: 0.0, de181a1ano: 0.0, de1a2anos: 0.0, de2a3anos: 0.0, mais3anos: 0.0 },
   { empresa: "MOTA ENGIL ENGENHARIA", aReceber: 48128724.34, aVencer: 44902380.26, ate30: 351720.97, de31a60: 437329.18, de61a90: 219310.46, de91a180: 189580.12, de181a1ano: 142245.44, de1a2anos: 0.0, de2a3anos: 304801.68, mais3anos: 1581356.23 },
-  { empresa: "MOTA-ENGIL BRASIL S/A", aReceber: 52576884.74, aVencer: 50666383.02, ate30: 0.0, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a1ano: 0.0, de1a2anos: 110044.11, de2a3anos: 416661.07, mais3anos: 1383796.54 },
+  { empresa: "MOTA-ENGIL BRASIL S/A", aReceber: 53287104.28, aVencer: 50666383.02, ate30: 0.0, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a1ano: 87644.08, de1a2anos: 732619.57, de2a3anos: 416661.07, mais3anos: 1383796.54 },
   { empresa: "REDUC", aReceber: 309615.88, aVencer: 0.0, ate30: 240.0, de31a60: 5566.28, de61a90: 0.0, de91a180: 0.0, de181a1ano: 2964.18, de1a2anos: 67462.86, de2a3anos: 110898.29, mais3anos: 122484.27 },
-  { empresa: "Tracevia Brasil", aReceber: 1026910.68, aVencer: 0.0, ate30: 0.0, de31a60: -1857.64, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 214096.35, de2a3anos: 491363.15, mais3anos: 189626.01 },
+  { empresa: "Tracevia Brasil", aReceber: 2337515.98, aVencer: 456330.99, ate30: 857878.17, de31a60: -1857.64, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 210492.49, de2a3anos: 491363.15, mais3anos: 189626.01 },
 ];
 
 export const agingClientesTotals_s7: AgingClienteBreakdownEntry = {
-  empresa: "Total Geral", aReceber: 129166445.65, aVencer: 96389082.37, ate30: 14895951.89, de31a60: 441037.82, de61a90: 11979310.46, de91a180: 189580.12, de181a1ano: 278892.43, de1a2anos: 391603.32, de2a3anos: 1323724.19, mais3anos: 3277263.05
+  empresa: "Total Geral", aReceber: 131187270.49, aVencer: 96845413.36, ate30: 15753830.06, de31a60: 441037.82, de61a90: 11979310.46, de91a180: 189580.12, de181a1ano: 366536.51, de1a2anos: 1010574.92, de2a3anos: 1323724.19, mais3anos: 3277263.05
 };
 
 // Março e Total Acumulado = snapshot S7
