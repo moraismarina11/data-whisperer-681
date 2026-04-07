@@ -28,7 +28,7 @@ const Index = () => {
     if (period === "s4") return fornecedoresDataS4;
     if (period === "s5") return fornecedoresDataS5;
     if (period === "s6") return fornecedoresDataS6;
-    return fornecedoresDataS7; // s7, mar, total use latest snapshot
+    return fornecedoresDataS7;
   };
 
   const getClientesData = () => {
@@ -53,7 +53,7 @@ const Index = () => {
           </div>
 
           {/* Period selector */}
-          <div className="flex items-center gap-1 bg-muted rounded-lg p-1">
+          <div className="flex items-center gap-1 bg-muted rounded-lg p-1 flex-wrap">
             {PERIODS.map((p) => (
               <button
                 key={p.id}
@@ -109,11 +109,11 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="top10">
-            <Top10Tab data={filterByPeriod(top10Data)} period={period} />
+            <Top10Tab data={filterByPeriod(top10Data)} />
           </TabsContent>
 
           <TabsContent value="tipo">
-            <TipoPagamentoTab data={filterByPeriod(tipoPagamentoData)} period={period} />
+            <TipoPagamentoTab data={filterByPeriod(tipoPagamentoData)} />
           </TabsContent>
 
           <TabsContent value="cc-meb">
@@ -121,8 +121,6 @@ const Index = () => {
               data={filterByPeriod(custoCentroMEBData)}
               title="Centro de Custo — Mota Engil Brasil"
               grouped
-              period={period}
-              company="Mota Engil Brasil"
             />
           </TabsContent>
 
@@ -130,8 +128,6 @@ const Index = () => {
             <CustoCentroTab
               data={filterByPeriod(custoCentroMacaeData)}
               title="Centro de Custo — Macaé"
-              company="Macaé"
-              period={period}
             />
           </TabsContent>
 
