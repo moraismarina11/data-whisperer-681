@@ -18,7 +18,7 @@ interface DrillRecord {
 }
 
 export interface AgingCliDrillSelection {
-  mode: "empresa" | "empresa_faixa" | "all";
+  mode: "empresa" | "empresa_faixa" | "all" | "faixa_only";
   empresa?: string;
   faixa?: string;
   period: string;

@@ -20,9 +20,9 @@ interface DrillRecord {
 }
 
 export interface AgingFornDrillSelection {
-  mode: "empresa" | "empresa_faixa" | "all" | "bar";
-  empresa?: string; // summary empresa name
-  faixa?: string;   // aging bucket key
+  mode: "empresa" | "empresa_faixa" | "all" | "bar" | "faixa_only";
+  empresa?: string;
+  faixa?: string;
   period: string;
 }
 
