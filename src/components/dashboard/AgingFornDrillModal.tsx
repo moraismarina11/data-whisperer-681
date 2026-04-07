@@ -148,14 +148,15 @@ const AgingFornDrillModal = ({ selection, onClose }: Props) => {
 
   let title = "";
   const pl = periodLabel(selection.period);
+  const ctx = selection.titleContext || "Aging Fornecedores";
   if (selection.mode === "empresa" || selection.mode === "bar") {
-    title = `${selection.empresa} — Aging Fornecedores — ${pl}`;
+    title = `${selection.empresa} — ${ctx} — ${pl}`;
   } else if (selection.mode === "empresa_faixa") {
     title = `${selection.empresa} — ${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${pl}`;
   } else if (selection.mode === "faixa_only") {
-    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — Aging Fornecedores — ${pl}`;
+    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${ctx} — ${pl}`;
   } else {
-    title = `Total Geral — Aging Fornecedores — ${pl}`;
+    title = `Total Geral — ${ctx} — ${pl}`;
   }
 
   return (
