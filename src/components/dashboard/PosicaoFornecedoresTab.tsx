@@ -188,6 +188,7 @@ const PosicaoFornecedoresTab = ({ period }: Props) => {
       </div>
 
       <DrillModal selection={drill} onClose={() => setDrill(null)} />
+      <AgingFornDrillModal selection={detailDrill} onClose={() => setDetailDrill(null)} />
     </div>
   );
 };
