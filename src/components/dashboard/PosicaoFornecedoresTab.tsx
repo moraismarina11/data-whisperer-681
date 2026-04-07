@@ -1,11 +1,12 @@
 import { useState, useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { formatCurrency, formatShort } from "./shared";
+import { formatCurrency, formatShort, PERIODS } from "./shared";
 import {
   fornecedoresDataJan, fornecedoresDataFev,
   fornecedoresDataS4, fornecedoresDataS5, fornecedoresDataS6, fornecedoresDataS7,
   type FornecedorCompany,
 } from "./agingData";
+import AgingFornDrillModal, { type AgingFornDrillSelection } from "./AgingFornDrillModal";
 
 const dataByPeriod: Record<string, FornecedorCompany[]> = {
   jan: fornecedoresDataJan,
@@ -16,6 +17,19 @@ const dataByPeriod: Record<string, FornecedorCompany[]> = {
   s7: fornecedoresDataS7,
   mar: fornecedoresDataS7,
   total: fornecedoresDataS7,
+};
+
+// Map agingData company names → drill data empresa names
+const FORN_EMPRESA_MAP: Record<string, string[]> = {
+  "Consórcio Alsub": ["CONSÓRCIO ECB SEA_ALSUB"],
+  "MEBR": ["MEBR - Part. Consultoria"],
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
+  "Mota-Engil Brasil": ["Mota-Engil Brasil"],
+  "Tracevia": ["Tracevia Brasil"],
+  "Macaé": ["MOTA ENGIL - MACAE"],
+  "REDUC": ["REDUC"],
+  "Reduc": ["REDUC"],
+  "Mota Engil Engenharia": ["Mota Engil Engenharia"],
 };
 
 const CustomTooltip = ({ active, payload }: any) => {
@@ -86,6 +100,11 @@ interface Props {
 const PosicaoFornecedoresTab = ({ period }: Props) => {
   const data = useMemo(() => dataByPeriod[period] || fornecedoresDataS7, [period]);
   const [drill, setDrill] = useState<DrillSelection | null>(null);
+  const [detailDrill, setDetailDrill] = useState<AgingFornDrillSelection | null>(null);
+
+  const openDetailDrill = (company: FornecedorCompany) => {
+    setDetailDrill({ mode: "empresa", empresa: company.company, period, titleContext: "Posição Fornecedores" });
+  };
 
   const pieData = data.map((c) => ({
     name: c.company,
@@ -144,7 +163,7 @@ const PosicaoFornecedoresTab = ({ period }: Props) => {
             <div
               key={company.company}
               className="bg-card rounded-xl border border-border p-5 shadow-sm cursor-pointer hover:border-primary/40 transition-colors"
-              onClick={() => setDrill({ company })}
+              onClick={() => openDetailDrill(company)}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -169,6 +188,7 @@ const PosicaoFornecedoresTab = ({ period }: Props) => {
       </div>
 
       <DrillModal selection={drill} onClose={() => setDrill(null)} />
+      <AgingFornDrillModal selection={detailDrill} onClose={() => setDetailDrill(null)} />
     </div>
   );
 };

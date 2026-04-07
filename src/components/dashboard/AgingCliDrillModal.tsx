@@ -22,6 +22,7 @@ export interface AgingCliDrillSelection {
   empresa?: string;
   faixa?: string;
   period: string;
+  titleContext?: string;
 }
 
 const REF_DATES: Record<string, string> = {
@@ -71,6 +72,19 @@ const periodLabel = (id: string) => PERIODS.find((p) => p.id === id)?.label ?? i
 
 const resolvePeriod = (p: string) => (p === "mar" || p === "total") ? "s7" : p;
 
+// Map summary empresa names → drill data empresa names
+const CLI_EMPRESA_MAP: Record<string, string[]> = {
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES"],
+  "Mota-Engil Brasil": ["MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL"],
+  "Consórcio Alsub": ["CONSÓRCIO ALSUB", "CONSORCIO ALSUB", "CONSÓRCIO ECB SEA_ALSUB"],
+  "Macaé": ["MOTA ENGIL MACAE"],
+  "Tracevia": ["TRACEVIA", "Tracevia Brasil"],
+  "REDUC": ["REDUC"],
+  "Reduc": ["REDUC"],
+  "MEBR": ["MEBR"],
+  "Mota Engil Engenharia": ["MOTA ENGIL ENGENHARIA"],
+};
+
 interface Props {
   selection: AgingCliDrillSelection | null;
   onClose: () => void;
@@ -86,14 +100,16 @@ const AgingCliDrillModal = ({ selection, onClose }: Props) => {
     const refDateStr = REF_DATES[selection.period];
     const refDate = refDateStr ? parseDate(refDateStr) : new Date();
 
+    const drillEmpresas = selection.empresa ? (CLI_EMPRESA_MAP[selection.empresa] ?? [selection.empresa]) : [];
+
     let records = (drillData as DrillRecord[]).filter((r) => {
       if (r.periodo !== effPeriod) return false;
 
       if (selection.mode === "empresa") {
-        return r.empresa === selection.empresa;
+        return drillEmpresas.some((e) => r.empresa === e);
       }
       if (selection.mode === "empresa_faixa") {
-        if (r.empresa !== selection.empresa) return false;
+        if (!drillEmpresas.some((e) => r.empresa === e)) return false;
         const venc = parseDate(r.vencimento);
         const diff = daysDiff(refDate, venc);
         return getAgingBucket(diff) === selection.faixa;
@@ -125,14 +141,15 @@ const AgingCliDrillModal = ({ selection, onClose }: Props) => {
 
   let title = "";
   const pl = periodLabel(selection.period);
+  const ctx = selection.titleContext || "Aging Clientes";
   if (selection.mode === "empresa") {
-    title = `${selection.empresa} — Aging Clientes — ${pl}`;
+    title = `${selection.empresa} — ${ctx} — ${pl}`;
   } else if (selection.mode === "empresa_faixa") {
     title = `${selection.empresa} — ${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${pl}`;
   } else if (selection.mode === "faixa_only") {
-    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — Aging Clientes — ${pl}`;
+    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${ctx} — ${pl}`;
   } else {
-    title = `Total Geral — Aging Clientes — ${pl}`;
+    title = `Total Geral — ${ctx} — ${pl}`;
   }
 
   return (

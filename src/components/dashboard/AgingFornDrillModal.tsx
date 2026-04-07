@@ -24,6 +24,7 @@ export interface AgingFornDrillSelection {
   empresa?: string;
   faixa?: string;
   period: string;
+  titleContext?: string; // e.g. "Posição Fornecedores" instead of "Aging Fornecedores"
 }
 
 // Reference dates per period
@@ -47,6 +48,14 @@ const EMPRESA_MAP: Record<string, string[]> = {
   "Tracevia Brasil": ["Tracevia Brasil"],
   "Mota Engil Engenharia": ["Mota Engil Engenharia"],
   "REDUC": ["REDUC"],
+  // Posição Fornecedores tab company names
+  "Consórcio Alsub": ["CONSÓRCIO ECB SEA_ALSUB"],
+  "MEBR": ["MEBR - Part. Consultoria"],
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
+  "Mota-Engil Brasil": ["Mota-Engil Brasil"],
+  "Tracevia": ["Tracevia Brasil"],
+  "Macaé": ["MOTA ENGIL - MACAE"],
+  "Reduc": ["REDUC"],
 };
 
 const FAIXA_LABELS: Record<string, string> = {
@@ -139,14 +148,15 @@ const AgingFornDrillModal = ({ selection, onClose }: Props) => {
 
   let title = "";
   const pl = periodLabel(selection.period);
+  const ctx = selection.titleContext || "Aging Fornecedores";
   if (selection.mode === "empresa" || selection.mode === "bar") {
-    title = `${selection.empresa} — Aging Fornecedores — ${pl}`;
+    title = `${selection.empresa} — ${ctx} — ${pl}`;
   } else if (selection.mode === "empresa_faixa") {
     title = `${selection.empresa} — ${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${pl}`;
   } else if (selection.mode === "faixa_only") {
-    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — Aging Fornecedores — ${pl}`;
+    title = `${FAIXA_LABELS[selection.faixa!] ?? selection.faixa} — ${ctx} — ${pl}`;
   } else {
-    title = `Total Geral — Aging Fornecedores — ${pl}`;
+    title = `Total Geral — ${ctx} — ${pl}`;
   }
 
   return (
