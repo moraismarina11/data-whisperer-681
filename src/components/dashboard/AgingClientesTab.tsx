@@ -167,7 +167,7 @@ const AgingClientesTab = ({ period }: Props) => {
                       setDrillSelection({ mode: "faixa_only", faixa: data.key, period });
                     }
                   }}
-                
+                >
                   {agingDistribution.map((_, i) => <Cell key={i} fill={AGING_COLORS[i]} />)}
                 </Bar>
               </BarChart>
