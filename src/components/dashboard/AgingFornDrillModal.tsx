@@ -24,6 +24,7 @@ export interface AgingFornDrillSelection {
   empresa?: string;
   faixa?: string;
   period: string;
+  titleContext?: string; // e.g. "Posição Fornecedores" instead of "Aging Fornecedores"
 }
 
 // Reference dates per period
