@@ -1,11 +1,12 @@
 import { useState, useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { formatCurrency, formatShort } from "./shared";
+import { formatCurrency, formatShort, PERIODS } from "./shared";
 import {
   fornecedoresDataJan, fornecedoresDataFev,
   fornecedoresDataS4, fornecedoresDataS5, fornecedoresDataS6, fornecedoresDataS7,
   type FornecedorCompany,
 } from "./agingData";
+import AgingFornDrillModal, { type AgingFornDrillSelection } from "./AgingFornDrillModal";
 
 const dataByPeriod: Record<string, FornecedorCompany[]> = {
   jan: fornecedoresDataJan,

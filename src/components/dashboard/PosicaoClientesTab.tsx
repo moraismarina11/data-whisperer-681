@@ -1,11 +1,12 @@
 import { useState, useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { formatCurrency, formatShort } from "./shared";
+import { formatCurrency, formatShort, PERIODS } from "./shared";
 import {
   clientesDataJan, clientesDataFev,
   clientesDataS4, clientesDataS5, clientesDataS6, clientesDataS7,
   type ClienteCompany, type ClienteEntry,
 } from "./agingData";
+import AgingCliDrillModal, { type AgingCliDrillSelection } from "./AgingCliDrillModal";
 
 const dataByPeriod: Record<string, ClienteCompany[]> = {
   jan: clientesDataJan,
