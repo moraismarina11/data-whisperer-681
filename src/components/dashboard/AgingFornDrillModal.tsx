@@ -47,6 +47,14 @@ const EMPRESA_MAP: Record<string, string[]> = {
   "Tracevia Brasil": ["Tracevia Brasil"],
   "Mota Engil Engenharia": ["Mota Engil Engenharia"],
   "REDUC": ["REDUC"],
+  // Posição Fornecedores tab company names
+  "Consórcio Alsub": ["CONSÓRCIO ECB SEA_ALSUB"],
+  "MEBR": ["MEBR - Part. Consultoria"],
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
+  "Mota-Engil Brasil": ["Mota-Engil Brasil"],
+  "Tracevia": ["Tracevia Brasil"],
+  "Macaé": ["MOTA ENGIL - MACAE"],
+  "Reduc": ["REDUC"],
 };
 
 const FAIXA_LABELS: Record<string, string> = {
