@@ -72,6 +72,19 @@ const periodLabel = (id: string) => PERIODS.find((p) => p.id === id)?.label ?? i
 
 const resolvePeriod = (p: string) => (p === "mar" || p === "total") ? "s7" : p;
 
+// Map summary empresa names → drill data empresa names
+const CLI_EMPRESA_MAP: Record<string, string[]> = {
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES"],
+  "Mota-Engil Brasil": ["MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL"],
+  "Consórcio Alsub": ["CONSÓRCIO ALSUB", "CONSORCIO ALSUB", "CONSÓRCIO ECB SEA_ALSUB"],
+  "Macaé": ["MOTA ENGIL MACAE"],
+  "Tracevia": ["TRACEVIA", "Tracevia Brasil"],
+  "REDUC": ["REDUC"],
+  "Reduc": ["REDUC"],
+  "MEBR": ["MEBR"],
+  "Mota Engil Engenharia": ["MOTA ENGIL ENGENHARIA"],
+};
+
 interface Props {
   selection: AgingCliDrillSelection | null;
   onClose: () => void;
