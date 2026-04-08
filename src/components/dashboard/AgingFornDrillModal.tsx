@@ -60,7 +60,6 @@ const EMPRESA_MAP: Record<string, string[]> = {
   "Tracevia Brasil": ["Tracevia Brasil", "Tracevia", "TRACEVIA S.A."],
   "Mota Engil Engenharia": ["Mota Engil Engenharia", "MOTA ENGIL ENGENHARIA"],
   "REDUC": ["REDUC", "Reduc"],
-  // Breakdown tab company names
   "Alsub": ["Alsub"],
   "Consórcio Alsub": ["CONSÓRCIO ECB SEA_ALSUB", "Consórcio Alsub", "Alsub"],
   "MEBR": ["MEBR - Part. Consultoria", "MEBR", "MEBR PARTICIPAÇÕES S.A.", "MEBR Participações S.A."],
@@ -77,7 +76,6 @@ const EMPRESA_MAP: Record<string, string[]> = {
   "MOTA ENGIL FUNDAÇÕES": ["MOTA ENGIL FUNDAÇÕES", "Mota Engil Fundações", "ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
   "MOTA ENGIL BRASIL S.A.": ["MOTA ENGIL BRASIL S.A.", "Mota Engil Brasil", "Mota-Engil Brasil"],
   "MEBR PARTICIPAÇÕES S.A.": ["MEBR PARTICIPAÇÕES S.A.", "MEBR Participações S.A.", "MEBR"],
-  "CONSÓRCIO ECB SEA_ALSUB": ["CONSÓRCIO ECB SEA_ALSUB", "Consórcio Alsub", "Alsub"],
   "TRACEVIA S.A.": ["TRACEVIA S.A.", "Tracevia", "Tracevia Brasil"],
 };
 
