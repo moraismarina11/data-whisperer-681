@@ -121,39 +121,39 @@ const ResumoTab = () => {
         <h2 className="text-2xl font-bold italic text-primary mb-6">Resumo Geral</h2>
 
         {/* Period summary cards — 5 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-8">
           {periods.map((p) => {
             const caucaoDisplay = p.caucaoRaw > 0 ? p.caucaoRaw - p.multa : 0;
             const saldo = p.cliTotal + p.fornTotal;
 
             return (
-              <div key={p.label} className="bg-muted/40 rounded-xl border border-border p-5">
-                <h3 className="text-sm font-bold text-primary mb-3">{p.label}</h3>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Total Fornecedores</span>
-                    <span className="font-semibold text-destructive">{formatCurrency(p.fornTotal)}</span>
+              <div key={p.label} className="bg-muted/40 rounded-xl border border-border p-4 flex flex-col">
+                <h3 className="text-xs font-bold text-primary mb-2 uppercase tracking-wide">{p.label}</h3>
+                <div className="space-y-1.5 text-xs flex-1">
+                  <div className="flex justify-between items-baseline gap-2">
+                    <span className="text-muted-foreground whitespace-nowrap">Fornecedores</span>
+                    <span className="font-semibold text-destructive text-right tabular-nums">{formatCurrency(p.fornTotal)}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Total Clientes</span>
-                    <span className="font-semibold text-green-600">{formatCurrency(p.cliTotal)}</span>
+                  <div className="flex justify-between items-baseline gap-2">
+                    <span className="text-muted-foreground whitespace-nowrap">Clientes</span>
+                    <span className="font-semibold text-green-600 text-right tabular-nums">{formatCurrency(p.cliTotal)}</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Total Caução</span>
-                    <span className="font-semibold text-foreground">
+                  <div className="flex justify-between items-baseline gap-2">
+                    <span className="text-muted-foreground whitespace-nowrap">Caução</span>
+                    <span className="font-semibold text-foreground text-right tabular-nums">
                       {caucaoDisplay > 0 ? formatCurrency(caucaoDisplay) : "—"}
                     </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Total Multas</span>
-                    <span className="font-semibold text-foreground">{formatCurrency(p.multa)}</span>
+                  <div className="flex justify-between items-baseline gap-2">
+                    <span className="text-muted-foreground whitespace-nowrap">Multas</span>
+                    <span className="font-semibold text-foreground text-right tabular-nums">{formatCurrency(p.multa)}</span>
                   </div>
-                  <div className="border-t border-border pt-2 flex justify-between font-bold">
-                    <span className="text-muted-foreground">Saldo Líquido</span>
-                    <span className={saldo >= 0 ? "text-green-600" : "text-destructive"}>
-                      {formatCurrency(saldo)}
-                    </span>
-                  </div>
+                </div>
+                <div className="border-t border-border mt-2 pt-2 flex justify-between items-baseline gap-2">
+                  <span className="text-xs font-bold text-muted-foreground whitespace-nowrap">Saldo Líquido</span>
+                  <span className={`text-xs font-bold text-right tabular-nums ${saldo >= 0 ? "text-green-600" : "text-destructive"}`}>
+                    {formatCurrency(saldo)}
+                  </span>
                 </div>
               </div>
             );
