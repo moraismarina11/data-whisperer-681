@@ -10,23 +10,15 @@ import AgingClientesTab from "@/components/dashboard/AgingClientesTab";
 import ResumoTab from "@/components/dashboard/ResumoTab";
 import { PERIODS, WEEK_PERIODS, type PeriodId } from "@/components/dashboard/shared";
 import { computeTop10, computeTipoPagamento, computeCustoCentro } from "@/components/dashboard/computeFromDrill";
-import { useMemo } from "react";
 
 const Index = () => {
   const [period, setPeriod] = useState<PeriodId>("jan");
   const [activeMonth, setActiveMonth] = useState<string>("jan");
 
-  // Map sub-week periods to parent month when no week-specific data exists
-  const resolveDataPeriod = (p: string): string => {
-    if (p.startsWith("s") && p.endsWith("_jan")) return "jan";
-    if (p.startsWith("s") && p.endsWith("_fev")) return "fev";
-    return p;
-  };
-
-  const filterByPeriod = <T extends { period: string }>(data: T[]): T[] => {
-    const resolved = resolveDataPeriod(period);
-    return data.filter((d) => d.period === resolved);
-  };
+  const top10 = useMemo(() => computeTop10(period), [period]);
+  const tipoPag = useMemo(() => computeTipoPagamento(period), [period]);
+  const ccMeb = useMemo(() => computeCustoCentro(period, "Mota Engil Brasil"), [period]);
+  const ccMacae = useMemo(() => computeCustoCentro(period, "Macaé"), [period]);
 
   const handleMonthClick = (monthId: string) => {
     if (activeMonth === monthId) {
