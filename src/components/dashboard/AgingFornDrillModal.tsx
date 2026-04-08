@@ -92,7 +92,7 @@ const getAgingBucket = (diff: number): string => {
 
 const periodLabel = (id: string) => PERIODS.find((p) => p.id === id)?.label ?? id;
 
-const resolvePeriod = (p: string) => (p === "mar" || p === "total") ? "s7" : p;
+const resolvePeriod = (p: string) => (p === "mar") ? "s7" : p;
 
 interface Props {
   selection: AgingFornDrillSelection | null;
