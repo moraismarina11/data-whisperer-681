@@ -127,51 +127,6 @@ export const agingFornecedoresTotals_mar = agingFornecedoresTotals_s7;
 export const agingFornecedoresData_total = agingFornecedoresData_s7;
 export const agingFornecedoresTotals_total = agingFornecedoresTotals_s7;
 
-// ── S8 (28-31/03) ──
-export const agingFornecedoresData_s8: AgingFornecedorEntry[] = [
-  { empresa: "CONSÓRCIO ECB SEA_ALSUB", valor: -7824616.89, aVencer: -7227046.34, ate30: -597570.55, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a360: 0.0, mais360: 0.0 },
-  { empresa: "ME FUNDAÇÕES BRASIL LTDA", valor: -1167681.77, aVencer: -815.82, ate30: -16789.52, de31a60: -2902.36, de61a90: -3170.86, de91a180: -88579.26, de181a360: -425110.2, mais360: -630313.75 },
-  { empresa: "MEBR - Part. Consultoria", valor: -608571.49, aVencer: -531514.12, ate30: -72505.87, de31a60: -3313.84, de61a90: -250.0, de91a180: 0.0, de181a360: -627.24, mais360: -360.42 },
-  { empresa: "MOTA-ENGIL BRASIL S/A", valor: -7670173.57, aVencer: -5378540.87, ate30: -310064.12, de31a60: -244787.83, de61a90: -51586.98, de91a180: -61945.47, de181a360: -152864.39, mais360: -1470383.91 },
-  { empresa: "Mota Engil Engenharia", valor: -22660318.01, aVencer: -16914128.74, ate30: -5388775.88, de31a60: -32449.91, de61a90: 0.0, de91a180: -51631.27, de181a360: 4895.0, mais360: -278227.21 },
-  { empresa: "REDUC", valor: -75375.51, aVencer: 0.0, ate30: -21.66, de31a60: -1071.22, de61a90: -1321.22, de91a180: 0.0, de181a360: 0.0, mais360: -72961.41 },
-  { empresa: "Tracevia Brasil", valor: -1086247.67, aVencer: -120769.54, ate30: -409008.39, de31a60: -38748.58, de61a90: -16107.08, de91a180: -17971.53, de181a360: -120458.41, mais360: -363184.14 },
-];
-
-export const agingFornecedoresTotals_s8: AgingFornecedorEntry = {
-  empresa: "Total Geral", valor: -41092984.91, aVencer: -30172815.43, ate30: -6794735.99, de31a60: -323273.74, de61a90: -72436.14, de91a180: -220127.53, de181a360: -694165.24, mais360: -2815430.84
-};
-
-// ── S8_ABR (01-03/04) ──
-export const agingFornecedoresData_s8_abr: AgingFornecedorEntry[] = [
-  { empresa: "CONSÓRCIO ECB SEA_ALSUB", valor: -7824616.89, aVencer: -7227046.34, ate30: -597570.55, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a360: 0.0, mais360: 0.0 },
-  { empresa: "ME FUNDAÇÕES BRASIL LTDA", valor: -1167681.77, aVencer: -815.82, ate30: -16789.52, de31a60: -2902.36, de61a90: -3170.86, de91a180: -88579.26, de181a360: -425110.2, mais360: -630313.75 },
-  { empresa: "MEBR - Part. Consultoria", valor: -608571.49, aVencer: -531514.12, ate30: -72505.87, de31a60: -3313.84, de61a90: -250.0, de91a180: 0.0, de181a360: -627.24, mais360: -360.42 },
-  { empresa: "MOTA-ENGIL BRASIL S/A", valor: -7670173.57, aVencer: -5378540.87, ate30: -310064.12, de31a60: -244787.83, de61a90: -51586.98, de91a180: -61945.47, de181a360: -152864.39, mais360: -1470383.91 },
-  { empresa: "Mota Engil Engenharia", valor: -22660318.01, aVencer: -16914128.74, ate30: -5388775.88, de31a60: -32449.91, de61a90: 0.0, de91a180: -51631.27, de181a360: 4895.0, mais360: -278227.21 },
-  { empresa: "REDUC", valor: -75375.51, aVencer: 0.0, ate30: -21.66, de31a60: -1071.22, de61a90: -1321.22, de91a180: 0.0, de181a360: 0.0, mais360: -72961.41 },
-  { empresa: "Tracevia Brasil", valor: -1086247.67, aVencer: -120769.54, ate30: -409008.39, de31a60: -38748.58, de61a90: -16107.08, de91a180: -17971.53, de181a360: -120458.41, mais360: -363184.14 },
-];
-
-export const agingFornecedoresTotals_s8_abr: AgingFornecedorEntry = {
-  empresa: "Total Geral", valor: -41092984.91, aVencer: -30172815.43, ate30: -6794735.99, de31a60: -323273.74, de61a90: -72436.14, de91a180: -220127.53, de181a360: -694165.24, mais360: -2815430.84
-};
-
-// ── ABR ──
-export const agingFornecedoresData_abr: AgingFornecedorEntry[] = [
-  { empresa: "CONSÓRCIO ECB SEA_ALSUB", valor: -7824616.89, aVencer: -7227046.34, ate30: -597570.55, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a360: 0.0, mais360: 0.0 },
-  { empresa: "ME FUNDAÇÕES BRASIL LTDA", valor: -1167681.77, aVencer: -815.82, ate30: -16789.52, de31a60: -2902.36, de61a90: -3170.86, de91a180: -88579.26, de181a360: -425110.2, mais360: -630313.75 },
-  { empresa: "MEBR - Part. Consultoria", valor: -608571.49, aVencer: -531514.12, ate30: -72505.87, de31a60: -3313.84, de61a90: -250.0, de91a180: 0.0, de181a360: -627.24, mais360: -360.42 },
-  { empresa: "MOTA-ENGIL BRASIL S/A", valor: -7670173.57, aVencer: -5378540.87, ate30: -310064.12, de31a60: -244787.83, de61a90: -51586.98, de91a180: -61945.47, de181a360: -152864.39, mais360: -1470383.91 },
-  { empresa: "Mota Engil Engenharia", valor: -22660318.01, aVencer: -16914128.74, ate30: -5388775.88, de31a60: -32449.91, de61a90: 0.0, de91a180: -51631.27, de181a360: 4895.0, mais360: -278227.21 },
-  { empresa: "REDUC", valor: -75375.51, aVencer: 0.0, ate30: -21.66, de31a60: -1071.22, de61a90: -1321.22, de91a180: 0.0, de181a360: 0.0, mais360: -72961.41 },
-  { empresa: "Tracevia Brasil", valor: -1086247.67, aVencer: -120769.54, ate30: -409008.39, de31a60: -38748.58, de61a90: -16107.08, de91a180: -17971.53, de181a360: -120458.41, mais360: -363184.14 },
-];
-
-export const agingFornecedoresTotals_abr: AgingFornecedorEntry = {
-  empresa: "Total Geral", valor: -41092984.91, aVencer: -30172815.43, ate30: -6794735.99, de31a60: -323273.74, de61a90: -72436.14, de91a180: -220127.53, de181a360: -694165.24, mais360: -2815430.84
-};
-
 // ── Aging Clientes (snapshot 27/03/2026) ──
 export interface AgingClienteEntry {
   empresa: string;
@@ -228,6 +183,49 @@ export const agingClientesTotals = {
   de2a3anos: 1323724.19,
   mais3anos: 3277263.05,
 };
+// ── S8 (28-31/03), S8_ABR (01-03/04) e ABR = snapshot 04/04 ──
+export const agingFornecedoresData_s8: AgingFornecedorEntry[] = [
+  { empresa: "CONSÓRCIO ECB SEA_ALSUB", valor: -7824616.89, aVencer: -7227046.34, ate30: -597570.55, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a360: 0.0, mais360: 0.0 },
+  { empresa: "ME FUNDAÇÕES BRASIL LTDA", valor: -1167681.77, aVencer: -815.82, ate30: -16789.52, de31a60: -2902.36, de61a90: -3170.86, de91a180: -88579.26, de181a360: -425110.2, mais360: -630313.75 },
+  { empresa: "MEBR - Part. Consultoria", valor: -608571.49, aVencer: -531514.12, ate30: -72505.87, de31a60: -3313.84, de61a90: -250.0, de91a180: 0.0, de181a360: -627.24, mais360: -360.42 },
+  { empresa: "MOTA-ENGIL BRASIL S/A", valor: -7670173.57, aVencer: -5378540.87, ate30: -310064.12, de31a60: -244787.83, de61a90: -51586.98, de91a180: -61945.47, de181a360: -152864.39, mais360: -1470383.91 },
+  { empresa: "Mota Engil Engenharia", valor: -22660318.01, aVencer: -16914128.74, ate30: -5388775.88, de31a60: -32449.91, de61a90: 0.0, de91a180: -51631.27, de181a360: 4895.0, mais360: -278227.21 },
+  { empresa: "REDUC", valor: -75375.51, aVencer: 0.0, ate30: -21.66, de31a60: -1071.22, de61a90: -1321.22, de91a180: 0.0, de181a360: 0.0, mais360: -72961.41 },
+  { empresa: "Tracevia Brasil", valor: -1086247.67, aVencer: -120769.54, ate30: -409008.39, de31a60: -38748.58, de61a90: -16107.08, de91a180: -17971.53, de181a360: -120458.41, mais360: -363184.14 },
+];
+
+export const agingFornecedoresTotals_s8: AgingFornecedorEntry = {
+  empresa: "Total Geral", valor: -41092984.91, aVencer: -30172815.43, ate30: -6794735.99, de31a60: -323273.74, de61a90: -72436.14, de91a180: -220127.53, de181a360: -694165.24, mais360: -2815430.84
+};
+
+export const agingFornecedoresData_s8_abr: AgingFornecedorEntry[] = [
+  { empresa: "CONSÓRCIO ECB SEA_ALSUB", valor: -7824616.89, aVencer: -7227046.34, ate30: -597570.55, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a360: 0.0, mais360: 0.0 },
+  { empresa: "ME FUNDAÇÕES BRASIL LTDA", valor: -1167681.77, aVencer: -815.82, ate30: -16789.52, de31a60: -2902.36, de61a90: -3170.86, de91a180: -88579.26, de181a360: -425110.2, mais360: -630313.75 },
+  { empresa: "MEBR - Part. Consultoria", valor: -608571.49, aVencer: -531514.12, ate30: -72505.87, de31a60: -3313.84, de61a90: -250.0, de91a180: 0.0, de181a360: -627.24, mais360: -360.42 },
+  { empresa: "MOTA-ENGIL BRASIL S/A", valor: -7670173.57, aVencer: -5378540.87, ate30: -310064.12, de31a60: -244787.83, de61a90: -51586.98, de91a180: -61945.47, de181a360: -152864.39, mais360: -1470383.91 },
+  { empresa: "Mota Engil Engenharia", valor: -22660318.01, aVencer: -16914128.74, ate30: -5388775.88, de31a60: -32449.91, de61a90: 0.0, de91a180: -51631.27, de181a360: 4895.0, mais360: -278227.21 },
+  { empresa: "REDUC", valor: -75375.51, aVencer: 0.0, ate30: -21.66, de31a60: -1071.22, de61a90: -1321.22, de91a180: 0.0, de181a360: 0.0, mais360: -72961.41 },
+  { empresa: "Tracevia Brasil", valor: -1086247.67, aVencer: -120769.54, ate30: -409008.39, de31a60: -38748.58, de61a90: -16107.08, de91a180: -17971.53, de181a360: -120458.41, mais360: -363184.14 },
+];
+
+export const agingFornecedoresTotals_s8_abr: AgingFornecedorEntry = {
+  empresa: "Total Geral", valor: -41092984.91, aVencer: -30172815.43, ate30: -6794735.99, de31a60: -323273.74, de61a90: -72436.14, de91a180: -220127.53, de181a360: -694165.24, mais360: -2815430.84
+};
+
+export const agingFornecedoresData_abr: AgingFornecedorEntry[] = [
+  { empresa: "CONSÓRCIO ECB SEA_ALSUB", valor: -7824616.89, aVencer: -7227046.34, ate30: -597570.55, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a360: 0.0, mais360: 0.0 },
+  { empresa: "ME FUNDAÇÕES BRASIL LTDA", valor: -1167681.77, aVencer: -815.82, ate30: -16789.52, de31a60: -2902.36, de61a90: -3170.86, de91a180: -88579.26, de181a360: -425110.2, mais360: -630313.75 },
+  { empresa: "MEBR - Part. Consultoria", valor: -608571.49, aVencer: -531514.12, ate30: -72505.87, de31a60: -3313.84, de61a90: -250.0, de91a180: 0.0, de181a360: -627.24, mais360: -360.42 },
+  { empresa: "MOTA-ENGIL BRASIL S/A", valor: -7670173.57, aVencer: -5378540.87, ate30: -310064.12, de31a60: -244787.83, de61a90: -51586.98, de91a180: -61945.47, de181a360: -152864.39, mais360: -1470383.91 },
+  { empresa: "Mota Engil Engenharia", valor: -22660318.01, aVencer: -16914128.74, ate30: -5388775.88, de31a60: -32449.91, de61a90: 0.0, de91a180: -51631.27, de181a360: 4895.0, mais360: -278227.21 },
+  { empresa: "REDUC", valor: -75375.51, aVencer: 0.0, ate30: -21.66, de31a60: -1071.22, de61a90: -1321.22, de91a180: 0.0, de181a360: 0.0, mais360: -72961.41 },
+  { empresa: "Tracevia Brasil", valor: -1086247.67, aVencer: -120769.54, ate30: -409008.39, de31a60: -38748.58, de61a90: -16107.08, de91a180: -17971.53, de181a360: -120458.41, mais360: -363184.14 },
+];
+
+export const agingFornecedoresTotals_abr: AgingFornecedorEntry = {
+  empresa: "Total Geral", valor: -41092984.91, aVencer: -30172815.43, ate30: -6794735.99, de31a60: -323273.74, de61a90: -72436.14, de91a180: -220127.53, de181a360: -694165.24, mais360: -2815430.84
+};
+
 
 // ── Aging Clientes por Período ──
 
@@ -254,7 +252,7 @@ export const agingClientesData_jan: AgingClienteBreakdownEntry[] = [
   { empresa: "TRACEVIA", aReceber: 2561884.47, aVencer: 894212.91, ate30: 626942.44, de31a60: 4019.25, de61a90: 971.82, de91a180: 62583.62, de181a1ano: 99241.14, de1a2anos: 192924.13, de2a3anos: 491363.15, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_jan: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_jan = {
   empresa: "Total Geral", aReceber: 275887596.9, aVencer: 85769150.02, ate30: 117664431.95, de31a60: 15655450.15, de61a90: 9740557.57, de91a180: 1319076.86, de181a1ano: 6069011.04, de1a2anos: 19681205.78, de2a3anos: 16696007.54, mais3anos: 3292705.99
 };
 
@@ -268,7 +266,7 @@ export const agingClientesData_fev: AgingClienteBreakdownEntry[] = [
   { empresa: "TRACEVIA", aReceber: 2637816.91, aVencer: 718404.25, ate30: 882702.79, de31a60: 0.0, de61a90: 0.0, de91a180: 46857.92, de181a1ano: 101685.82, de1a2anos: 207176.97, de2a3anos: 491363.15, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_fev: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_fev = {
   empresa: "Total Geral", aReceber: 111140057.96, aVencer: 88304174.42, ate30: 2699122.92, de31a60: 14221537.8, de61a90: 150837.27, de91a180: 190397.88, de181a1ano: 401474.93, de1a2anos: 573404.65, de2a3anos: 1321845.04, mais3anos: 3277263.05
 };
 
@@ -282,7 +280,7 @@ export const agingClientesData_s4: AgingClienteBreakdownEntry[] = [
   { empresa: "TRACEVIA", aReceber: 1915963.74, aVencer: 8096.49, ate30: 882702.79, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 210492.49, de2a3anos: 491363.15, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_s4: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_s4 = {
   empresa: "Total Geral", aReceber: 90880310.29, aVencer: 52000044.19, ate30: 21555075.05, de31a60: -574033.64, de61a90: 12650201.56, de91a180: -306224.64, de181a1ano: 379419.51, de1a2anos: 576720.17, de2a3anos: 1321845.04, mais3anos: 3277263.05
 };
 
@@ -296,7 +294,7 @@ export const agingClientesData_s5: AgingClienteBreakdownEntry[] = [
   { empresa: "TRACEVIA", aReceber: 1917821.38, aVencer: 0.0, ate30: 892656.92, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 210492.49, de2a3anos: 491363.15, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_s5: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_s5 = {
   empresa: "Total Geral", aReceber: 238410897.84, aVencer: 137529001.09, ate30: 15431606.12, de31a60: 0.0, de61a90: 12216952.6, de91a180: -400478.63, de181a1ano: 13407251.14, de1a2anos: 56846433.41, de2a3anos: 1676548.64, mais3anos: 1703583.47
 };
 
@@ -310,7 +308,7 @@ export const agingClientesData_s6: AgingClienteBreakdownEntry[] = [
   { empresa: "Tracevia Brasil", aReceber: 2337515.98, aVencer: 456330.99, ate30: 857878.17, de31a60: -1857.64, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 210492.49, de2a3anos: 491363.15, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_s6: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_s6 = {
   empresa: "Total Geral", aReceber: 238494542.65, aVencer: 203983026.91, ate30: 15940193.11, de31a60: 330045.8, de61a90: 12073598.04, de91a180: 189580.12, de181a1ano: 366536.51, de1a2anos: 1010574.92, de2a3anos: 1323724.19, mais3anos: 3277263.05
 };
 
@@ -324,7 +322,7 @@ export const agingClientesData_s7: AgingClienteBreakdownEntry[] = [
   { empresa: "Tracevia Brasil", aReceber: 2337515.98, aVencer: 456330.99, ate30: 857878.17, de31a60: -1857.64, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 210492.49, de2a3anos: 491363.15, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_s7: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_s7 = {
   empresa: "Total Geral", aReceber: 131187270.49, aVencer: 96845413.36, ate30: 15753830.06, de31a60: 441037.82, de61a90: 11979310.46, de91a180: 189580.12, de181a1ano: 366536.51, de1a2anos: 1010574.92, de2a3anos: 1323724.19, mais3anos: 3277263.05
 };
 
@@ -344,7 +342,7 @@ export const agingClientesData_s8: AgingClienteBreakdownEntry[] = [
   { empresa: "Tracevia Brasil", aReceber: 2411202.46, aVencer: 530017.47, ate30: 857878.17, de31a60: -1857.64, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 202383.78, de2a3anos: 499471.86, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_s8: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_s8 = {
   empresa: "Total Geral", aReceber: 177656084.93, aVencer: 140117567.47, ate30: 16134102.36, de31a60: 3230047.77, de61a90: 145646.54, de91a180: 12054935.51, de181a1ano: 362223.12, de1a2anos: 1002466.21, de2a3anos: 1331832.9, mais3anos: 3277263.05
 };
 
@@ -357,7 +355,7 @@ export const agingClientesData_s8_abr: AgingClienteBreakdownEntry[] = [
   { empresa: "Tracevia Brasil", aReceber: 2411202.46, aVencer: 530017.47, ate30: 857878.17, de31a60: -1857.64, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 202383.78, de2a3anos: 499471.86, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_s8_abr: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_s8_abr = {
   empresa: "Total Geral", aReceber: 177656084.93, aVencer: 140117567.47, ate30: 16134102.36, de31a60: 3230047.77, de61a90: 145646.54, de91a180: 12054935.51, de181a1ano: 362223.12, de1a2anos: 1002466.21, de2a3anos: 1331832.9, mais3anos: 3277263.05
 };
 
@@ -370,6 +368,7 @@ export const agingClientesData_abr: AgingClienteBreakdownEntry[] = [
   { empresa: "Tracevia Brasil", aReceber: 2411202.46, aVencer: 530017.47, ate30: 857878.17, de31a60: -1857.64, de61a90: 0.0, de91a180: 0.0, de181a1ano: 133682.81, de1a2anos: 202383.78, de2a3anos: 499471.86, mais3anos: 189626.01 },
 ];
 
-export const agingClientesTotals_abr: AgingClienteBreakdownEntry = {
+export const agingClientesTotals_abr = {
   empresa: "Total Geral", aReceber: 177656084.93, aVencer: 140117567.47, ate30: 16134102.36, de31a60: 3230047.77, de61a90: 145646.54, de91a180: 12054935.51, de181a1ano: 362223.12, de1a2anos: 1002466.21, de2a3anos: 1331832.9, mais3anos: 3277263.05
 };
+
