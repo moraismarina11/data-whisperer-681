@@ -1,4 +1,4 @@
-// ── Aging Fornecedores por Período ──
+// ── Aging Fornecedores por Período (snapshot 04/04) ──
 // Gerado automaticamente a partir das abas Aging Fornecedores_DDMM
 
 export interface AgingFornecedorEntry {
