@@ -137,16 +137,16 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="top10">
-            <Top10Tab data={filterByPeriod(top10Data)} period={period} />
+            <Top10Tab data={top10} period={period} />
           </TabsContent>
 
           <TabsContent value="tipo">
-            <TipoPagamentoTab data={filterByPeriod(tipoPagamentoData)} period={period} />
+            <TipoPagamentoTab data={tipoPag} period={period} />
           </TabsContent>
 
           <TabsContent value="cc-meb">
             <CustoCentroTab
-              data={filterByPeriod(custoCentroMEBData)}
+              data={ccMeb}
               title="Centro de Custo — Mota Engil Brasil"
               grouped
               period={period}
@@ -156,7 +156,7 @@ const Index = () => {
 
           <TabsContent value="cc-macae">
             <CustoCentroTab
-              data={filterByPeriod(custoCentroMacaeData)}
+              data={ccMacae}
               title="Centro de Custo — Macaé"
               period={period}
               company="Macaé"
