@@ -91,15 +91,24 @@ const resolvePeriod = (p: string) => {
 
 // Map summary empresa names → drill data empresa names
 const CLI_EMPRESA_MAP: Record<string, string[]> = {
-  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES"],
-  "Mota-Engil Brasil": ["MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL"],
-  "Consórcio Alsub": ["CONSÓRCIO ALSUB", "CONSORCIO ALSUB", "CONSÓRCIO ECB SEA_ALSUB"],
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES", "Mota Engil Fundações", "MOTA ENGIL FUNDAÇÕES"],
+  "ME FUNDAÇÕES BRASIL LTDA": ["ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES", "Mota Engil Fundações"],
+  "Mota Engil Fundações": ["Mota Engil Fundações", "ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES"],
+  "Mota-Engil Brasil": ["MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL", "Mota Engil Brasil"],
+  "MOTA-ENGIL BRASIL S/A": ["MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL", "Mota Engil Brasil"],
+  "Mota Engil Brasil": ["Mota Engil Brasil", "MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL"],
+  "Consórcio Alsub": ["CONSÓRCIO ALSUB", "CONSORCIO ALSUB", "CONSÓRCIO ECB SEA_ALSUB", "Alsub", "ALSUB"],
+  "CONSÓRCIO ECB SEA_ALSUB": ["CONSÓRCIO ECB SEA_ALSUB", "CONSÓRCIO ALSUB", "CONSORCIO ALSUB", "Alsub", "ALSUB"],
+  "Alsub": ["Alsub", "ALSUB"],
+  "ALSUB": ["ALSUB", "Alsub"],
   "Macaé": ["MOTA ENGIL MACAE"],
-  "Tracevia": ["TRACEVIA", "Tracevia Brasil"],
-  "REDUC": ["REDUC"],
-  "Reduc": ["REDUC"],
+  "Tracevia": ["TRACEVIA", "Tracevia Brasil", "Tracevia"],
+  "Tracevia Brasil": ["Tracevia Brasil", "TRACEVIA", "Tracevia"],
+  "REDUC": ["REDUC", "Reduc"],
+  "Reduc": ["REDUC", "Reduc"],
   "MEBR": ["MEBR"],
-  "Mota Engil Engenharia": ["MOTA ENGIL ENGENHARIA"],
+  "Mota Engil Engenharia": ["MOTA ENGIL ENGENHARIA", "Mota Engil Engenharia", "MOTA ENGIL ENGENHARIA"],
+  "MOTA ENGIL ENGENHARIA": ["MOTA ENGIL ENGENHARIA", "Mota Engil Engenharia"],
 };
 
 interface Props {

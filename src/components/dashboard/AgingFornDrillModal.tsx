@@ -53,21 +53,32 @@ const REF_DATES: Record<string, string> = {
 
 // Map summary empresa names → drill data empresa names
 const EMPRESA_MAP: Record<string, string[]> = {
-  "ME FUNDAÇÕES BRASIL LTDA": ["ME FUNDAÇÕES BRASIL LTDA"],
-  "CONSÓRCIO ECB SEA_ALSUB": ["CONSÓRCIO ECB SEA_ALSUB"],
-  "MEBR - Part. Consultoria": ["MEBR - Part. Consultoria"],
-  "MOTA-ENGIL BRASIL S/A": ["Mota-Engil Brasil"],
-  "Tracevia Brasil": ["Tracevia Brasil"],
-  "Mota Engil Engenharia": ["Mota Engil Engenharia"],
-  "REDUC": ["REDUC"],
-  // Posição Fornecedores tab company names
-  "Consórcio Alsub": ["CONSÓRCIO ECB SEA_ALSUB"],
-  "MEBR": ["MEBR - Part. Consultoria"],
-  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
-  "Mota-Engil Brasil": ["Mota-Engil Brasil"],
-  "Tracevia": ["Tracevia Brasil"],
+  "ME FUNDAÇÕES BRASIL LTDA": ["ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
+  "CONSÓRCIO ECB SEA_ALSUB": ["CONSÓRCIO ECB SEA_ALSUB", "Consórcio Alsub", "Alsub"],
+  "MEBR - Part. Consultoria": ["MEBR - Part. Consultoria", "MEBR", "MEBR PARTICIPAÇÕES S.A.", "MEBR Participações S.A."],
+  "MOTA-ENGIL BRASIL S/A": ["Mota-Engil Brasil", "Mota Engil Brasil", "MOTA ENGIL BRASIL S.A."],
+  "Tracevia Brasil": ["Tracevia Brasil", "Tracevia", "TRACEVIA S.A."],
+  "Mota Engil Engenharia": ["Mota Engil Engenharia", "MOTA ENGIL ENGENHARIA"],
+  "REDUC": ["REDUC", "Reduc"],
+  // Breakdown tab company names
+  "Alsub": ["Alsub"],
+  "Consórcio Alsub": ["CONSÓRCIO ECB SEA_ALSUB", "Consórcio Alsub", "Alsub"],
+  "MEBR": ["MEBR - Part. Consultoria", "MEBR", "MEBR PARTICIPAÇÕES S.A.", "MEBR Participações S.A."],
+  "MEBR Participações S.A.": ["MEBR Participações S.A.", "MEBR", "MEBR PARTICIPAÇÕES S.A."],
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MEFB", "Mota Engil Fundações", "MOTA ENGIL FUNDAÇÕES"],
+  "Mota Engil Fundações": ["Mota Engil Fundações", "MOTA ENGIL FUNDAÇÕES", "ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
+  "Mota-Engil Brasil": ["Mota-Engil Brasil", "Mota Engil Brasil", "MOTA ENGIL BRASIL S.A."],
+  "Mota Engil Brasil": ["Mota Engil Brasil", "Mota-Engil Brasil", "MOTA ENGIL BRASIL S.A."],
+  "Tracevia": ["Tracevia Brasil", "Tracevia", "TRACEVIA S.A."],
   "Macaé": ["MOTA ENGIL - MACAE"],
-  "Reduc": ["REDUC"],
+  "MOTA ENGIL - MACAE": ["MOTA ENGIL - MACAE"],
+  "Reduc": ["REDUC", "Reduc"],
+  "MOTA ENGIL ENGENHARIA": ["MOTA ENGIL ENGENHARIA", "Mota Engil Engenharia"],
+  "MOTA ENGIL FUNDAÇÕES": ["MOTA ENGIL FUNDAÇÕES", "Mota Engil Fundações", "ME FUNDAÇÕES BRASIL LTDA", "MEFB"],
+  "MOTA ENGIL BRASIL S.A.": ["MOTA ENGIL BRASIL S.A.", "Mota Engil Brasil", "Mota-Engil Brasil"],
+  "MEBR PARTICIPAÇÕES S.A.": ["MEBR PARTICIPAÇÕES S.A.", "MEBR Participações S.A.", "MEBR"],
+  "CONSÓRCIO ECB SEA_ALSUB": ["CONSÓRCIO ECB SEA_ALSUB", "Consórcio Alsub", "Alsub"],
+  "TRACEVIA S.A.": ["TRACEVIA S.A.", "Tracevia", "Tracevia Brasil"],
 };
 
 const FAIXA_LABELS: Record<string, string> = {
