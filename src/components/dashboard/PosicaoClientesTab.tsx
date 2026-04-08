@@ -103,7 +103,7 @@ interface Props {
 }
 
 const PosicaoClientesTab = ({ period }: Props) => {
-  const data = useMemo(() => dataByPeriod[period] || clientesDataS7, [period]);
+  const data = useMemo(() => computePosicaoClientes(period), [period]);
   const [drill, setDrill] = useState<DrillSelection | null>(null);
   const [detailDrill, setDetailDrill] = useState<AgingCliDrillSelection | null>(null);
 
