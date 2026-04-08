@@ -8,6 +8,9 @@ import {
   agingFornecedoresData_s5, agingFornecedoresTotals_s5,
   agingFornecedoresData_s6, agingFornecedoresTotals_s6,
   agingFornecedoresData_s7, agingFornecedoresTotals_s7,
+  agingFornecedoresData_s8, agingFornecedoresTotals_s8,
+  agingFornecedoresData_s8_abr, agingFornecedoresTotals_s8_abr,
+  agingFornecedoresData_abr, agingFornecedoresTotals_abr,
   agingFornecedoresData_mar, agingFornecedoresTotals_mar,
   agingFornecedoresData_total, agingFornecedoresTotals_total,
 } from "./agingBreakdownData";
@@ -36,27 +39,33 @@ const AGING_COLORS = [
 
 // Ref dates por período
 const REF_DATES: Record<string, string> = {
-  jan:   "06/02/2026",
-  fev:   "27/02/2026",
-  s4:    "06/03/2026",
-  s5:    "13/03/2026",
-  s6:    "20/03/2026",
-  s7:    "27/03/2026",
-  mar:   "27/03/2026",
-  total: "27/03/2026",
+  jan:     "06/02/2026",
+  fev:     "27/02/2026",
+  s4:      "06/03/2026",
+  s5:      "13/03/2026",
+  s6:      "20/03/2026",
+  s7:      "27/03/2026",
+  s8:      "04/04/2026",
+  s8_abr:  "04/04/2026",
+  abr:     "04/04/2026",
+  mar:     "27/03/2026",
+  total:   "04/04/2026",
 };
 
 function getDataForPeriod(period: string): { data: AgingFornecedorEntry[]; totals: AgingFornecedorEntry } {
   switch (period) {
-    case "jan":   return { data: agingFornecedoresData_jan,   totals: agingFornecedoresTotals_jan };
-    case "fev":   return { data: agingFornecedoresData_fev,   totals: agingFornecedoresTotals_fev };
-    case "s4":    return { data: agingFornecedoresData_s4,    totals: agingFornecedoresTotals_s4 };
-    case "s5":    return { data: agingFornecedoresData_s5,    totals: agingFornecedoresTotals_s5 };
-    case "s6":    return { data: agingFornecedoresData_s6,    totals: agingFornecedoresTotals_s6 };
-    case "s7":    return { data: agingFornecedoresData_s7,    totals: agingFornecedoresTotals_s7 };
-    case "mar":   return { data: agingFornecedoresData_mar,   totals: agingFornecedoresTotals_mar };
-    case "total": return { data: agingFornecedoresData_total, totals: agingFornecedoresTotals_total };
-    default:      return { data: agingFornecedoresData_s7,    totals: agingFornecedoresTotals_s7 };
+    case "jan":     return { data: agingFornecedoresData_jan,     totals: agingFornecedoresTotals_jan };
+    case "fev":     return { data: agingFornecedoresData_fev,     totals: agingFornecedoresTotals_fev };
+    case "s4":      return { data: agingFornecedoresData_s4,      totals: agingFornecedoresTotals_s4 };
+    case "s5":      return { data: agingFornecedoresData_s5,      totals: agingFornecedoresTotals_s5 };
+    case "s6":      return { data: agingFornecedoresData_s6,      totals: agingFornecedoresTotals_s6 };
+    case "s7":      return { data: agingFornecedoresData_s7,      totals: agingFornecedoresTotals_s7 };
+    case "s8":      return { data: agingFornecedoresData_s8,      totals: agingFornecedoresTotals_s8 };
+    case "s8_abr":  return { data: agingFornecedoresData_s8_abr,  totals: agingFornecedoresTotals_s8_abr };
+    case "abr":     return { data: agingFornecedoresData_abr,     totals: agingFornecedoresTotals_abr };
+    case "mar":     return { data: agingFornecedoresData_mar,     totals: agingFornecedoresTotals_mar };
+    case "total":   return { data: agingFornecedoresData_total,   totals: agingFornecedoresTotals_total };
+    default:        return { data: agingFornecedoresData_s8,      totals: agingFornecedoresTotals_s8 };
   }
 }
 
