@@ -8,8 +8,9 @@ import PosicaoClientesTab from "@/components/dashboard/PosicaoClientesTab";
 import AgingFornecedoresTab from "@/components/dashboard/AgingFornecedoresTab";
 import AgingClientesTab from "@/components/dashboard/AgingClientesTab";
 import ResumoTab from "@/components/dashboard/ResumoTab";
-import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData } from "@/components/dashboard/data";
 import { PERIODS, WEEK_PERIODS, type PeriodId } from "@/components/dashboard/shared";
+import { computeTop10, computeTipoPagamento, computeCustoCentro } from "@/components/dashboard/computeFromDrill";
+import { useMemo } from "react";
 
 const Index = () => {
   const [period, setPeriod] = useState<PeriodId>("jan");
