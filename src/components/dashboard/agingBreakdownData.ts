@@ -226,7 +226,6 @@ export const agingFornecedoresTotals_abr: AgingFornecedorEntry = {
   empresa: "Total Geral", valor: -41092984.91, aVencer: -30172815.43, ate30: -6794735.99, de31a60: -323273.74, de61a90: -72436.14, de91a180: -220127.53, de181a360: -694165.24, mais360: -2815430.84
 };
 
-
 // ── Aging Clientes por Período ──
 
 export interface AgingClienteBreakdownEntry {
@@ -332,7 +331,7 @@ export const agingClientesTotals_mar = agingClientesTotals_s7;
 export const agingClientesData_total = agingClientesData_s7;
 export const agingClientesTotals_total = agingClientesTotals_s7;
 
-// ── S8 (28-31/03), S8_ABR (01-03/04) e ABR = snapshot 04/04 ──
+// ── Aging Clientes S8/S8_ABR/ABR = snapshot 04/04 ──
 export const agingClientesData_s8: AgingClienteBreakdownEntry[] = [
   { empresa: "CONSÓRCIO ECB SEA_ALSUB", aReceber: 16304.0, aVencer: 9240.0, ate30: 7064.0, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a1ano: 0.0, de1a2anos: 0.0, de2a3anos: 0.0, mais3anos: 0.0 },
   { empresa: "ME FUNDAÇÕES BRASIL LTDA", aReceber: 27097858.01, aVencer: 0.0, ate30: 12573255.09, de31a60: 2764602.92, de61a90: 0.0, de91a180: 11760000.0, de181a1ano: 0.0, de1a2anos: 0.0, de2a3anos: 0.0, mais3anos: 0.0 },
