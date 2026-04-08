@@ -13,10 +13,30 @@ import { MONTH_PERIODS, ALL_PERIODS, type PeriodId } from "@/components/dashboar
 
 const Index = () => {
   const [period, setPeriod] = useState<PeriodId>("jan");
+  const [activeMonth, setActiveMonth] = useState<string>("jan");
 
   const filterByPeriod = <T extends { period: string }>(data: T[]): T[] => {
     return data.filter((d) => d.period === period);
   };
+
+  const handleMonthClick = (monthId: string) => {
+    const month = MONTH_PERIODS.find((m) => m.id === monthId);
+    if (activeMonth === monthId) {
+      // Already expanded, select the month itself
+      setPeriod(monthId);
+    } else {
+      setActiveMonth(monthId);
+      setPeriod(monthId);
+    }
+  };
+
+  const isMonthActive = (monthId: string) => {
+    const month = MONTH_PERIODS.find((m) => m.id === monthId);
+    if (period === monthId) return true;
+    return month?.weeks?.some((w) => w.id === period) ?? false;
+  };
+
+  const activeMonthObj = MONTH_PERIODS.find((m) => m.id === activeMonth);
 
 
   return (
@@ -31,21 +51,52 @@ const Index = () => {
             <p className="text-sm text-muted-foreground mt-0.5">Análise de Contas a Pagar e Receber</p>
           </div>
 
-          {/* Period selector */}
-          <div className="flex items-center gap-1 bg-muted rounded-lg p-1 flex-wrap">
-            {PERIODS.map((p) => (
-              <button
-                key={p.id}
-                onClick={() => setPeriod(p.id)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                  period === p.id
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {p.label}
-              </button>
-            ))}
+          {/* Cascading Period selector */}
+          <div className="flex flex-col gap-2 items-end">
+            {/* Level 1: Months */}
+            <div className="flex items-center gap-1 bg-muted rounded-lg p-1 flex-wrap">
+              {MONTH_PERIODS.map((m) => (
+                <button
+                  key={m.id}
+                  onClick={() => handleMonthClick(m.id)}
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                    isMonthActive(m.id)
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {m.label}
+                </button>
+              ))}
+            </div>
+            {/* Level 2: Weeks */}
+            {activeMonthObj?.weeks && (
+              <div className="flex items-center gap-1 bg-muted/60 rounded-lg p-1 flex-wrap">
+                <button
+                  onClick={() => setPeriod(activeMonth)}
+                  className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                    period === activeMonth
+                      ? "bg-primary/80 text-primary-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Mês completo
+                </button>
+                {activeMonthObj.weeks.map((w) => (
+                  <button
+                    key={w.id}
+                    onClick={() => setPeriod(w.id)}
+                    className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                      period === w.id
+                        ? "bg-primary/80 text-primary-foreground shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {w.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </header>
