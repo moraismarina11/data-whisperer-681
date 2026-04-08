@@ -1,34 +1,9 @@
 import { useState, useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { formatCurrency, formatShort, PERIODS } from "./shared";
-import {
-  fornecedoresDataJan, fornecedoresDataFev,
-  fornecedoresDataS4, fornecedoresDataS5, fornecedoresDataS6, fornecedoresDataS7,
-  type FornecedorCompany,
-} from "./agingData";
+import { type FornecedorCompany } from "./agingData";
 import AgingFornDrillModal, { type AgingFornDrillSelection } from "./AgingFornDrillModal";
-
-const dataByPeriod: Record<string, FornecedorCompany[]> = {
-  jan: fornecedoresDataJan,
-  s1_jan: fornecedoresDataJan,
-  s2_jan: fornecedoresDataJan,
-  s3_jan: fornecedoresDataJan,
-  s4_jan: fornecedoresDataJan,
-  fev: fornecedoresDataFev,
-  s1_fev: fornecedoresDataFev,
-  s2_fev: fornecedoresDataFev,
-  s3_fev: fornecedoresDataFev,
-  s4_fev: fornecedoresDataFev,
-  s4: fornecedoresDataS4,
-  s5: fornecedoresDataS5,
-  s6: fornecedoresDataS6,
-  s7: fornecedoresDataS7,
-  s8: fornecedoresDataS7,
-  mar: fornecedoresDataS7,
-  s8_abr: fornecedoresDataS7,
-  abr: fornecedoresDataS7,
-  total: fornecedoresDataS7,
-};
+import { computePosicaoFornecedores } from "./computePosicaoFromAging";
 
 // Map agingData company names → drill data empresa names
 const FORN_EMPRESA_MAP: Record<string, string[]> = {
@@ -109,7 +84,7 @@ interface Props {
 }
 
 const PosicaoFornecedoresTab = ({ period }: Props) => {
-  const data = useMemo(() => dataByPeriod[period] || fornecedoresDataS7, [period]);
+  const data = useMemo(() => computePosicaoFornecedores(period), [period]);
   const [drill, setDrill] = useState<DrillSelection | null>(null);
   const [detailDrill, setDetailDrill] = useState<AgingFornDrillSelection | null>(null);
 
