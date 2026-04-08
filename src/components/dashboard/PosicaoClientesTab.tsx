@@ -10,12 +10,23 @@ import AgingCliDrillModal, { type AgingCliDrillSelection } from "./AgingCliDrill
 
 const dataByPeriod: Record<string, ClienteCompany[]> = {
   jan: clientesDataJan,
+  s1_jan: clientesDataJan,
+  s2_jan: clientesDataJan,
+  s3_jan: clientesDataJan,
+  s4_jan: clientesDataJan,
   fev: clientesDataFev,
+  s1_fev: clientesDataFev,
+  s2_fev: clientesDataFev,
+  s3_fev: clientesDataFev,
+  s4_fev: clientesDataFev,
   s4: clientesDataS4,
   s5: clientesDataS5,
   s6: clientesDataS6,
   s7: clientesDataS7,
+  s8: clientesDataS7,
   mar: clientesDataS7,
+  s8_abr: clientesDataS7,
+  abr: clientesDataS7,
   total: clientesDataS7,
 };
 

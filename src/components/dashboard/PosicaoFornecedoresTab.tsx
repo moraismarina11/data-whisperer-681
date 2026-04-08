@@ -10,12 +10,23 @@ import AgingFornDrillModal, { type AgingFornDrillSelection } from "./AgingFornDr
 
 const dataByPeriod: Record<string, FornecedorCompany[]> = {
   jan: fornecedoresDataJan,
+  s1_jan: fornecedoresDataJan,
+  s2_jan: fornecedoresDataJan,
+  s3_jan: fornecedoresDataJan,
+  s4_jan: fornecedoresDataJan,
   fev: fornecedoresDataFev,
+  s1_fev: fornecedoresDataFev,
+  s2_fev: fornecedoresDataFev,
+  s3_fev: fornecedoresDataFev,
+  s4_fev: fornecedoresDataFev,
   s4: fornecedoresDataS4,
   s5: fornecedoresDataS5,
   s6: fornecedoresDataS6,
   s7: fornecedoresDataS7,
+  s8: fornecedoresDataS7,
   mar: fornecedoresDataS7,
+  s8_abr: fornecedoresDataS7,
+  abr: fornecedoresDataS7,
   total: fornecedoresDataS7,
 };
 
