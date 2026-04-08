@@ -1,81 +1,130 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { formatCurrency, formatShort } from "./shared";
 import {
-  fornecedoresDataJan, fornecedoresDataFev, fornecedoresDataS7,
-  clientesDataJan, clientesDataFev, clientesDataS7,
-} from "./agingData";
-import { agingFornecedoresTotals_s7 } from "./agingBreakdownData";
-import type { FornecedorCompany, ClienteCompany } from "./agingData";
+  agingFornecedoresTotals_jan, agingFornecedoresTotals_fev,
+  agingFornecedoresTotals_s7, agingFornecedoresTotals_abr,
+  agingClientesTotals_jan, agingClientesTotals_fev,
+  agingClientesTotals_s7, agingClientesTotals_s8,
+} from "./agingBreakdownData";
+import { computePosicaoClientes, computePosicaoFornecedores } from "./computePosicaoFromAging";
+import caucaoDrill from "./caucaoDrillData.json";
 
-/* ── helpers ── */
-const sumFornecedores = (data: FornecedorCompany[]) =>
-  data.reduce((s, c) => s + c.total, 0);
+/* ── Compute caucao totals from drill JSON ── */
+const caucaoByPeriod = (period: string): number => {
+  return (caucaoDrill as any[])
+    .filter(r => r.periodo === period)
+    .reduce((s, r) => s + (r.valor || 0), 0);
+};
 
-const sumClientes = (data: ClienteCompany[]) =>
-  data.reduce((s, c) => s + c.aberto, 0);
-
-const sumCaucao = (data: ClienteCompany[]) =>
-  data.reduce((s, c) => s + (c.caucao ?? 0), 0);
-
-const sumMulta = (data: ClienteCompany[]) =>
-  data.reduce((s, c) => s + (c.multa ?? 0), 0);
+const MULTA_TOTAL = 6438733.72;
 
 /* ── Period blocks ── */
 interface PeriodBlock {
   label: string;
-  fornData: FornecedorCompany[];
-  cliData: ClienteCompany[];
-  fornTotalOverride?: number;
+  fornTotal: number;
+  cliTotal: number;
+  caucaoRaw: number;
+  multa: number;
+  periodKey: string;
 }
 
 const periods: PeriodBlock[] = [
-  { label: "Janeiro", fornData: fornecedoresDataJan, cliData: clientesDataJan, fornTotalOverride: -70281028.78 },
-  { label: "Fevereiro", fornData: fornecedoresDataFev, cliData: clientesDataFev, fornTotalOverride: -30877801.47 },
-  { label: "Março", fornData: fornecedoresDataS7, cliData: clientesDataS7, fornTotalOverride: agingFornecedoresTotals_s7.valor },
-  { label: "Total Acumulado", fornData: fornecedoresDataS7, cliData: clientesDataS7, fornTotalOverride: agingFornecedoresTotals_s7.valor },
+  {
+    label: "Janeiro",
+    fornTotal: agingFornecedoresTotals_jan.valor,
+    cliTotal: agingClientesTotals_jan.aReceber,
+    caucaoRaw: caucaoByPeriod("jan"),
+    multa: MULTA_TOTAL,
+    periodKey: "jan",
+  },
+  {
+    label: "Fevereiro",
+    fornTotal: agingFornecedoresTotals_fev.valor,
+    cliTotal: agingClientesTotals_fev.aReceber,
+    caucaoRaw: caucaoByPeriod("fev"),
+    multa: MULTA_TOTAL,
+    periodKey: "fev",
+  },
+  {
+    label: "Março",
+    fornTotal: agingFornecedoresTotals_s7.valor,
+    cliTotal: agingClientesTotals_s7.aReceber,
+    caucaoRaw: 0,
+    multa: MULTA_TOTAL,
+    periodKey: "s7",
+  },
+  {
+    label: "Abril",
+    fornTotal: agingFornecedoresTotals_abr.valor,
+    cliTotal: agingClientesTotals_s8.aReceber,
+    caucaoRaw: 0,
+    multa: MULTA_TOTAL,
+    periodKey: "abr",
+  },
+  {
+    label: "Total Acumulado",
+    fornTotal: agingFornecedoresTotals_abr.valor,
+    cliTotal: agingClientesTotals_s8.aReceber,
+    caucaoRaw: 0,
+    multa: MULTA_TOTAL,
+    periodKey: "abr",
+  },
 ];
-
-/* Build per-company comparison data for charts */
-const allCompanies = Array.from(
-  new Set([
-    ...fornecedoresDataJan.map((c) => c.company),
-    ...fornecedoresDataFev.map((c) => c.company),
-    ...fornecedoresDataS7.map((c) => c.company),
-    ...clientesDataJan.map((c) => c.company),
-    ...clientesDataFev.map((c) => c.company),
-    ...clientesDataS7.map((c) => c.company),
-  ])
-);
 
 /* ── component ── */
 const ResumoTab = () => {
-  const fornBarData = allCompanies.map((co) => ({
+  // Compute per-company data for charts from Posição (which now uses aging data)
+  const fornJan = computePosicaoFornecedores("jan");
+  const fornFev = computePosicaoFornecedores("fev");
+  const fornMar = computePosicaoFornecedores("s7");
+  const fornAbr = computePosicaoFornecedores("abr");
+
+  const cliJan = computePosicaoClientes("jan");
+  const cliFev = computePosicaoClientes("fev");
+  const cliMar = computePosicaoClientes("s7");
+  const cliAbr = computePosicaoClientes("abr");
+
+  const allFornCompanies = Array.from(
+    new Set([...fornJan, ...fornFev, ...fornMar, ...fornAbr].map(c => c.company))
+  );
+  const allCliCompanies = Array.from(
+    new Set([...cliJan, ...cliFev, ...cliMar, ...cliAbr].map(c => c.company))
+  );
+
+  const fornBarData = allFornCompanies.map(co => ({
     company: co,
-    "Janeiro": fornecedoresDataJan.find((c) => c.company === co)?.total ?? 0,
-    "Fevereiro": fornecedoresDataFev.find((c) => c.company === co)?.total ?? 0,
-    "Março": fornecedoresDataS7.find((c) => c.company === co)?.total ?? 0,
+    "Janeiro": fornJan.find(c => c.company === co)?.total ?? 0,
+    "Fevereiro": fornFev.find(c => c.company === co)?.total ?? 0,
+    "Março": fornMar.find(c => c.company === co)?.total ?? 0,
+    "Abril": fornAbr.find(c => c.company === co)?.total ?? 0,
   }));
 
-  const cliBarData = allCompanies.map((co) => ({
+  const cliBarData = allCliCompanies.map(co => ({
     company: co,
-    "Janeiro": clientesDataJan.find((c) => c.company === co)?.aberto ?? 0,
-    "Fevereiro": clientesDataFev.find((c) => c.company === co)?.aberto ?? 0,
-    "Março": clientesDataS7.find((c) => c.company === co)?.aberto ?? 0,
+    "Janeiro": cliJan.find(c => c.company === co)?.aberto ?? 0,
+    "Fevereiro": cliFev.find(c => c.company === co)?.aberto ?? 0,
+    "Março": cliMar.find(c => c.company === co)?.aberto ?? 0,
+    "Abril": cliAbr.find(c => c.company === co)?.aberto ?? 0,
   }));
+
+  // For detail tables per period
+  const periodCompanyData = [
+    { label: "Janeiro", forn: fornJan, cli: cliJan },
+    { label: "Fevereiro", forn: fornFev, cli: cliFev },
+    { label: "Março", forn: fornMar, cli: cliMar },
+    { label: "Abril", forn: fornAbr, cli: cliAbr },
+  ];
 
   return (
     <div className="space-y-8">
       <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
         <h2 className="text-2xl font-bold italic text-primary mb-6">Resumo Geral</h2>
 
-        {/* Period summary cards — always 4 fixed columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {/* Period summary cards — 5 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
           {periods.map((p) => {
-            const fornTotal = p.fornTotalOverride ?? sumFornecedores(p.fornData);
-            const cliTotal = sumClientes(p.cliData);
-            const caucaoTotal = sumCaucao(p.cliData);
-            const multaTotal = sumMulta(p.cliData);
-            const saldo = cliTotal + fornTotal;
+            const caucaoDisplay = p.caucaoRaw > 0 ? p.caucaoRaw - p.multa : 0;
+            const saldo = p.cliTotal + p.fornTotal;
 
             return (
               <div key={p.label} className="bg-muted/40 rounded-xl border border-border p-5">
@@ -83,19 +132,21 @@ const ResumoTab = () => {
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Total Fornecedores</span>
-                    <span className="font-semibold text-destructive">{formatCurrency(fornTotal)}</span>
+                    <span className="font-semibold text-destructive">{formatCurrency(p.fornTotal)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Total Clientes (Aberto)</span>
-                    <span className="font-semibold text-green-600">{formatCurrency(cliTotal)}</span>
+                    <span className="text-muted-foreground">Total Clientes</span>
+                    <span className="font-semibold text-green-600">{formatCurrency(p.cliTotal)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Total Caução</span>
-                    <span className="font-semibold text-foreground">{formatCurrency(caucaoTotal)}</span>
+                    <span className="font-semibold text-foreground">
+                      {caucaoDisplay > 0 ? formatCurrency(caucaoDisplay) : "—"}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Total Multas</span>
-                    <span className="font-semibold text-foreground">{formatCurrency(multaTotal)}</span>
+                    <span className="font-semibold text-foreground">{formatCurrency(p.multa)}</span>
                   </div>
                   <div className="border-t border-border pt-2 flex justify-between font-bold">
                     <span className="text-muted-foreground">Saldo Líquido</span>
@@ -123,13 +174,14 @@ const ResumoTab = () => {
             <Bar dataKey="Janeiro" fill="hsl(210, 70%, 60%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="Fevereiro" fill="hsl(25, 90%, 55%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="Março" fill="hsl(150, 60%, 45%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="Abril" fill="hsl(340, 60%, 50%)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
 
       {/* Clientes comparison chart */}
       <div className="bg-card rounded-xl border border-border p-6 shadow-sm">
-        <h3 className="text-lg font-bold text-foreground mb-4">Clientes (Aberto) por Empresa — Comparativo</h3>
+        <h3 className="text-lg font-bold text-foreground mb-4">Clientes por Empresa — Comparativo</h3>
         <ResponsiveContainer width="100%" height={320}>
           <BarChart data={cliBarData} margin={{ left: 10, right: 20, top: 10, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
@@ -140,12 +192,13 @@ const ResumoTab = () => {
             <Bar dataKey="Janeiro" fill="hsl(150, 60%, 45%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="Fevereiro" fill="hsl(340, 60%, 50%)" radius={[4, 4, 0, 0]} />
             <Bar dataKey="Março" fill="hsl(210, 70%, 60%)" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="Abril" fill="hsl(25, 90%, 55%)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
 
       {/* Detailed tables per period */}
-      {periods.map((p) => (
+      {periodCompanyData.map((p) => (
         <div key={p.label} className="bg-card rounded-xl border border-border p-6 shadow-sm">
           <h3 className="text-lg font-bold text-foreground mb-4">{p.label}</h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -161,7 +214,7 @@ const ResumoTab = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {p.fornData.map((c) => (
+                    {p.forn.map((c) => (
                       <tr key={c.company} className="border-b border-border/50">
                         <td className="py-2 flex items-center gap-2">
                           <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: c.color }} />
@@ -173,7 +226,7 @@ const ResumoTab = () => {
                     <tr className="font-bold">
                       <td className="py-2">Total</td>
                       <td className="py-2 text-right text-destructive">
-                        {formatCurrency(p.fornTotalOverride ?? sumFornecedores(p.fornData))}
+                        {formatCurrency(p.forn.reduce((s, c) => s + c.total, 0))}
                       </td>
                     </tr>
                   </tbody>
@@ -188,12 +241,12 @@ const ResumoTab = () => {
                   <thead>
                     <tr className="border-b border-border">
                       <th className="text-left py-2 text-muted-foreground font-medium">Empresa</th>
-                      <th className="text-right py-2 text-muted-foreground font-medium">Aberto</th>
+                      <th className="text-right py-2 text-muted-foreground font-medium">A Receber</th>
                       <th className="text-right py-2 text-muted-foreground font-medium">Caução</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {p.cliData.map((c) => (
+                    {p.cli.map((c) => (
                       <tr key={c.company} className="border-b border-border/50">
                         <td className="py-2 flex items-center gap-2">
                           <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: c.color }} />
@@ -205,8 +258,12 @@ const ResumoTab = () => {
                     ))}
                     <tr className="font-bold">
                       <td className="py-2">Total</td>
-                      <td className="py-2 text-right text-green-600">{formatCurrency(sumClientes(p.cliData))}</td>
-                      <td className="py-2 text-right">{formatCurrency(sumCaucao(p.cliData))}</td>
+                      <td className="py-2 text-right text-green-600">
+                        {formatCurrency(p.cli.reduce((s, c) => s + c.aberto, 0))}
+                      </td>
+                      <td className="py-2 text-right">
+                        {formatCurrency(p.cli.reduce((s, c) => s + (c.caucao ?? 0), 0))}
+                      </td>
                     </tr>
                   </tbody>
                 </table>
