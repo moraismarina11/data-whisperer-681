@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Top10Tab from "@/components/dashboard/Top10Tab";
 import CustoCentroTab from "@/components/dashboard/CustoCentroTab";
