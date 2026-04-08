@@ -6,6 +6,10 @@ import { formatCurrency, formatShort } from "./shared";
 import {
   agingClientesData_jan, agingClientesTotals_jan,
   agingClientesData_fev, agingClientesTotals_fev,
+  agingClientesData_s1_fev, agingClientesTotals_s1_fev,
+  agingClientesData_s2_fev, agingClientesTotals_s2_fev,
+  agingClientesData_s3_fev, agingClientesTotals_s3_fev,
+  agingClientesData_s4_fev, agingClientesTotals_s4_fev,
   agingClientesData_s4, agingClientesTotals_s4,
   agingClientesData_s5, agingClientesTotals_s5,
   agingClientesData_s6, agingClientesTotals_s6,
@@ -43,7 +47,15 @@ const AGING_COLORS = [
 ];
 
 const REF_DATES: Record<string, string> = {
-  jan:     "06/02/2026",
+  jan:     "31/01/2026",
+  s1_jan:  "31/01/2026",
+  s2_jan:  "31/01/2026",
+  s3_jan:  "31/01/2026",
+  s4_jan:  "31/01/2026",
+  s1_fev:  "06/02/2026",
+  s2_fev:  "20/02/2026",
+  s3_fev:  "20/02/2026",
+  s4_fev:  "27/02/2026",
   fev:     "27/02/2026",
   s4:      "06/03/2026",
   s5:      "13/03/2026",
@@ -58,7 +70,15 @@ const REF_DATES: Record<string, string> = {
 
 function getDataForPeriod(period: string): { data: AgingClienteBreakdownEntry[]; totals: AgingClienteBreakdownEntry } {
   switch (period) {
-    case "jan":     return { data: agingClientesData_jan,     totals: agingClientesTotals_jan };
+    case "jan":
+    case "s1_jan":
+    case "s2_jan":
+    case "s3_jan":
+    case "s4_jan":  return { data: agingClientesData_jan,     totals: agingClientesTotals_jan };
+    case "s1_fev":  return { data: agingClientesData_s1_fev,  totals: agingClientesTotals_s1_fev };
+    case "s2_fev":  return { data: agingClientesData_s2_fev,  totals: agingClientesTotals_s2_fev };
+    case "s3_fev":  return { data: agingClientesData_s3_fev,  totals: agingClientesTotals_s3_fev };
+    case "s4_fev":
     case "fev":     return { data: agingClientesData_fev,     totals: agingClientesTotals_fev };
     case "s4":      return { data: agingClientesData_s4,      totals: agingClientesTotals_s4 };
     case "s5":      return { data: agingClientesData_s5,      totals: agingClientesTotals_s5 };

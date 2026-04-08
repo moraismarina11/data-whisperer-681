@@ -27,7 +27,15 @@ export interface AgingCliDrillSelection {
 }
 
 const REF_DATES: Record<string, string> = {
-  jan: "06/02/2026",
+  jan: "31/01/2026",
+  s1_jan: "31/01/2026",
+  s2_jan: "31/01/2026",
+  s3_jan: "31/01/2026",
+  s4_jan: "31/01/2026",
+  s1_fev: "06/02/2026",
+  s2_fev: "20/02/2026",
+  s3_fev: "20/02/2026",
+  s4_fev: "27/02/2026",
   fev: "27/02/2026",
   s4: "06/03/2026",
   s5: "13/03/2026",
@@ -74,19 +82,33 @@ const getAgingBucket = (diff: number): string => {
 
 const periodLabel = (id: string) => PERIODS.find((p) => p.id === id)?.label ?? id;
 
-const resolvePeriod = (p: string) => (p === "mar") ? "s7" : p;
+const resolvePeriod = (p: string) => {
+  if (p === "mar") return "s7";
+  if (p.startsWith("s") && p.endsWith("_jan")) return "jan";
+  if (p === "s4_fev") return "fev";
+  return p;
+};
 
 // Map summary empresa names → drill data empresa names
 const CLI_EMPRESA_MAP: Record<string, string[]> = {
-  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES"],
-  "Mota-Engil Brasil": ["MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL"],
-  "Consórcio Alsub": ["CONSÓRCIO ALSUB", "CONSORCIO ALSUB", "CONSÓRCIO ECB SEA_ALSUB"],
+  "MEFB": ["ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES", "Mota Engil Fundações", "MOTA ENGIL FUNDAÇÕES"],
+  "ME FUNDAÇÕES BRASIL LTDA": ["ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES", "Mota Engil Fundações"],
+  "Mota Engil Fundações": ["Mota Engil Fundações", "ME FUNDAÇÕES BRASIL LTDA", "MOTA ENGIL FUNDAÇÕES", "MOTA FUNDAÇOES"],
+  "Mota-Engil Brasil": ["MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL", "Mota Engil Brasil"],
+  "MOTA-ENGIL BRASIL S/A": ["MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL", "Mota Engil Brasil"],
+  "Mota Engil Brasil": ["Mota Engil Brasil", "MOTA-ENGIL BRASIL S/A", "MOTA ENGIL BRASIL S/A", "ME BRASIL"],
+  "Consórcio Alsub": ["CONSÓRCIO ALSUB", "CONSORCIO ALSUB", "CONSÓRCIO ECB SEA_ALSUB", "Alsub", "ALSUB"],
+  "CONSÓRCIO ECB SEA_ALSUB": ["CONSÓRCIO ECB SEA_ALSUB", "CONSÓRCIO ALSUB", "CONSORCIO ALSUB", "Alsub", "ALSUB"],
+  "Alsub": ["Alsub", "ALSUB"],
+  "ALSUB": ["ALSUB", "Alsub"],
   "Macaé": ["MOTA ENGIL MACAE"],
-  "Tracevia": ["TRACEVIA", "Tracevia Brasil"],
-  "REDUC": ["REDUC"],
-  "Reduc": ["REDUC"],
+  "Tracevia": ["TRACEVIA", "Tracevia Brasil", "Tracevia"],
+  "Tracevia Brasil": ["Tracevia Brasil", "TRACEVIA", "Tracevia"],
+  "REDUC": ["REDUC", "Reduc"],
+  "Reduc": ["REDUC", "Reduc"],
   "MEBR": ["MEBR"],
-  "Mota Engil Engenharia": ["MOTA ENGIL ENGENHARIA"],
+  "Mota Engil Engenharia": ["MOTA ENGIL ENGENHARIA", "Mota Engil Engenharia", "MOTA ENGIL ENGENHARIA"],
+  "MOTA ENGIL ENGENHARIA": ["MOTA ENGIL ENGENHARIA", "Mota Engil Engenharia"],
 };
 
 interface Props {
