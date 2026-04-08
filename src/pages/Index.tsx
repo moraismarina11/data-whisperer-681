@@ -15,8 +15,16 @@ const Index = () => {
   const [period, setPeriod] = useState<PeriodId>("jan");
   const [activeMonth, setActiveMonth] = useState<string>("jan");
 
+  // Map sub-week periods to parent month when no week-specific data exists
+  const resolveDataPeriod = (p: string): string => {
+    if (p.startsWith("s") && p.endsWith("_jan")) return "jan";
+    if (p.startsWith("s") && p.endsWith("_fev")) return "fev";
+    return p;
+  };
+
   const filterByPeriod = <T extends { period: string }>(data: T[]): T[] => {
-    return data.filter((d) => d.period === period);
+    const resolved = resolveDataPeriod(period);
+    return data.filter((d) => d.period === resolved);
   };
 
   const handleMonthClick = (monthId: string) => {
