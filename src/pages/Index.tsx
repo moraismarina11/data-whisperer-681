@@ -9,7 +9,7 @@ import AgingFornecedoresTab from "@/components/dashboard/AgingFornecedoresTab";
 import AgingClientesTab from "@/components/dashboard/AgingClientesTab";
 import ResumoTab from "@/components/dashboard/ResumoTab";
 import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData } from "@/components/dashboard/data";
-import { MONTH_PERIODS, ALL_PERIODS, type PeriodId } from "@/components/dashboard/shared";
+import { PERIODS, WEEK_PERIODS, type PeriodId } from "@/components/dashboard/shared";
 
 const Index = () => {
   const [period, setPeriod] = useState<PeriodId>("jan");
@@ -20,9 +20,7 @@ const Index = () => {
   };
 
   const handleMonthClick = (monthId: string) => {
-    const month = MONTH_PERIODS.find((m) => m.id === monthId);
     if (activeMonth === monthId) {
-      // Already expanded, select the month itself
       setPeriod(monthId);
     } else {
       setActiveMonth(monthId);
@@ -31,13 +29,12 @@ const Index = () => {
   };
 
   const isMonthActive = (monthId: string) => {
-    const month = MONTH_PERIODS.find((m) => m.id === monthId);
     if (period === monthId) return true;
-    return month?.weeks?.some((w) => w.id === period) ?? false;
+    const weeks = WEEK_PERIODS[monthId];
+    return weeks?.some((w) => w.id === period) ?? false;
   };
 
-  const activeMonthObj = MONTH_PERIODS.find((m) => m.id === activeMonth);
-
+  const activeWeeks = WEEK_PERIODS[activeMonth];
 
   return (
     <div className="min-h-screen bg-background">
@@ -55,7 +52,7 @@ const Index = () => {
           <div className="flex flex-col gap-2 items-end">
             {/* Level 1: Months */}
             <div className="flex items-center gap-1 bg-muted rounded-lg p-1 flex-wrap">
-              {MONTH_PERIODS.map((m) => (
+              {PERIODS.map((m) => (
                 <button
                   key={m.id}
                   onClick={() => handleMonthClick(m.id)}
@@ -70,7 +67,7 @@ const Index = () => {
               ))}
             </div>
             {/* Level 2: Weeks */}
-            {activeMonthObj?.weeks && (
+            {activeWeeks && (
               <div className="flex items-center gap-1 bg-muted/60 rounded-lg p-1 flex-wrap">
                 <button
                   onClick={() => setPeriod(activeMonth)}
@@ -82,7 +79,7 @@ const Index = () => {
                 >
                   Mês completo
                 </button>
-                {activeMonthObj.weeks.map((w) => (
+                {activeWeeks.map((w) => (
                   <button
                     key={w.id}
                     onClick={() => setPeriod(w.id)}
