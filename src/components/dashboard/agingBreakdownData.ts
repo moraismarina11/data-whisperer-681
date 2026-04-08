@@ -183,13 +183,6 @@ export const agingClientesTotals = {
   de2a3anos: 1323724.19,
   mais3anos: 3277263.05,
 };
-// S8, S8_ABR e Abril = snapshot S7
-export const agingFornecedoresData_s8 = agingFornecedoresData_s7;
-export const agingFornecedoresTotals_s8 = agingFornecedoresTotals_s7;
-export const agingFornecedoresData_s8_abr = agingFornecedoresData_s7;
-export const agingFornecedoresTotals_s8_abr = agingFornecedoresTotals_s7;
-export const agingFornecedoresData_abr = agingFornecedoresData_s7;
-export const agingFornecedoresTotals_abr = agingFornecedoresTotals_s7;
 // ── S8 (28-31/03), S8_ABR (01-03/04) e ABR = snapshot 04/04 ──
 export const agingFornecedoresData_s8: AgingFornecedorEntry[] = [
   { empresa: "CONSÓRCIO ECB SEA_ALSUB", valor: -7824616.89, aVencer: -7227046.34, ate30: -597570.55, de31a60: 0.0, de61a90: 0.0, de91a180: 0.0, de181a360: 0.0, mais360: 0.0 },
