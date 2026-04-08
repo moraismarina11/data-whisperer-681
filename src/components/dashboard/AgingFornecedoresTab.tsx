@@ -4,6 +4,10 @@ import { formatCurrency, formatShort } from "./shared";
 import {
   agingFornecedoresData_jan, agingFornecedoresTotals_jan,
   agingFornecedoresData_fev, agingFornecedoresTotals_fev,
+  agingFornecedoresData_s1_fev, agingFornecedoresTotals_s1_fev,
+  agingFornecedoresData_s2_fev, agingFornecedoresTotals_s2_fev,
+  agingFornecedoresData_s3_fev, agingFornecedoresTotals_s3_fev,
+  agingFornecedoresData_s4_fev, agingFornecedoresTotals_s4_fev,
   agingFornecedoresData_s4, agingFornecedoresTotals_s4,
   agingFornecedoresData_s5, agingFornecedoresTotals_s5,
   agingFornecedoresData_s6, agingFornecedoresTotals_s6,
@@ -39,7 +43,15 @@ const AGING_COLORS = [
 
 // Ref dates por período
 const REF_DATES: Record<string, string> = {
-  jan:     "06/02/2026",
+  jan:     "31/01/2026",
+  s1_jan:  "31/01/2026",
+  s2_jan:  "31/01/2026",
+  s3_jan:  "31/01/2026",
+  s4_jan:  "31/01/2026",
+  s1_fev:  "06/02/2026",
+  s2_fev:  "20/02/2026",
+  s3_fev:  "20/02/2026",
+  s4_fev:  "27/02/2026",
   fev:     "27/02/2026",
   s4:      "06/03/2026",
   s5:      "13/03/2026",
@@ -54,7 +66,15 @@ const REF_DATES: Record<string, string> = {
 
 function getDataForPeriod(period: string): { data: AgingFornecedorEntry[]; totals: AgingFornecedorEntry } {
   switch (period) {
-    case "jan":     return { data: agingFornecedoresData_jan,     totals: agingFornecedoresTotals_jan };
+    case "jan":
+    case "s1_jan":
+    case "s2_jan":
+    case "s3_jan":
+    case "s4_jan":  return { data: agingFornecedoresData_jan,     totals: agingFornecedoresTotals_jan };
+    case "s1_fev":  return { data: agingFornecedoresData_s1_fev,  totals: agingFornecedoresTotals_s1_fev };
+    case "s2_fev":  return { data: agingFornecedoresData_s2_fev,  totals: agingFornecedoresTotals_s2_fev };
+    case "s3_fev":  return { data: agingFornecedoresData_s3_fev,  totals: agingFornecedoresTotals_s3_fev };
+    case "s4_fev":
     case "fev":     return { data: agingFornecedoresData_fev,     totals: agingFornecedoresTotals_fev };
     case "s4":      return { data: agingFornecedoresData_s4,      totals: agingFornecedoresTotals_s4 };
     case "s5":      return { data: agingFornecedoresData_s5,      totals: agingFornecedoresTotals_s5 };
