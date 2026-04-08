@@ -36,8 +36,11 @@ const REF_DATES: Record<string, string> = {
   s5: "13/03/2026",
   s6: "20/03/2026",
   s7: "27/03/2026",
+  s8: "04/04/2026",
+  s8_abr: "04/04/2026",
+  abr: "04/04/2026",
   mar: "27/03/2026",
-  total: "27/03/2026",
+  total: "04/04/2026",
 };
 
 // Map summary empresa names → drill data empresa names
