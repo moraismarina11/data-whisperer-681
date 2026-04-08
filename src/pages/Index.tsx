@@ -9,7 +9,7 @@ import AgingFornecedoresTab from "@/components/dashboard/AgingFornecedoresTab";
 import AgingClientesTab from "@/components/dashboard/AgingClientesTab";
 import ResumoTab from "@/components/dashboard/ResumoTab";
 import { top10Data, custoCentroMEBData, custoCentroMacaeData, tipoPagamentoData } from "@/components/dashboard/data";
-import { PERIODS, type PeriodId } from "@/components/dashboard/shared";
+import { MONTH_PERIODS, ALL_PERIODS, type PeriodId } from "@/components/dashboard/shared";
 
 const Index = () => {
   const [period, setPeriod] = useState<PeriodId>("jan");

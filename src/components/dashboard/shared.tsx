@@ -28,18 +28,61 @@ export const COST_TYPE_LABELS: Record<string, string> = {
   salarios: "Salários",
 };
 
-export const PERIODS = [
-  { id: "jan", label: "Janeiro" },
-  { id: "fev", label: "Fevereiro" },
-  { id: "s4", label: "02/03 a 06/03" },
-  { id: "s5", label: "09/03 a 13/03" },
-  { id: "s6", label: "16/03 a 20/03" },
-  { id: "s7", label: "23/03 a 27/03" },
-  { id: "mar", label: "Março" },
-  { id: "total", label: "Total Acumulado" },
-] as const;
+export interface SubPeriod {
+  id: string;
+  label: string;
+}
 
-export type PeriodId = (typeof PERIODS)[number]["id"];
+export interface MonthPeriod {
+  id: string;
+  label: string;
+  weeks?: SubPeriod[];
+}
+
+export const MONTH_PERIODS: MonthPeriod[] = [
+  {
+    id: "jan", label: "Janeiro",
+    weeks: [
+      { id: "s1_jan", label: "S1 (02-09/01)" },
+      { id: "s2_jan", label: "S2 (12-16/01)" },
+      { id: "s3_jan", label: "S3 (19-23/01)" },
+      { id: "s4_jan", label: "S4 (26-31/01)" },
+    ],
+  },
+  {
+    id: "fev", label: "Fevereiro",
+    weeks: [
+      { id: "s1_fev", label: "S1 (02-06/02)" },
+      { id: "s2_fev", label: "S2 (09-13/02)" },
+      { id: "s3_fev", label: "S3 (16-20/02)" },
+      { id: "s4_fev", label: "S4 (23-27/02)" },
+    ],
+  },
+  {
+    id: "mar", label: "Março",
+    weeks: [
+      { id: "s4", label: "S4 (02-06/03)" },
+      { id: "s5", label: "S5 (09-13/03)" },
+      { id: "s6", label: "S6 (16-20/03)" },
+      { id: "s7", label: "S7 (23-27/03)" },
+      { id: "s8", label: "S8 (30/03-03/04)" },
+    ],
+  },
+  {
+    id: "abr", label: "Abril",
+  },
+  { id: "total", label: "Total Acumulado" },
+];
+
+// Flat list for lookups
+export const ALL_PERIODS: SubPeriod[] = MONTH_PERIODS.flatMap((m) =>
+  m.weeks ? [{ id: m.id, label: m.label }, ...m.weeks] : [{ id: m.id, label: m.label }]
+);
+
+// Keep PERIODS for backward compatibility
+export const PERIODS = ALL_PERIODS;
+
+export type PeriodId = string;
 
 export const GROUP_LABELS: Record<string, string> = {
   "1": "Obra",
