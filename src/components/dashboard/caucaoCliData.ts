@@ -1,137 +1,21 @@
 /**
- * Caução data per empresa+cliente, extracted from "Relação de caução" tabs.
- * Mapped to dashboard periods.
+ * Caução detail data - loaded from caucaoCliDetailData.json
+ * Provides per-empresa, per-cliente caução records with obra details.
  */
+import caucaoRecords from "./caucaoCliDetailData.json";
 
-export interface CaucaoClienteEntry {
-  cliente: string;
-  valor: number;
-}
-
-export interface CaucaoEmpresaPeriod {
+export interface CaucaoDetailRecord {
   empresa: string;
-  total: number;
-  entries: CaucaoClienteEntry[];
+  cliente: string;
+  obra: string;
+  descricao_obra: string;
+  historico: string;
+  doc: string;
+  emissao: string;
+  vencimento: string;
+  valor: number;
+  mes: string;
 }
-
-// Raw data per month
-const JAN: CaucaoEmpresaPeriod[] = [
-  {
-    empresa: "MOTA ENGIL ENGENHARIA",
-    total: 16928900.60,
-    entries: [
-      { cliente: "PETROLEO BRASILEIRO S A PETROBRAS", valor: 16928900.60 },
-    ],
-  },
-  {
-    empresa: "MOTA-ENGIL BRASIL S/A",
-    total: 26486403.17,
-    entries: [
-      { cliente: "CONCESSIONARIA RODOVIAS DO OESTE SP", valor: 20009275.82 },
-      { cliente: "PETROLEO BRASILEIRO S A PETROBRAS", valor: 6477127.35 },
-    ],
-  },
-  {
-    empresa: "Tracevia Brasil",
-    total: 46430.14,
-    entries: [
-      { cliente: "ECO101 CONCESSIONARIA DE RODOVIAS S", valor: 31837.30 },
-      { cliente: "VIABAHIA CONCESSIONARIA", valor: 10573.59 },
-      { cliente: "CONCESSIONARIA DE RODOVIAS NOROESTE", valor: 4019.25 },
-    ],
-  },
-];
-
-const FEV: CaucaoEmpresaPeriod[] = [
-  {
-    empresa: "MOTA ENGIL ENGENHARIA",
-    total: 17139385.06,
-    entries: [
-      { cliente: "PETROLEO BRASILEIRO S A PETROBRAS", valor: 16665072.07 },
-      { cliente: "Outros", valor: 474312.99 },
-    ],
-  },
-  {
-    empresa: "MOTA-ENGIL BRASIL S/A",
-    total: 27305362.22,
-    entries: [
-      { cliente: "CONCESSIONARIA RODOVIAS DO OESTE SP", valor: 20009275.82 },
-      { cliente: "PETROLEO BRASILEIRO S A PETROBRAS", valor: 7296086.40 },
-    ],
-  },
-  {
-    empresa: "Tracevia Brasil",
-    total: 46430.14,
-    entries: [
-      { cliente: "ECO101 CONCESSIONARIA DE RODOVIAS S", valor: 31837.30 },
-      { cliente: "VIABAHIA CONCESSIONARIA", valor: 10573.59 },
-      { cliente: "CONCESSIONARIA DE RODOVIAS NOROESTE", valor: 4019.25 },
-    ],
-  },
-];
-
-const MAR: CaucaoEmpresaPeriod[] = [
-  {
-    empresa: "MOTA ENGIL ENGENHARIA",
-    total: 17215080.98,
-    entries: [
-      { cliente: "PETROLEO BRASILEIRO S A PETROBRAS", valor: 17215080.98 },
-    ],
-  },
-  {
-    empresa: "MOTA-ENGIL BRASIL S/A",
-    total: 28332684.26,
-    entries: [
-      { cliente: "CONCESSIONARIA RODOVIAS DO OESTE SP", valor: 20009275.82 },
-      { cliente: "PETROLEO BRASILEIRO S A PETROBRAS", valor: 8323408.44 },
-    ],
-  },
-  {
-    empresa: "Tracevia Brasil",
-    total: 58547.74,
-    entries: [
-      { cliente: "ECO101 CONCESSIONARIA DE RODOVIAS S", valor: 31837.30 },
-      { cliente: "CONCESSIONARIA DE RODOVIAS NOROESTE", valor: 15165.03 },
-      { cliente: "VIABAHIA CONCESSIONARIA", valor: 10573.59 },
-      { cliente: "CONCESSIONARIA DE RODOVIA NOVA 364", valor: 971.82 },
-    ],
-  },
-];
-
-const ABR: CaucaoEmpresaPeriod[] = [
-  {
-    empresa: "MOTA ENGIL ENGENHARIA",
-    total: 17780477.45,
-    entries: [
-      { cliente: "PETROLEO BRASILEIRO S A PETROBRAS", valor: 17780477.45 },
-    ],
-  },
-  {
-    empresa: "MOTA-ENGIL BRASIL S/A",
-    total: 28332684.26,
-    entries: [
-      { cliente: "CONCESSIONARIA RODOVIAS DO OESTE SP", valor: 20009275.82 },
-      { cliente: "PETROLEO BRASILEIRO S A PETROBRAS", valor: 8323408.44 },
-    ],
-  },
-  {
-    empresa: "Tracevia Brasil",
-    total: 58547.74,
-    entries: [
-      { cliente: "ECO101 CONCESSIONARIA DE RODOVIAS S", valor: 31837.30 },
-      { cliente: "CONCESSIONARIA DE RODOVIAS NOROESTE", valor: 15165.03 },
-      { cliente: "VIABAHIA CONCESSIONARIA", valor: 10573.59 },
-      { cliente: "CONCESSIONARIA DE RODOVIA NOVA 364", valor: 971.82 },
-    ],
-  },
-];
-
-const MONTH_DATA: Record<string, CaucaoEmpresaPeriod[]> = {
-  jan: JAN,
-  fev: FEV,
-  mar: MAR,
-  abr: ABR,
-};
 
 // Period → month mapping
 const PERIOD_TO_MONTH: Record<string, string> = {
@@ -141,41 +25,40 @@ const PERIOD_TO_MONTH: Record<string, string> = {
   s8: "abr", s8_abr: "abr", abr: "abr", total: "abr",
 };
 
-// Empresa name normalization: display name → caução empresa names
-const EMPRESA_ALIASES: Record<string, string[]> = {
-  "Mota-Engil Brasil": ["MOTA-ENGIL BRASIL S/A"],
-  "Macaé": ["MOTA ENGIL ENGENHARIA"],
-  "Mota Engil Engenharia": ["MOTA ENGIL ENGENHARIA"],
-  "Tracevia": ["Tracevia Brasil"],
-  "MEFB": [],
-  "Consórcio Alsub": [],
-  "REDUC": [],
-};
-
 /**
- * Get caução data for a given period, returning per-empresa totals and client breakdown.
+ * Get all caução records for a period.
  */
-export function getCaucaoForPeriod(period: string): CaucaoEmpresaPeriod[] {
+export function getCaucaoRecords(period: string): CaucaoDetailRecord[] {
   const month = PERIOD_TO_MONTH[period] || "jan";
-  return MONTH_DATA[month] || [];
+  return (caucaoRecords as CaucaoDetailRecord[]).filter(r => r.mes === month);
 }
 
 /**
- * Get caução total for a specific display empresa name in a given period.
+ * Get caução records for a specific empresa in a period.
  */
-export function getCaucaoForEmpresa(period: string, displayName: string): { total: number; entries: CaucaoClienteEntry[] } {
-  const data = getCaucaoForPeriod(period);
-  const aliases = EMPRESA_ALIASES[displayName] || [displayName];
+export function getCaucaoForEmpresa(period: string, empresa: string): { total: number; records: CaucaoDetailRecord[] } {
+  const all = getCaucaoRecords(period);
+  const records = all.filter(r => r.empresa === empresa);
+  const total = records.reduce((s, r) => s + r.valor, 0);
+  return { total, records };
+}
+
+/**
+ * Get caução records grouped by cliente for a specific empresa.
+ */
+export function getCaucaoByCliente(period: string, empresa: string): Map<string, { total: number; obra: string; records: CaucaoDetailRecord[] }> {
+  const { records } = getCaucaoForEmpresa(period, empresa);
+  const map = new Map<string, { total: number; obra: string; records: CaucaoDetailRecord[] }>();
   
-  let total = 0;
-  const entries: CaucaoClienteEntry[] = [];
-  
-  for (const ep of data) {
-    if (aliases.includes(ep.empresa) || ep.empresa === displayName) {
-      total += ep.total;
-      entries.push(...ep.entries);
+  for (const r of records) {
+    const key = r.cliente;
+    if (!map.has(key)) {
+      map.set(key, { total: 0, obra: r.descricao_obra || r.obra, records: [] });
     }
+    const entry = map.get(key)!;
+    entry.total += r.valor;
+    entry.records.push(r);
   }
   
-  return { total, entries };
+  return map;
 }

@@ -72,51 +72,50 @@ const FORN_BREAKDOWN: Record<string, AgingFornecedorEntry[]> = {
 // Clientes: aging empresa → display name
 function normalizeCliEmpresa(name: string): string {
   const u = name.toUpperCase().trim();
-  if (u.includes("ALSUB")) return "Consórcio Alsub";
-  if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA") return "MEFB";
-  if (u.includes("ENGENHARIA")) return "Macaé";
-  if (u.includes("BRASIL")) return "Mota-Engil Brasil";
+  if (u.includes("ALSUB") || u.includes("ECB SEA")) return "CONSÓRCIO ECB SEA_ALSUB";
+  if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA" || u === "MEFB") return "ME FUNDAÇÕES BRASIL LTDA";
+  if (u.includes("ENGENHARIA") || u.includes("MACAE") || u.includes("MACAÉ")) return "MOTA ENGIL ENGENHARIA";
+  if (u.includes("BRASIL")) return "MOTA-ENGIL BRASIL S/A";
   if (u.includes("REDUC")) return "REDUC";
-  if (u.includes("TRACEVIA")) return "Tracevia";
+  if (u.includes("TRACEVIA")) return "Tracevia Brasil";
   return name;
 }
 
 // Fornecedores: aging empresa → display name
 function normalizeFornEmpresa(name: string): string {
   const u = name.toUpperCase().trim();
-  if (u.includes("ALSUB") || u.includes("CONSÓRCIO ECB")) return "Consórcio Alsub";
+  if (u.includes("ALSUB") || u.includes("ECB SEA")) return "CONSÓRCIO ECB SEA_ALSUB";
   if (u.includes("MEBR") || u.includes("PARTICIPAÇ")) return "MEBR";
-  if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA" || u === "MEFB") return "MEFB";
-  if (u.includes("ENGENHARIA")) return "Mota Engil Engenharia";
-  if (u.includes("MACAE") || u.includes("MACAÉ")) return "Macaé";
-  if (u.includes("BRASIL")) return "Mota-Engil Brasil";
+  if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA" || u === "MEFB") return "ME FUNDAÇÕES BRASIL LTDA";
+  if (u.includes("ENGENHARIA")) return "MOTA ENGIL ENGENHARIA";
+  if (u.includes("MACAE") || u.includes("MACAÉ")) return "MOTA ENGIL ENGENHARIA";
+  if (u.includes("BRASIL")) return "MOTA-ENGIL BRASIL S/A";
   if (u.includes("REDUC")) return "REDUC";
-  if (u.includes("TRACEVIA")) return "Tracevia";
+  if (u.includes("TRACEVIA")) return "Tracevia Brasil";
   return name;
 }
 
 // ── Colors ──
 const CLI_COLORS: Record<string, string> = {
-  "MEFB": "hsl(150, 60%, 40%)",
-  "Consórcio Alsub": "hsl(210, 70%, 50%)",
-  "Mota-Engil Brasil": "hsl(25, 90%, 55%)",
-  "Tracevia": "hsl(270, 50%, 55%)",
-  "Macaé": "hsl(40, 90%, 50%)",
+  "ME FUNDAÇÕES BRASIL LTDA": "hsl(150, 60%, 40%)",
+  "CONSÓRCIO ECB SEA_ALSUB": "hsl(210, 70%, 50%)",
+  "MOTA-ENGIL BRASIL S/A": "hsl(25, 90%, 55%)",
+  "Tracevia Brasil": "hsl(270, 50%, 55%)",
+  "MOTA ENGIL ENGENHARIA": "hsl(40, 90%, 50%)",
   "REDUC": "hsl(190, 60%, 45%)",
 };
 
 const FORN_COLORS: Record<string, string> = {
-  "Consórcio Alsub": "hsl(210, 70%, 50%)",
+  "CONSÓRCIO ECB SEA_ALSUB": "hsl(210, 70%, 50%)",
   "MEBR": "hsl(340, 60%, 50%)",
-  "MEFB": "hsl(150, 60%, 40%)",
-  "Mota-Engil Brasil": "hsl(25, 90%, 55%)",
-  "Tracevia": "hsl(270, 50%, 55%)",
-  "Macaé": "hsl(40, 90%, 50%)",
+  "ME FUNDAÇÕES BRASIL LTDA": "hsl(150, 60%, 40%)",
+  "MOTA-ENGIL BRASIL S/A": "hsl(25, 90%, 55%)",
+  "Tracevia Brasil": "hsl(270, 50%, 55%)",
+  "MOTA ENGIL ENGENHARIA": "hsl(120, 40%, 45%)",
   "REDUC": "hsl(190, 60%, 45%)",
-  "Mota Engil Engenharia": "hsl(120, 40%, 45%)",
 };
 
-// Multa is fixed for Macaé across all periods
+// Multa is fixed for MOTA ENGIL ENGENHARIA across all periods
 const MACAE_MULTA = 6438733.72;
 
 // ── Resolve drill period: sub-weeks of Jan/Feb map to month ──
@@ -181,7 +180,7 @@ export function computePosicaoClientes(period: string): ClienteCompany[] {
 
     const caucao = caucaoByCompany.get(company);
     if (caucao && caucao > 0) companyData.caucao = caucao;
-    if (company === "Macaé") companyData.multa = MACAE_MULTA;
+    if (company === "MOTA ENGIL ENGENHARIA") companyData.multa = MACAE_MULTA;
 
     result.push(companyData);
   }
