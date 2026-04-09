@@ -97,23 +97,22 @@ function normalizeFornEmpresa(name: string): string {
 
 // ── Colors ──
 const CLI_COLORS: Record<string, string> = {
-  "MEFB": "hsl(150, 60%, 40%)",
-  "Consórcio Alsub": "hsl(210, 70%, 50%)",
-  "Mota-Engil Brasil": "hsl(25, 90%, 55%)",
-  "Tracevia": "hsl(270, 50%, 55%)",
-  "Macaé": "hsl(40, 90%, 50%)",
+  "ME FUNDAÇÕES BRASIL LTDA": "hsl(150, 60%, 40%)",
+  "CONSÓRCIO ECB SEA_ALSUB": "hsl(210, 70%, 50%)",
+  "MOTA-ENGIL BRASIL S/A": "hsl(25, 90%, 55%)",
+  "Tracevia Brasil": "hsl(270, 50%, 55%)",
+  "MOTA ENGIL ENGENHARIA": "hsl(40, 90%, 50%)",
   "REDUC": "hsl(190, 60%, 45%)",
 };
 
 const FORN_COLORS: Record<string, string> = {
-  "Consórcio Alsub": "hsl(210, 70%, 50%)",
+  "CONSÓRCIO ECB SEA_ALSUB": "hsl(210, 70%, 50%)",
   "MEBR": "hsl(340, 60%, 50%)",
-  "MEFB": "hsl(150, 60%, 40%)",
-  "Mota-Engil Brasil": "hsl(25, 90%, 55%)",
-  "Tracevia": "hsl(270, 50%, 55%)",
-  "Macaé": "hsl(40, 90%, 50%)",
+  "ME FUNDAÇÕES BRASIL LTDA": "hsl(150, 60%, 40%)",
+  "MOTA-ENGIL BRASIL S/A": "hsl(25, 90%, 55%)",
+  "Tracevia Brasil": "hsl(270, 50%, 55%)",
+  "MOTA ENGIL ENGENHARIA": "hsl(120, 40%, 45%)",
   "REDUC": "hsl(190, 60%, 45%)",
-  "Mota Engil Engenharia": "hsl(120, 40%, 45%)",
 };
 
 // Multa is fixed for Macaé across all periods
