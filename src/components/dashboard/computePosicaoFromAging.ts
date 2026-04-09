@@ -72,26 +72,26 @@ const FORN_BREAKDOWN: Record<string, AgingFornecedorEntry[]> = {
 // Clientes: aging empresa → display name
 function normalizeCliEmpresa(name: string): string {
   const u = name.toUpperCase().trim();
-  if (u.includes("ALSUB")) return "Consórcio Alsub";
-  if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA") return "MEFB";
-  if (u.includes("ENGENHARIA")) return "Macaé";
-  if (u.includes("BRASIL")) return "Mota-Engil Brasil";
+  if (u.includes("ALSUB") || u.includes("ECB SEA")) return "CONSÓRCIO ECB SEA_ALSUB";
+  if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA" || u === "MEFB") return "ME FUNDAÇÕES BRASIL LTDA";
+  if (u.includes("ENGENHARIA") || u.includes("MACAE") || u.includes("MACAÉ")) return "MOTA ENGIL ENGENHARIA";
+  if (u.includes("BRASIL")) return "MOTA-ENGIL BRASIL S/A";
   if (u.includes("REDUC")) return "REDUC";
-  if (u.includes("TRACEVIA")) return "Tracevia";
+  if (u.includes("TRACEVIA")) return "Tracevia Brasil";
   return name;
 }
 
 // Fornecedores: aging empresa → display name
 function normalizeFornEmpresa(name: string): string {
   const u = name.toUpperCase().trim();
-  if (u.includes("ALSUB") || u.includes("CONSÓRCIO ECB")) return "Consórcio Alsub";
+  if (u.includes("ALSUB") || u.includes("ECB SEA")) return "CONSÓRCIO ECB SEA_ALSUB";
   if (u.includes("MEBR") || u.includes("PARTICIPAÇ")) return "MEBR";
-  if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA" || u === "MEFB") return "MEFB";
-  if (u.includes("ENGENHARIA")) return "Mota Engil Engenharia";
-  if (u.includes("MACAE") || u.includes("MACAÉ")) return "Macaé";
-  if (u.includes("BRASIL")) return "Mota-Engil Brasil";
+  if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA" || u === "MEFB") return "ME FUNDAÇÕES BRASIL LTDA";
+  if (u.includes("ENGENHARIA")) return "MOTA ENGIL ENGENHARIA";
+  if (u.includes("MACAE") || u.includes("MACAÉ")) return "MOTA ENGIL ENGENHARIA";
+  if (u.includes("BRASIL")) return "MOTA-ENGIL BRASIL S/A";
   if (u.includes("REDUC")) return "REDUC";
-  if (u.includes("TRACEVIA")) return "Tracevia";
+  if (u.includes("TRACEVIA")) return "Tracevia Brasil";
   return name;
 }
 
