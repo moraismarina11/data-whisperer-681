@@ -84,8 +84,6 @@ const periodLabel = (id: string) => PERIODS.find((p) => p.id === id)?.label ?? i
 
 const resolvePeriod = (p: string) => {
   if (p === "mar") return "s7";
-  if (p.startsWith("s") && p.endsWith("_jan")) return "jan";
-  if (p === "s4_fev") return "fev";
   return p;
 };
 

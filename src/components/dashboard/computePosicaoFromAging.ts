@@ -75,9 +75,9 @@ function normalizeCliEmpresa(name: string): string {
   if (u.includes("ALSUB") || u.includes("ECB SEA")) return "CONSÓRCIO ECB SEA_ALSUB";
   if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA" || u === "MEFB") return "ME FUNDAÇÕES BRASIL LTDA";
   if (u.includes("ENGENHARIA") || u.includes("MACAE") || u.includes("MACAÉ")) return "MOTA ENGIL ENGENHARIA";
-  if (u.includes("BRASIL")) return "MOTA-ENGIL BRASIL S/A";
-  if (u.includes("REDUC")) return "REDUC";
   if (u.includes("TRACEVIA")) return "Tracevia Brasil";
+  if (u.includes("REDUC")) return "REDUC";
+  if (u.includes("BRASIL") || u.includes("MOTA")) return "MOTA-ENGIL BRASIL S/A";
   return name;
 }
 
@@ -87,11 +87,10 @@ function normalizeFornEmpresa(name: string): string {
   if (u.includes("ALSUB") || u.includes("ECB SEA")) return "CONSÓRCIO ECB SEA_ALSUB";
   if (u.includes("MEBR") || u.includes("PARTICIPAÇ")) return "MEBR";
   if (u.includes("FUNDAÇ") || u.includes("FUNDAC") || u === "ME FUNDAÇÕES BRASIL LTDA" || u === "MEFB") return "ME FUNDAÇÕES BRASIL LTDA";
-  if (u.includes("ENGENHARIA")) return "MOTA ENGIL ENGENHARIA";
-  if (u.includes("MACAE") || u.includes("MACAÉ")) return "MOTA ENGIL ENGENHARIA";
-  if (u.includes("BRASIL")) return "MOTA-ENGIL BRASIL S/A";
-  if (u.includes("REDUC")) return "REDUC";
+  if (u.includes("ENGENHARIA") || u.includes("MACAE") || u.includes("MACAÉ")) return "MOTA ENGIL ENGENHARIA";
   if (u.includes("TRACEVIA")) return "Tracevia Brasil";
+  if (u.includes("REDUC")) return "REDUC";
+  if (u.includes("BRASIL") || u.includes("MOTA")) return "MOTA-ENGIL BRASIL S/A";
   return name;
 }
 
