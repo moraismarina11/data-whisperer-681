@@ -83,9 +83,7 @@ const getAgingBucket = (diff: number): string => {
 const periodLabel = (id: string) => PERIODS.find((p) => p.id === id)?.label ?? id;
 
 const resolvePeriod = (p: string) => {
-  // mar and total share s7 data; abr uses abr data
   if (p === "mar") return "s7";
-  if (p === "total") return "s7";
   return p;
 };
 
