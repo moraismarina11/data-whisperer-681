@@ -115,7 +115,7 @@ const FORN_COLORS: Record<string, string> = {
   "REDUC": "hsl(190, 60%, 45%)",
 };
 
-// Multa is fixed for Macaé across all periods
+// Multa is fixed for MOTA ENGIL ENGENHARIA across all periods
 const MACAE_MULTA = 6438733.72;
 
 // ── Resolve drill period: sub-weeks of Jan/Feb map to month ──
@@ -180,7 +180,7 @@ export function computePosicaoClientes(period: string): ClienteCompany[] {
 
     const caucao = caucaoByCompany.get(company);
     if (caucao && caucao > 0) companyData.caucao = caucao;
-    if (company === "Macaé") companyData.multa = MACAE_MULTA;
+    if (company === "MOTA ENGIL ENGENHARIA") companyData.multa = MACAE_MULTA;
 
     result.push(companyData);
   }
