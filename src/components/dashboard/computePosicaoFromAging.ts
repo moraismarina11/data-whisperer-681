@@ -15,7 +15,7 @@ import {
   agingFornecedoresData_jan, agingFornecedoresData_s1_fev, agingFornecedoresData_s2_fev,
   agingFornecedoresData_s3_fev, agingFornecedoresData_fev, agingFornecedoresData_s4_fev,
   agingFornecedoresData_s4, agingFornecedoresData_s5, agingFornecedoresData_s6, agingFornecedoresData_s7,
-  agingFornecedoresData_abr, agingFornecedoresData_s9_abr,
+  agingFornecedoresData_s8, agingFornecedoresData_s9_abr,
   type AgingFornecedorEntry,
 } from "./agingBreakdownData";
 import cliDrill from "./agingCliDrillData.json";
@@ -62,8 +62,8 @@ const FORN_BREAKDOWN: Record<string, AgingFornecedorEntry[]> = {
   s6: agingFornecedoresData_s6,
   s7: agingFornecedoresData_s7,
   mar: agingFornecedoresData_s7,
-  s8: agingFornecedoresData_abr,
-  s8_abr: agingFornecedoresData_abr,
+  s8: agingFornecedoresData_s8,
+  s8_abr: agingFornecedoresData_s8,
   s9_abr: agingFornecedoresData_s9_abr,
   abr: agingFornecedoresData_s9_abr,
   total: agingFornecedoresData_s9_abr,
