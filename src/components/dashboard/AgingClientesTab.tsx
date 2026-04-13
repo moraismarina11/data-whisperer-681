@@ -16,6 +16,7 @@ import {
   agingClientesData_s7, agingClientesTotals_s7,
   agingClientesData_s8, agingClientesTotals_s8,
   agingClientesData_s8_abr, agingClientesTotals_s8_abr,
+  agingClientesData_s9_abr, agingClientesTotals_s9_abr,
   agingClientesData_abr, agingClientesTotals_abr,
   agingClientesData_mar, agingClientesTotals_mar,
   agingClientesData_total, agingClientesTotals_total,
@@ -63,9 +64,10 @@ const REF_DATES: Record<string, string> = {
   s7:      "27/03/2026",
   s8:      "04/04/2026",
   s8_abr:  "04/04/2026",
-  abr:     "04/04/2026",
+  s9_abr:  "10/04/2026",
+  abr:     "10/04/2026",
   mar:     "27/03/2026",
-  total:   "04/04/2026",
+  total:   "10/04/2026",
 };
 
 function getDataForPeriod(period: string): { data: AgingClienteBreakdownEntry[]; totals: AgingClienteBreakdownEntry } {
@@ -86,10 +88,11 @@ function getDataForPeriod(period: string): { data: AgingClienteBreakdownEntry[];
     case "s7":      return { data: agingClientesData_s7,      totals: agingClientesTotals_s7 };
     case "s8":      return { data: agingClientesData_s8,      totals: agingClientesTotals_s8 };
     case "s8_abr":  return { data: agingClientesData_s8_abr,  totals: agingClientesTotals_s8_abr };
+    case "s9_abr":  return { data: agingClientesData_s9_abr,  totals: agingClientesTotals_s9_abr };
     case "abr":     return { data: agingClientesData_abr,     totals: agingClientesTotals_abr };
     case "mar":     return { data: agingClientesData_mar,     totals: agingClientesTotals_mar };
     case "total":   return { data: agingClientesData_total,   totals: agingClientesTotals_total };
-    default:        return { data: agingClientesData_s8,      totals: agingClientesTotals_s8 };
+    default:        return { data: agingClientesData_s9_abr,  totals: agingClientesTotals_s9_abr };
   }
 }
 
