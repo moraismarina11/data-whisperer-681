@@ -163,11 +163,9 @@ export const agingFornecedoresTotals_s7: AgingFornecedorEntry = {
   de181a360: -813238.38, mais360: -2846542.76,
 };
 
-// Março e Total Acumulado = snapshot S7
+// Março = snapshot S7
 export const agingFornecedoresData_mar = agingFornecedoresData_s7;
 export const agingFornecedoresTotals_mar = agingFornecedoresTotals_s7;
-export const agingFornecedoresData_total = agingFornecedoresData_s7;
-export const agingFornecedoresTotals_total = agingFornecedoresTotals_s7;
 
 // ── S8 (28-31/03), S8_ABR (01-03/04) = dados reais 04/04 ──
 export const agingFornecedoresData_s8: AgingFornecedorEntry[] = [
