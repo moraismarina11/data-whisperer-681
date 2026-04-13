@@ -58,6 +58,7 @@ export const WEEK_PERIODS: Record<string, { id: string; label: string }[]> = {
   ],
   abr: [
     { id: "s8_abr", label: "01-03/04" },
+    { id: "s9_abr", label: "06-10/04" },
   ],
 };
 
