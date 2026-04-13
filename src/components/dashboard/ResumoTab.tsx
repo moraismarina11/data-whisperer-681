@@ -2,9 +2,9 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { formatCurrency, formatShort } from "./shared";
 import {
   agingFornecedoresTotals_jan, agingFornecedoresTotals_fev,
-  agingFornecedoresTotals_s7, agingFornecedoresTotals_abr,
+  agingFornecedoresTotals_s7, agingFornecedoresTotals_s9_abr,
   agingClientesTotals_jan, agingClientesTotals_fev,
-  agingClientesTotals_s7, agingClientesTotals_s8,
+  agingClientesTotals_s7, agingClientesTotals_s9_abr,
 } from "./agingBreakdownData";
 import { computePosicaoClientes, computePosicaoFornecedores } from "./computePosicaoFromAging";
 import caucaoDrill from "./caucaoDrillData.json";
@@ -55,19 +55,19 @@ const periods: PeriodBlock[] = [
   },
   {
     label: "Abril",
-    fornTotal: agingFornecedoresTotals_abr.valor,
-    cliTotal: agingClientesTotals_s8.aReceber,
-    caucaoRaw: caucaoByPeriod("abr"),
+    fornTotal: agingFornecedoresTotals_s9_abr.valor,
+    cliTotal: agingClientesTotals_s9_abr.aReceber,
+    caucaoRaw: caucaoByPeriod("s9_abr"),
     multa: MULTA_TOTAL,
-    periodKey: "abr",
+    periodKey: "s9_abr",
   },
   {
     label: "Total Acumulado",
-    fornTotal: agingFornecedoresTotals_abr.valor,
-    cliTotal: agingClientesTotals_s8.aReceber,
-    caucaoRaw: caucaoByPeriod("abr"),
+    fornTotal: agingFornecedoresTotals_s9_abr.valor,
+    cliTotal: agingClientesTotals_s9_abr.aReceber,
+    caucaoRaw: caucaoByPeriod("s9_abr"),
     multa: MULTA_TOTAL,
-    periodKey: "abr",
+    periodKey: "s9_abr",
   },
 ];
 
