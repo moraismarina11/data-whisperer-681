@@ -77,12 +77,12 @@ const ResumoTab = () => {
   const fornJan = computePosicaoFornecedores("jan");
   const fornFev = computePosicaoFornecedores("fev");
   const fornMar = computePosicaoFornecedores("s7");
-  const fornAbr = computePosicaoFornecedores("abr");
+  const fornAbr = computePosicaoFornecedores("s9_abr");
 
   const cliJan = computePosicaoClientes("jan");
   const cliFev = computePosicaoClientes("fev");
   const cliMar = computePosicaoClientes("s7");
-  const cliAbr = computePosicaoClientes("abr");
+  const cliAbr = computePosicaoClientes("s9_abr");
 
   const allFornCompanies = Array.from(
     new Set([...fornJan, ...fornFev, ...fornMar, ...fornAbr].map(c => c.company))
