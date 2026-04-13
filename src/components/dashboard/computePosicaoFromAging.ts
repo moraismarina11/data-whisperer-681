@@ -8,14 +8,14 @@ import {
   agingClientesData_jan, agingClientesData_s1_fev, agingClientesData_s2_fev,
   agingClientesData_s3_fev, agingClientesData_fev, agingClientesData_s4_fev,
   agingClientesData_s4, agingClientesData_s5, agingClientesData_s6, agingClientesData_s7,
-  agingClientesData_s8, agingClientesData_s8_abr,
+  agingClientesData_s8, agingClientesData_s8_abr, agingClientesData_s9_abr,
   type AgingClienteBreakdownEntry,
 } from "./agingBreakdownData";
 import {
   agingFornecedoresData_jan, agingFornecedoresData_s1_fev, agingFornecedoresData_s2_fev,
   agingFornecedoresData_s3_fev, agingFornecedoresData_fev, agingFornecedoresData_s4_fev,
   agingFornecedoresData_s4, agingFornecedoresData_s5, agingFornecedoresData_s6, agingFornecedoresData_s7,
-  agingFornecedoresData_abr,
+  agingFornecedoresData_s8, agingFornecedoresData_s9_abr,
   type AgingFornecedorEntry,
 } from "./agingBreakdownData";
 import cliDrill from "./agingCliDrillData.json";
@@ -41,8 +41,9 @@ const CLI_BREAKDOWN: Record<string, AgingClienteBreakdownEntry[]> = {
   mar: agingClientesData_s7,
   s8: agingClientesData_s8,
   s8_abr: agingClientesData_s8_abr,
-  abr: agingClientesData_s8_abr,
-  total: agingClientesData_s8_abr,
+  s9_abr: agingClientesData_s9_abr,
+  abr: agingClientesData_s9_abr,
+  total: agingClientesData_s9_abr,
 };
 
 const FORN_BREAKDOWN: Record<string, AgingFornecedorEntry[]> = {
@@ -61,10 +62,11 @@ const FORN_BREAKDOWN: Record<string, AgingFornecedorEntry[]> = {
   s6: agingFornecedoresData_s6,
   s7: agingFornecedoresData_s7,
   mar: agingFornecedoresData_s7,
-  s8: agingFornecedoresData_abr,
-  s8_abr: agingFornecedoresData_abr,
-  abr: agingFornecedoresData_abr,
-  total: agingFornecedoresData_abr,
+  s8: agingFornecedoresData_s8,
+  s8_abr: agingFornecedoresData_s8,
+  s9_abr: agingFornecedoresData_s9_abr,
+  abr: agingFornecedoresData_s9_abr,
+  total: agingFornecedoresData_s9_abr,
 };
 
 // ── Normalize aging empresa names → Posição display names ──

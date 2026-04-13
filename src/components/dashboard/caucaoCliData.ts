@@ -22,7 +22,7 @@ const PERIOD_TO_MONTH: Record<string, string> = {
   jan: "jan", s1_jan: "jan", s2_jan: "jan", s3_jan: "jan", s4_jan: "jan",
   fev: "fev", s1_fev: "fev", s2_fev: "fev", s3_fev: "fev", s4_fev: "fev",
   mar: "mar", s4: "mar", s5: "mar", s6: "mar", s7: "mar",
-  s8: "abr", s8_abr: "abr", abr: "abr", total: "abr",
+  s8: "abr", s8_abr: "abr", abr: "abr_1004", s9_abr: "abr_1004", total: "abr_1004",
 };
 
 /**
