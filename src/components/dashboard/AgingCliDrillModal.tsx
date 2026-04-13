@@ -83,10 +83,7 @@ const getAgingBucket = (diff: number): string => {
 
 const periodLabel = (id: string) => PERIODS.find((p) => p.id === id)?.label ?? id;
 
-const resolvePeriod = (p: string) => {
-  if (p === "mar") return "s7";
-  return p;
-};
+const resolvePeriod = (p: string) => p;
 
 // Map summary empresa names → drill data empresa names
 const CLI_EMPRESA_MAP: Record<string, string[]> = {
