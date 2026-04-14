@@ -262,7 +262,7 @@ const CustoCentroTab = ({ data, title, grouped = false, period = "jan", company 
                           if (!clickable) return;
                           e.stopPropagation();
                           if (grouped) {
-                            setDrillSelection({ mode: "tipo", tipo: COST_KEY_TO_TIPO[k], tipoLabel: COST_TYPE_LABELS[k], company, period });
+                            setDrillSelection({ mode: "group_tipo", group: d.group, tipo: COST_KEY_TO_TIPO[k], tipoLabel: COST_TYPE_LABELS[k], company, period });
                           } else {
                             setDrillSelection({ mode: "cc_tipo", cc: d.cc, tipo: COST_KEY_TO_TIPO[k], tipoLabel: COST_TYPE_LABELS[k], company, period });
                           }
